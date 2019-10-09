@@ -1,0 +1,61 @@
+MYSQL索引有四种
+
+PRIMARY（唯一且不能为空；一张表只能有一个主键索引）、
+
+INDEX（普通索引）、
+
+UNIQUE（唯一性索引）、
+
+FULLTEXT（全文索引：用于搜索很长一篇文章的时候，效果最好。用在比较短的文本，如果就一两行字的，普通的 INDEX 也可以）
+
+ALTER TABLE t_user ADD INDEX name_city_phone(USERNAME,CITY,PHONE)  //普通复合索引
+
+ALTER TABLE t_user ADD UNIQUE name_city_phone(USERNAME,CITY,PHONE) //唯一复合索引
+　　这样的组合索引，其实相当于分别建立了三个索引。
+　　为什么没有（CITY,PHONE）索引这是因为MYSQL组合查询只从最左边开始组合：始终包含username 【最左前缀匹配原则】
+　　1.USERANME,CITY,PHONE  
+　　2.USERNAME,CITY  
+　　3.USERNAME,PHONE
+　　并不是查询语句包含这三列就会用到该组合索引：
+　　这样的查询语句才会用到创建的组合索引
+SELECT * FROM t_user where USERNAME="parry" and CITY="广州" and PHONE="180"
+SELECT * FROM t_user where USERNAME="parry" and CITY="广州"
+SELECT * FROM t_user where USERNAME="parry" and PHONE="180" 
+　　这样的查询语句是不会用到创建的组合索引，但是会走整个索引，只是效率低下　
+
+SELECT * FROM t_user where CITY="广州" and PHONE="180"
+SELECT * FROM t_user where CITY="广州"
+explain结果中的type字段。查询中分别是：
+
+type: index   //没有按照复合索引顺序
+type: ref       //按照顺序
+index：这种类型表示mysql会对整个该索引进行扫描。要想用到这种类型的索引，只要是索引，或者某个联合索引的一部分，mysql都可能会采用index类型的方式扫描。但是呢，缺点是效率不高，
+ref：这种类型表示mysql会根据特定的算法快速查找到某个符合条件的索引，不会对索引中每一个数据都进行一一的扫描判断，会更快的取出数据。索引字段的数据必须是有序的，才能实现这种类型的查找。
+
+tip：
+
+虽然索引提高了查询的速度，但是降低了INSERT、UPDATE、DELETE（DML）的速度，因为在插入、修改、删除数据时，还要同时操作一下索引文件；
+
+BTREE索引最左前缀匹配原则使用注意事项：
+最左前缀匹配原则，非常重要的原则，mysql会一直向右匹配直到遇到范围查询(>、<、between、like)就停止匹配，比如a = 1 and b = 2 and c > 3 and d = 4 如果建立(a,b,c,d)顺序的索引，d是用不到索引的，如果建立(a,b,d,c)的索引则都可以用到，a,b,d的顺序可以任意调整。【范围查询的字段，在建立复合索引一定要置后】
+=和in可以乱序，比如a = 1 and b = 2 and c = 3 建立(a,b,c)索引可以任意顺序，mysql的查询优化器会帮你优化成索引可以识别的形式
+索引使用注意事项：
+1.索引会忽略null值，所以我们在设计数据库的时候设置为为NOT NULL;
+
+2.短索引（给索引设置长度）不仅能够提高查询速度，而且能节省I/O操作。
+
+3.  Mysql在查询的时候只会使用一个索引，但不是一个字段
+
+4. 不鼓励使用like对索引操作：like"%aaa%"不会使用索引；但like“aaa%”会使用索引。即可以对固定起始值模糊查询
+
+5.不适用于否地操作（not in , <>, !=，or） //用到or地方，尽量用union，或者程序两次查找
+
+6.如果创建了索引，但是查询语句并没有使用，则会使原来的效率更差
+
+复合索引的优势：
+使用多个字段，查询更高效，所以尽量使用复合索引
+
+mysql的两种索引方法(Innodb和MyISAM默认的索引是Btree索引)：
+1.HASH（用于对等比较，如"="和" <=>"）   //<=> 安全的比对   ，用与对null值比较，语义类似is null（）
+
+2.BTREE（用于非对等比较，比如范围查询）>，>=，<，<=、BETWEEN、Like

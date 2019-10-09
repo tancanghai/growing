@@ -1,0 +1,14 @@
+SELECT NOW() 黑匣子 不能单独使用now() 必须用select
+SELECT STR_TO_DATE(start_date,'%Y-%m-%d') FROM efo_ad WHERE id='44' 黑匣子:在图形管理工具里引号里面的字符串为红色，不是红色就是引号是错误的，或者哪里错了
+DATE_FORMAT(date,format)          date 参数是合法的日期。format 规定日期/时间的输出格式。  DATE_FORMAT(NOW(),'%m-%d-%Y')
+SELECT DISTINCT(ad_position_id) from efo_ad  黑匣子  distinct 打错字了
+SELECT * from efo_ad WHERE (id=44 or id=45) and id=44
+SELECT Company, OrderNumber FROM Orders ORDER BY Company, OrderNumber   黑匣子：order by 俩个参数 以第一个为准 当第一个出现相同的时候以第二个排列
+insert into efo_ad (`id`,`nihao`) value(5,"title")
+update efo_ad set id=55 where id=51
+delete from efo_ad where id=55
+select * from efo_ad where id like "4%"     提示："%" 可用于定义通配符（模式中缺少的字母）。
+select * from efo_ad where id in(value1,value2,value3)
+select * from efo_ad where id not between 44 and 45
+SELECT r.id r FROM efo_ad r WHERE id=44   可以不用加as  不管是表名 还是字段名字
+select * from efo_ad where id=44  union all  select * from efo_ad where  id =45

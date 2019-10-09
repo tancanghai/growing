@@ -1,0 +1,8 @@
+SELECT a.ID, b.Name, b.Date FROM Customers a, Sales b WHERE a.ID = b.ID;
+缺点：在上面语句中，实际上是创建了两张表的笛卡尔积，所有可能的组合都会被创建出来。在笛卡尔连接中，
+在上面的例子中，如果有1000顾客和1000条销售记录，这个查询会先产生1000000个结果，然后通过正确的 ID过滤出1000条记录。
+ 这是一种低效利用数据库资源，数据库多做100倍的工作。 在大型数据库中，笛卡尔连接是一个大问题，对两个大表的笛卡尔积会创建数10亿或
+万亿的记录。
+为了避免创建笛卡尔积，应该使用INNER JOIN ：
+SELECT a.ID, b.Name, b.Date FROM Customers a INNER JOIN Sales b ON a.ID = b.ID;
+优点：如上面语句，使用inner join 这样数据库就只产生等于ID 的1000条目标结果。增加了查询效率。
