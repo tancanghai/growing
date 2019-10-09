@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+<!-- 			父组件可以在引用子组件的时候，通过属性绑定(v-bind：)的形式，
+			吧需要传递给子组件的数据，以自定义属性绑定的形式传递到子组件内部
+			，供子组件使用 msgg是自定义属性 -->
+			<com1  v-bind:msgg="msg"></com1>
+			
+		</div>
+		
+		<script type="text/javascript">
+			var vue =new Vue({
+				el:"#app",
+				data:{
+					msg:"父组件中的数据"
+				},
+				methods:{
+					
+				},
+				components:{
+					com1:{
+						//子组件中的data数据是子组件自身的比如Ajax传过来的,不是通过父组件传递过来的,数据可读可写
+							data:function(){
+								return {
+									title:"123"
+								}
+							},
+						
+						props:['msgg'],//把父组件传递过来的属性现在props中接收一下,才能把数据传递给子组件
+						//组件中的所有props中的数据都是通过父组件传递给子组件的,数据只可读,不能进行别的操作
+						//template:"<h1>这是{{msg}}子组件</h1>"
+						//子组件默认无法访问到父组件中data中的数据和methods中的方法
+						template:"<h1>这是子组件</h1>"
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

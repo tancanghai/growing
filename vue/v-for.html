@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<p v-for="data in datas">{{data.name}}</p>
+		</div>
+		<script type="text/javascript">
+			new Vue({
+				el:"#app",
+				data:{
+					datas:[
+						{'name':"tan",'value':"1",'key':"123"},
+						{'name':"tan1",'value':"11",'key':"1231"},
+						{'name':"tan2",'value':"12",'key':"1232"},
+						{'name':"tan3",'value':"13",'key':"1233"}
+					]
+				}
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<style type="text/css">
+		html{
+			/* html默认字体大小为16px */
+			/* 最少1rem=12px */
+			/* rem(root em)是一个相对单位,类似于em,em是父元素字体大小
+			不同的是rem的基准是相对于html元素的字体大小
+			比如,根元素(html)设置font-size=12px;非根元素设置width:2rem;则换成px表示就是24px. */
+			/* 3.rem的有点就是可以通过修改html里面的文字大小来改变页面中元素的大小可以整体控制 */
+			font-size: 13px;
+		}
+
+	</style>
+	<!-- 媒体查询
+	 媒体查询（media query ）是css3新语法
+	 使用@media查询，可以针对不同的媒体类型定义不同的样式
+	 @media可以正对不同的屏幕尺寸设置不同的样式
+	 当你重置浏览器大小的过程中，页面也会根据浏览器的宽度和高度重新渲染页面
+	 目前针对很多苹果手机，Android手机，平板等设备都用的到多媒体查询
+	 -->
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	
+	<body>
+		<div style="width: 10rem;height: 10rem; background-color: aqua;">nihao </div>
+	</body>
+</html>

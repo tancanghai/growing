@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 引用组件 -->
+			<my-com1></my-com1>
+			<!-- 也可通过这种方式引用组件 -->
+			<!-- <component :is="componentId"></component> -->
+		</div>
+		
+		<script type="text/javascript">
+			/*
+			组件的命名    字母全小写且必须包含一个连字符
+			Vue.component('MyComponentName', {})这里面可以使用驼峰HTMl中必须使用小写加-
+			使用Vue.component 定义全局组件的时候，组件名称使用了驼峰命名，则在引用组件的时候，
+			需要吧大写改为小写，同时俩个单词之间用-连接
+			如果不使用驼峰则直接拿名称来使用即可；
+			*/
+			
+			
+			//1.1 通过Vue.extend来创建全局的Vue组件
+			var com1=Vue.extend({
+				template:'<h3>Vue.extend创建的组件</h3>'//通过template属性,制定了组件要展示的HTML结构
+			})
+			//1.2使用Vue.component('组件的名称，创建出来的组件模板对象')
+			Vue.component('myCom1',com1);
+			
+			
+			
+			var vue =new Vue({
+				el:"#app",
+				data:{
+					msg:"msg"
+				},
+				methods:{
+					
+				}
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<script type="text/javascript">
+		/*
+		运用debugger 直接找到调试地方或者点击F12 打开控制台找到Sources进行调试
+		鼠标双击调试的文件打开需要调试文件
+		利用 箭头进行上一步下一步调试
+		利用Watch可以输入表达式或者变量可以直观的看出运行变化
+		*/
+	</script>
+	<body>
+		<script type="text/javascript">
+				  debugger		  
+		for(var i=0;i<4;i++){
+			var sun=i+2;
+			switch(sun){
+				case 2:console.log('i='+i);break;
+				case 3:console.log('i='+i);break;
+				case 4:console.log('i='+i);break;
+				default:console.log("i=默认数字");
+			}
+		}
+			  </script>
+		
+	</body>
+</html>

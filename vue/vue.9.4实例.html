@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/vue.min.js"></script>
+	</head>
+
+	<body>
+		<div id="app" name='appp'>
+			<h1>{{text}}</h1>
+			<h2>{{count}}</h2>
+			<h3>{{completed}}</h3>
+			<h4>{{todos}}</h4>
+			<h5>{{error}}</h5>
+			<h6>{{obj}}</h6>
+		</div>
+
+		<script type="text/javascript">
+			var obj = {
+				foo: 'bar',
+				goo: 'good'
+			}
+			Object.freeze(obj); //使用 Object.freeze()，这会阻止修改现有的属性，也意味着响应系统无法再追踪变化。
+			obj.foo = 'nihao';
+			var vm = new Vue({
+				el: '#app', //el里头只能是id和标签 并且是body之内的标签
+				data: {
+					text: '',
+					count: 0,
+					completed: false,
+					todos: [],
+					error: null,
+					obj: obj.foo
+				},
+				props:{
+					title:{'yi':'title1','er':'title2','san':'title2'},
+					num:1.22,
+					text:'nihao!'
+				},
+				created: function() {
+					//钩子，在实例生命周期的不同阶段被调用，如 mounted、updated 和 destroyed。
+					//alert(this.$data.obj);
+					//生命周期钩子的 this 上下文指向调用它的 Vue 实例。
+					//alert('created');
+				}
+			});
+			vm['text'] = 'text';
+			
+			console.log(vm.$props);
+//			var data = {                //是一个对象
+//				a: 1
+//			}
+//			var vm = new Vue({
+//				el: '#example',
+//				data: data
+//			})
+//			vm.$data === data // => true
+//			vm.$el === document.getElementById('example') // => true
+//			$watch 是一个实例方法
+//			vm.$watch('a', function(newValue, oldValue) {
+//				// 这个回调将在 `vm.a` 改变后调用
+//			})
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,73 @@
+我自己的git库  账号tancanghai 邮箱1131534180@qq.com 密码tancanghai123
+
+https://git-scm.com/book     //git书本地址
+
+创建一个免费账户。 直接访问 https://github.com
+
+clone 完成原创git的克隆操作  branch 获取分支  checkout切换分支，add .添加文件，commit提交，push推送 pull更新本地
+http://www.efong.net/ 
+
+1.查看用户名和邮箱地址：
+
+$ git config user.name
+$ git config user.email
+
+2.设置或者修改用户名和邮箱地址：
+
+$ git config --global user.name "username"
+$ git config --global user.email "email"
+
+3.使用git config --list查看已设配置
+
+4.创建目录 $ git init
+ 5.touch 文件名  再add 文件名 /*将文件添加到版本库里*/                      使用 git add 命令将想要快照的内容写入缓存区， 而执行 git commit 将缓存区内容添加到仓库中
+6.git status 命令用于查看项目的当前状态
+7.回顾历史 $ git log
+
+git是分为三部分，一部分是你自己的文件，另外一个是缓存区，最后一个是本地库。当你修改了自己的文件后，你会git add xx将修改保存到缓存区，然后再用commit推送修改到本地库中。
+ 8. git push 将本地仓库修改推送到服务器上的仓库中
+
+// 克隆项目
+1、 git config --global user.name "tancanghai"
+
+2、git config --global user.email "1131534180@qq.com"
+
+3、git init
+
+4、git remote add origin https://github.com/tancanghai/CFChain.git          （http://tancanghai@47.110.62.240:8080/r/qsymes.git）
+
+5、git clone https://github.com/tancanghai/CFChain.git
+
+//提交
+1、git pull origin master  （这一命令是同步服务器的code源码代码）
+
+2、（复制你的最新要上传的程序，到C:\Users\Administrator\Desktop\gitchangku\v1这下面对应目录下，）
+
+3、git add .
+
+4、git commit -m "谭沧海 "   //提交到本地版本库  //提交操作
+
+5、git push origin master   （输入用户名、密码验证 1131534180@qq.com  tancanghai123）
+
+
+
+//添加文件
+git add 文件名
+git commit -m "添加新文件"
+git push origin master
+
+Git帐号 8757417@qq.com                   密码 1234qwer
+
+
+~~~~~出现错误提示
+
+warning: LF will be replaced by CRLF in test.html.
+The file will have its original line endings in your working directory.
+
+解决方法：
+
+1、再次输入如上命令，在命令之后加一个空格，回车
+
+2、如果还是不行，则执行git config core.autocrlf false命令之后，再次执行add命令就可成功。
+
+执行git add .（把所有内容添加到索引库中）

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="jquery-1.11.1"></script>
+<script type="text/javascript">
+    // :empty 作用：找到既没有文本内容也没有子元素的制定元素
+    var div=$('div:empty');
+
+    // :parent
+    // :parent 作用：找到有文本内容或者有子元素的指定元素
+    var div=$('div:parent');
+
+    // :contains(text)；
+    //先找到DIV再找到文本内用有'我是div'的元素
+    var $div=$("div:contains('我是div')");
+
+    // :has(selector)
+    //作用：找到包换指定子元素的指定元素
+    var div=$("div:has('span')");
+</script>
+
+
+</body>
+</html>

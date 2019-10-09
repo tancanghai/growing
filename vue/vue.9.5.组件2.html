@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/vue.min.js" type="text/javascript"></script>
+	</head>
+
+	<body>
+		
+	<div id="parent">
+		<childern v-for="data in datas"  v-bind:id="data.id" v-bind:title="data.title"></childern>
+	</div>
+	
+		<script type="text/javascript">
+			Vue.component('childern',{				
+				props:['id','title'],
+				template:'<h6>{{id}}:{{title}}</h6>'
+			})
+		</script>
+		
+		<script type="text/javascript">
+			var vm=new Vue({
+				el:'#parent',
+				data:{
+					datas:[{'id':1,'title':'title1'},
+				      {'id':2,'title':'title2'}]
+					}
+			})
+		</script>
+	</body>
+
+</html>
+
+
+

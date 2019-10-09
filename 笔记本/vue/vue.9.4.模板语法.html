@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/vue.min.js" type="text/javascript"></script>
+	</head>
+
+	<body>
+		<div id="app">
+			<p id="pp" v-html="html"></p>
+			<span id="span" v-bind:hidden='hiddens'>
+				隐藏
+			</span>
+			<input type="button" id="button" value="点击" v-on:click="onclick" />
+		</div>
+		<script type="text/javascript">
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					text: '',
+					count: 0,
+					hiddens: true,
+					todos: [],
+					error: null,
+					html: '<h7>我是html标签</h7>'
+				},
+				methods: {
+					onclick: function(event) {
+						// `event` 是原生 DOM 事件
+						if(event) {
+							console.log(event);
+						}
+					}
+				}
+
+			})
+		</script>
+		<script type="text/javascript">
+			//当导入包以后,在浏览器的内存中就多了一个vue构造函数
+			var vm = new Vue({
+				//文本
+				//使用“Mustache”语法 (双大括号) 的文本插值：
+				//<span>Message: {{ msg }}</span>
+				//标签将会被替代为对应数据对象上 msg 属性的值。无论何时，绑定的数据对象上 msg 属性发生了改变，插值处的内容都会更新。属性值 vue对象的属性值
+     			//通过使用 v-once 指令，你也能执行一次性地插值，当数据改变时，插值处的内容不会更新。
+
+				//html
+				//使用 v-html 指令：
+				//<span v-html="rawHtml"></span>
+
+				//特性
+				//使用 v-bind 指令：
+				//<div v-bind:id="dynamicId"></div>
+				//				对于布尔特性(它们只要存在就意味着值为 true)， v - bind 工作起来略有不同， 在这个例子中： 
+				//				<button v - bind: disabled = "isButtonDisabled" > Button < /button>
+				//				如果 isButtonDisabled 的值是 null、 undefined 或 false， 则 disabled 特性甚至不会被包含在渲染出来的 < button > 元素中。
+				//<!-- 缩写 -->
+				//<a :href="url">...</a>
+
+				//v-on 指令，它用于监听 DOM 事件：
+				//<a v-on:click="doSomething">...</a>
+				//<!-- 缩写 -->
+				//<a @click="doSomething">...</a>
+
+				//JavaScript 表达式
+				//				{{ number + 1 }}
+				//				{{ ok ? 'YES' : 'NO' }}
+				//				{{ message.split('').reverse().join('') }}
+				//				<div v-bind:id="'list-' + id"></div>
+				//每个绑定都只能包含单个表达式，所以下面的例子都不会生效。
+				//				<!-- 这是语句，不是表达式 -->
+				//				{{ var a = 1 }}
+				//				<!-- 流控制也不会生效，请使用三元表达式 -->
+				//				{{ if (ok) { return message } }}
+
+				//				模板表达式都被放在沙盒中， 只能访问全局变量的一个白名单， 如 Math 和 Date。 你不应该在模板表达式中试图访问用户定义的全局变量。
+
+				//指令  v- 前缀的特殊特性。
+				//指令特性的值预期是单个 JavaScript 表达式 (v-for 是例外情况)。
+				//				<p v-if="seen">现在你看到我了</p>
+
+				//修饰符
+				//修饰符 (modifier) 是以半角句号 . 指明的特殊后缀，用于指出一个指令应该以特殊方式绑定。例如，.prevent 修饰符告诉 v-on 指令对于触发的事件调用 event.preventDefault()：
+				//<form v-on:submit.prevent="onSubmit">...</form>
+
+				//动态参数
+				//用  方括号  括起来的   JavaScript表达式   作为一个指令的参数：
+				//<a v-bind:[attributeName]="url"> ... </a>
+				//			这里的 attributeName 会被作为一个 JavaScript 表达式进行动态求值，求得的值将会作为最终的参数来使用。
+				//			例如，如果你的 Vue 实例有一个 data 属性 attributeName，其值为 "href"，那么这个绑定将等价于 v-bind:href。
+				//<a v-on:[eventName]="doSomething"> ... </a>
+				//			同样地，当 eventName 的值为 "focus" 时，v-on:[eventName] 将等价于 v-on:focus。
+				//动态参数表达式有一些  语法约束，因为某些字符，例如空格和引号，放在 HTML 特性名里是无效的。  同样，在 DOM 中使用模板时你需要   回避大写键名。
+				//				<!-- 这会触发一个编译警告 -->
+				//				<a v-bind:['foo' + bar]="value"> ... </a>
+				//				<!-- 在 DOM 中使用模板时这段代码会被转换为 `v-bind:[someattr]` -->
+				//				<a v-bind:[someAttr]="value"> ... </a>
+
+			});
+		</script>
+	</body>
+
+</html>

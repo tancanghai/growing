@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/vue.min.js" type="text/javascript"></script>
+	</head>
+
+	<body>
+		<div id="components-demo">
+			<button-counter :title=title :num=num :text=text></button-counter>
+		</div>
+		<script type="text/javascript">
+			Vue.component('button-counter', {
+				data: function() {
+					return {
+						count: 0
+					};
+				},
+				props:['title','num','text'],
+//				props: {
+//					title:{
+//						type:String,
+//						default:"",
+//					},
+//					num:{
+//						type:Number,
+//						default:0,
+//					},
+//					text:{
+//						type:String,
+//						default:"",
+//					},
+//				},
+				template: '<div><button v-on:click="count++">You clicked me {{ count }} times.</button></br><span>and{{text}}and {{num}}</span></div>'
+			})
+		</script>
+
+		<script type="text/javascript">
+			var vm = new Vue({
+				el: '#components-demo',
+				data: {
+					title: 'title',
+					num: '1.22',
+					text: 'nihao!'
+				},
+				create: function() {
+					this.num = Math.round(num);
+				}
+			})
+			console.log(vm);
+		</script>
+	</body>
+
+</html>

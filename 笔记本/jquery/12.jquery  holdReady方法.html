@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="jquery-1.11.1"></script>
+<script type="text/javascript">
+//$.holdReady(true);作用：暂停ready执行
+    $.holdReady(true);
+    $(document).ready(function () {
+        alert('ready');
+    });
+</script>
+
+<button>回复ready事件</button>
+
+<script type="text/javascript">
+   var btn =document.getElementsByTagName('button')['0'];
+   btn.onclick=function () {
+       $.holdReady(false);//恢复ready执行
+   };
+</script>
+</body>
+</html>

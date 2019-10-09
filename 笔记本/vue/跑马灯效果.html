@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<p>{{str}}</p>
+			<button type="button" v-on:click="madeng">开始</button>
+			<button type="button" v-on:click="tingdeng">停止</button>
+		</div>
+		<script type="text/javascript">
+			/*
+			定时器思路：把定时器的id放入全局变量中或者data中方便获取 为了使定时器只能执行一个定时器而不是能一次执行多个定时器需
+			要添加判断id是否为空
+			*/
+		   var intervalId=null;
+			var vue = new Vue({
+				el: "#app",
+				data: {
+					name: "tancanghai",
+					sex: "nan",
+					str: "1234567890"
+				},
+				methods: {
+					madeng: function () {
+						var that=this;//嵌套函数里面的this指向window 所以需要用变量存储
+						if(intervalId!=null) return ;
+						 intervalId = setInterval(function () {  //js的定时器
+							console.log("madeng");	
+							var start=that.str.substr(1,1);
+							var end=that.str.substr(1);		
+//注意:VM实例,会监听自己身上data中所有的数据的改变,只要数据一发生改变,就会自动把最新的数据同步到data的页面上,data中的数据已经是改变的数据
+//好处,程序员只需要关心数据,不需要考虑如何重新渲染DOM页面
+							that.str=end+start;
+						}, 200);
+					},
+					tingdeng: function () {
+						console.log("tingdeng");
+						clearInterval(intervalId);
+						intervalId=null;
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

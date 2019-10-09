@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="jquery-1.11.1"></script>
+<script type="text/javascript">
+   $(function () {
+       /*
+       1.什么是属性？
+       对象身上保存的变量就是属性；
+       2.如何操作属性？
+       对象.属性名称=值;//赋值
+       对象['属性名称']=值//赋值
+       对象.属性名称;//取值
+       对象['属性名称']//取值
+
+
+       3.什么是属性节点？
+       <span name="it666"></span>
+       在编写HTML代码时，在HTML标签中添加的属性就是属性节点
+       在浏览器中找到span这个DOM元素之后，展开看到的都是属性
+       在DOM元素的attributes属性中保持的所有内容都是属性节点
+        var btn =document.getElementsByTagName('button')['0'];//DOM元素
+       4.如何操作属性节点？
+       DOM元素.setAttribute("属性名称"，值);//设置属性节点值
+       DOM元素.setAttribute("属性名称");获取属性节点值
+
+       5.属性和属性节点有什么区别？
+       任何对象都有属性，但是只有DOM对象才有属性节点
+        */
+
+       function Person() {
+       }
+       var p=new Person();
+       p.name='tancanghai';//属性赋值
+       p['name']='tancanghai';//属性赋值
+   })
+</script>
+
+
+</body>
+</html>
