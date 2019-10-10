@@ -1,6 +1,9 @@
 SELECT NOW() 黑匣子 不能单独使用now() 必须用select
 SELECT STR_TO_DATE(start_date,'%Y-%m-%d') FROM efo_ad WHERE id='44' 黑匣子:在图形管理工具里引号里面的字符串为红色，不是红色就是引号是错误的，或者哪里错了
-DATE_FORMAT(date,format)          date 参数是合法的日期。format 规定日期/时间的输出格式。  DATE_FORMAT(NOW(),'%m-%d-%Y')
+DATE_FORMAT(date,format)          date 参数是合法的日期。format 规定日期/时间的输出格式。  DATE_FORMAT(NOW(),'%m-%d-%Y')；select  DATE_FORMAT('2019,02,22',"%Y %m  %d");select  DATE_FORMAT('2019-02-22',"%Y ,%m , %d");select  DATE_FORMAT('20190222',"%Y ,%m , %d");都是正确的
+FROM_UNIXTIME(created, '%Y-%m-%d')  把时间戳转换成时间格式
+数据类型  date 日期。格式：YYYY-MM-DD     ;    DATETIME 日期和时间的组合。格式：YYYY-MM-DD HH:MM:SS  ;  TIME 时间。格式：HH:MM:SS 注释：支持的范围是从 '-838:59:59' 到 '838:59:59'
+
 SELECT DISTINCT(ad_position_id) from efo_ad  黑匣子  distinct 打错字了
 SELECT * from efo_ad WHERE (id=44 or id=45) and id=44
 SELECT Company, OrderNumber FROM Orders ORDER BY Company, OrderNumber   黑匣子：order by 俩个参数 以第一个为准 当第一个出现相同的时候以第二个排列
@@ -12,3 +15,10 @@ select * from efo_ad where id in(value1,value2,value3)
 select * from efo_ad where id not between 44 and 45
 SELECT r.id r FROM efo_ad r WHERE id=44   可以不用加as  不管是表名 还是字段名字
 select * from efo_ad where id=44  union all  select * from efo_ad where  id =45
+CREATE VIEW [Products Above Average Price] AS
+SELECT ProductName,UnitPrice    FROM Products   WHERE UnitPrice>(SELECT AVG(UnitPrice) FROM Products) 
+
+sql 注释：无法比较 NULL 和 0；它们是不等价的。无法使用比较运算符来测试 NULL 值，比如 =, <, 或者 <>。我们必须使用 IS NULL 和 IS NOT NULL 操作符。 where id is null
+CHAR(size) 255  VARCHAR(size) 255   TINYTEXT 255  TEXT 65,535 
+
+COUNT(column)   返回结果中某列的行数（不包括 NULL 值）   ||     COUNT(*)   	返回结果中总行数
