@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var i=1;//1
+		var sa=i++;//1
+		var fun=function(){//2
+			var as=sa;//2
+		}//2
+		fun();//3
+		/*
+		 第一次执行是132执行下来；
+		 第二次调用3的时候1的表达式不会执行了 只会调取1里面的变量里面的数据
+		 * 
+		 * */
+		</script>
+		
+	</body>
+</html>
