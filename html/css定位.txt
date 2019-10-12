@@ -1,0 +1,4 @@
+position:定位后自身会浮起来 ，absolute需要设置z-index层级来设置层级来展示；设置top,left ,right,butom来移动自己属性定位
+absolut: 定位相对于有定位属性(flex;relative,absolut)的最近的祖辈元素； 使用时在父元素中使用position:relative; 如果在父辈没找到有定位属性的就接着找父辈的父辈用来作为定位的相对容器
+relative:定位相对于自身的位置定位，不影响其它元素，但是当设置了以后它原来的位置会被它自身占据，不管它是否移动；
+flex:定位相对于窗口来定位；

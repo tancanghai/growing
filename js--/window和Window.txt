@@ -1,0 +1,6 @@
+typeof Window; //function
+typeof window; //object
+window.constructor===Window; //true
+window instanceof Window; //true
+
+Window是类，window是Window的实例，实际使用中需要通过window对象来调用各种属性和方法
