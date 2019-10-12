@@ -1,0 +1,30 @@
+移动网站要加的html5相关meta和标签，H5网页手机端自适应设置   使页面适应各种设备
+
+1.   强制让文档的宽度与设备的宽度保持1:1，并且文档最大的宽度比例是1.0，且不允许用户点击屏幕放大浏览。
+<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+
+2.   WebApp全屏模式   隐藏地址栏。
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+3.   禁止百度转码显示。
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+4.   制定iphone中safari顶端的状态条的样式（default:白色，black:黑色，black-translucent：半透明）
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+5.    添加到IOS主屏后的标题。
+<meta name="apple-mobile-web-app-title" content="标题名称">
+
+6.    html5 ios中忽略将数字变为电话号码
+name 属性的 format-detection 值（忽略页面中的数字识别为电话号码）
+<meta name="format-detection" content="telephone=no" />
+
+使用meta标签，这也是普遍使用的方法，理论上讲使用这个标签是可以适应所有尺寸的屏幕的，但是各设备对该标签的解释方式及支持程度不同造成了不能兼容所有浏览器或系统。
+
+首先解释该标签的含义：
+<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+如果你完全不了解这个标签的使用需要先百度一下。
+解释：content中的“width” 这个width指的是什么宽度，我看过的文章对这个都没有解释的很清楚，有几个备选：虚拟窗口的宽度、手机屏幕的宽度、还是页面的宽度等等？
+经试验这个指的是虚拟窗口的宽度。了解宽度之后，对后续的各种scale，就应该知道是谁与谁的比例，是 虚拟窗口宽度 / 页面宽度，这样就会有问题出现安卓设备尺寸差异很大光
+主流的就有宽度为 320 480 720 1080 等各种尺寸而以上标签只能支持一种尺寸，当然有些浏览器会自动缩放使其适应屏幕，但这不是统一标准，正确的做法是用js动态生成此标签，
+当然，应该先获取屏幕尺寸。
