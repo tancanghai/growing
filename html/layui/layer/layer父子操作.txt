@@ -1,0 +1,71 @@
+一 layer父子层之间的操作 【子操作父index： 可以使用父操作子的元素和方法将父的index传递给子 ；比如：hidden input】
+1 访问页面的元素值
+
+
+var parentId=parent.$("#id").val();//访问父页面元素值  
+
+
+ //parent.$("#handle_status").val(res);//给父页的 id=handle_status 的元素赋值
+2、访问父页面方法
+var parentMethodValue=parent.getMethodValue();
+//访问父页面方法 
+
+
+3 关闭弹出层的子页面窗口
+
+
+var index = parent.layer.getFrameIndex(window.name); 
+//获取窗口索引 
+
+parent.layer.close(index);//关闭弹出的子页面窗口
+
+
+4 在子页面刷新父页面
+
+parent.location.reload();
+ // 父页面刷新 
+
+
+二 父子层之间传值，传参【父操作子的元素和方法】
+父子层之间传值传参的核心方法为：
+
+
+layer.getChildFrame(selector, index) - 获取iframe页的DOM
+
+
+其中，selector为iframe页面的选择器，用来选中iframe页面的元素。Index为层的索引。
+
+
+ 
+在layer弹出层成功够，会回调success方法，重写该方法即可实现对子页面的数据渲染。
+
+
+
+
+Layer.open(
+
+{
+
+
+	success:function(layero, index){
+
+
+		Var body = layer.getChildFrame(“body”,index);//绑定父子之间的关系，用于数据传递，缺少则无法传递
+
+
+		var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象
+
+
+//1.在父页面上完成对子页面的数据渲染（参考上面）
+//获取子页面的元素，进行数据渲染
+//向iframe页的id=house的元素传值
+body.contents().find("#house").val(111);
+
+2.//调用子页面的方法，将父页面的值作为参数传递过去
+iframeWin.method(pre);
+
+	}
+
+
+})
+

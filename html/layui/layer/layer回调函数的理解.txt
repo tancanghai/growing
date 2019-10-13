@@ -1,0 +1,18 @@
+   layer.close(index) - 关闭特定层  【以下是在不调或者调用回调函数的时候  获取当前打开layer参数】
+//当你想关闭当前页的某个层时
+var index = layer.open();
+var index = layer.alert();
+var index = layer.load();
+var index = layer.tips();
+//正如你看到的，每一种弹层调用方式，都会返回一个index
+layer.close(index); //此时你只需要把获得的index，轻轻地赋予layer.close即可
+//如果你想关闭最新弹出的层，直接获取layer.index即可
+layer.close(layer.index); //它获取的始终是最新弹出的某个层，值是由layer内部动态递增计算的
+
+//此方法一般用于在iframe页关闭自身时用到
+layer.getFrameIndex(windowName) - 获取特定iframe层的索引
+var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+parent.layer.close(index); //再执行关闭   
+
+layer.getChildFrame(selector, index) - 获取iframe页的DOM  【获取当前打开layer的DOM】
+
