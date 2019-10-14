@@ -1,4 +1,4 @@
-一 layer父子层之间的操作 【子操作父index： 可以使用父操作子的元素和方法将父的index传递给子 ；比如：hidden input】
+一 layer父子层之间的操作 【子操作父index： 可以使用父操作子的元素和方法将父的index传递给子 ；比如：hidden input】 //注意：parent 是 JS 自带的全局对象，可用于操作父页面
 1 访问页面的元素值
 
 
