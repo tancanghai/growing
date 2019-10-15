@@ -1,0 +1,1 @@
+index.php ->require_once BASEPATH.'core/CodeIgniter.php'; ->$RTR =& load_class('Router', 'core', isset($routing) ? $routing : NULL);->$CI = new $class();（超级对象$CI）和各种文件

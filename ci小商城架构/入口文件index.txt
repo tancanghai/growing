@@ -1,0 +1,4 @@
+很多配置项
+
+require_once BASEPATH.'core/CodeIgniter.php';这文件中加载各式各样得核心
+&get_instance();

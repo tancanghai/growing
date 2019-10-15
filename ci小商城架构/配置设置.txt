@@ -1,0 +1,7 @@
+$config['base_url'] = 'www.ci.com/';
+
+默认情况下，url辅助函数是没有加载的，要使用则需要加载，可以在配置未见中，配置自动加载也可以在需要使用的地方手动加载
+$autoload['helper']=array('url');
+
+url 辅助函数中提供了base_url 和site_url的方法，其中base_url的值是在config中配置的base_url的值，如：http:xxxx/xxx
+而site_url得值是base_url+index_page，所以在试图中定义控制器得某个动作（url），使用site_url 如：action=<?php echo site_url('news/insert')?>

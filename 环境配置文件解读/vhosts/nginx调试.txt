@@ -1,0 +1,9 @@
+dir
+
+D:\phpstudy\PHPTutorial>cd nginx
+
+D:\phpstudy\PHPTutorial\nginx>nginx.exe -t
+nginx: [emerg] invalid number of arguments in "listen" directive in D:\phpstudy\PHPTutorial\nginx/conf/vhosts.conf:21
+nginx: configuration file D:\phpstudy\PHPTutorial\nginx/conf/nginx.conf test failed
+
+D:\phpstudy\PHPTutorial\nginx>
