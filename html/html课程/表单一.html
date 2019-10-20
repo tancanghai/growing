@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<form action="" method="post">
+			<!-- bottom是下  button是按钮
+			 selected是针对option默认选中，而checked是针对单选框或多选框的默认选中
+			 checked="false"也是选中状态
+			 在html中还为我们提供了一个标签，专门用来选中表单中的提示文字的label标签 为我们提示文字设置样式
+			 在label中设置for属性与input标签中的id对应 可以选中提示文字的时候就选中input框
+			 -->
+			
+			
+			<!-- 单选框 
+			通过type=radio 来设置
+			通过name=一样的名字来关联 type=radio的属性  表示name相同的表示是同一组
+			通过value的值不同来区分 通过value来提交给服务端
+			-->
+			<label for="idradio">1:</label><input id="idradio" type="radio" name="radioname" value="1"  />
+			2:<input type="radio" name="radioname" value="2"  />
+			3:<input type="radio" name="radioname" value="3" checked/>
+			<br>
+			
+			<!-- 
+			 多选框
+			 -使用type=checkbox来设置
+			 通过name=一样的名字来关联 type=checkbox的属性  表示name相同的表示是同一组
+			 通过value的值不同来区分 通过value来提交给服务端
+			 -->
+			爱好:<br>
+			<label>足球：</label><input type="checkbox" value="1" name="hobby" />
+			篮球：<input type="checkbox" value="2" name="hobby" />
+			乒乓球：<input type="checkbox" value="3" name="hobby" checked/>
+			棒球：<input type="checkbox" value="4" name="hobby"/>
+			<br>
+			
+			<!-- 
+			下拉列表
+			 select
+			 通过option来创建一个一个列表项
+			 name 设置在select标签中
+			 value设置在option标签中
+			 multiple="multiple" 设置为多选的下拉列表
+			 可以使用optgroup标签来给option分组 在这标签中设置lable属性来命名分组名
+			 -->
+			 <select name="sum" multiple="multiple">
+				 <optgroup label="单数">
+				 	<option value="1" >yi</option>
+					<option value="3" selected>san</option>
+				 </optgroup>
+			 	<optgroup label="双数">
+			 		<option value="2" >er</option>
+			 		<option value="4">si</option>
+			 	</optgroup>
+			 </select>
+			 <br>
+			 
+			 <!-- 
+			  textarea来创建一个文本域
+			  name必须设置
+			  使用width 和height来设置大小
+			  <textarea></textarea>开头标签和结束标签中不嫩留空格只能添加默认文档 否则placeholder="nihaonihao"
+			  显示不出来而且textarea中会有多余的空格文档
+			  -->
+			 <textarea  placeholder="提示文档" style="width: 100px; height: 100px;">nihao</textarea>
+			 <br>
+			 
+			 
+			 <!-- 按钮type和button有等同效果 但是使用button更加灵活因为是成对的标签可以设置图片等其它东西-->
+			<input type="submit" value="提交"/>等同于<button type="submit">提交</button><br>
+			<!-- 
+			 type=reset来重置form表单中的input框 使form中input全部恢复成默认的状态
+			 -->
+			 <input type="reset" value="reset" />等同于<button type="reset">reset</button><br>
+			 <!-- 
+			  使用input type=button可以用来创建一个单纯按钮
+			  -->
+			  <input type="button" value="button按钮"/>等同于<button type="button">button按钮</button><br>
+		</form>
+	</body>
+</html>
