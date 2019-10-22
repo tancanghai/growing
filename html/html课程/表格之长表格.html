@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 
+		有一些情况下表格是非常的长的，这时候需要将表格分为三个部分，表头，表格的主体，表格的底部
+		thead表头
+		tbody 表格主体
+		tfoot表格底部
+		这三个标签的作用，就用来区分表格的不同的部分，他们都是table的子标签，都需要直接写到table中
+		thead中的内容，永远都是现实在表格的头部
+		tfoot中的内容永远都会显示表格的底部
+		tbody中的内容，永远都是现实在表格的中间  并且就算没有设置tbody表格也会默认带有tbody 按f12可以在内存中看到 所以tr是table的孙子元素
+		 
+		 -->
+		 <table border="" cellspacing="" cellpadding="">
+		 	<thead>
+				<tr>
+					<th>日期</th>
+					<th>收入</th>
+					<th>合计</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>2</td>
+					<td>1</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>2</td>
+					<td>1</td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td>1</td>
+					<td>合计</td>
+					<td>总金额</td>
+				</tr>
+			</tfoot>
+		 </table>
+	</body>
+</html>

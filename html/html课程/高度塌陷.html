@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 
+		 在文档流中，父元素的高度默认是被子元素撑开的，子元素有顶多高父元素就有多高
+		 但是当为子元素设置浮动以后，子元素会完全脱离文档流，此时将会导致子元素无法撑起父元素的高度，
+		 导致父元素的高度塌陷，由于父元素的高度塌陷，父元素以下的元素全都会往上移动，这样会导致页面布局混乱
+		 
+		 根据W3C的标准，在页面中元素都是一个隐含的属性叫BFC，该属性默认是关闭的
+		 当开启的时候具有以下属性
+		 1.父元素的垂直外边距不会和子元素重叠
+		 2.开启BFC的元素不会被浮动元素所覆盖
+		 3.开启BFC的元素可以包含浮动的子元素
+		 
+		 开启元素的BFC
+		 1.设置元素浮动
+		 2.设置元素的绝对定位
+		 3.设置元素为inline-block
+		 4.设置overflow属性，overflow:hidden  但是ie6不支持
+		 5设置zoom 但是除了ie其他都不支持
+		 
+		 所以解决的方案是 overflow:hidden  加上zoom:1俩个一起写
+		 -->
+		 
+		 <!-- 
+		  通过after伪类，选中box1的后边 box1就是子元素浮动使父元素塌陷的父元素
+		  可以通过after伪类向元素的最后添加一个空白的块元素，然后对其清除浮动，
+		  
+		  
+		  
+		  
+		  -->
+		  <style type="text/css">
+		  	.clearfix:after{
+				/* 添加一个内容 */
+				content:"";
+				/* 转换为一个块元素 */
+				display: block;
+				/* 清除俩测的浮动 */
+				clear:both;
+			}
+			/* 
+			在IE6中不支持after伪类 所以还需要添加下列操作
+			 */
+			.clearfix{
+				zoom:1;
+			}
+			.box2{
+				width:100px;
+				height: 100px;
+				background-color: blue;
+				float:left;
+			}
+		  </style>
+		  <div class="box1 clearfix">
+		  	<div class="box2"></div>
+		  </div>
+	</body>
+</html>

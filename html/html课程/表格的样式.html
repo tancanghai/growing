@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<style type="text/css">
+			tr:nth-child(even){
+				/* 设置偶数行背景颜色 */
+				background-color: #00FF00;
+			}
+			tr:hover{
+				/* 鼠标移动到哪行哪行变色 */
+				background-color: #0000FF;
+			}
+		</style>
+		<table  border="1px " >
+<!-- table和td之间有一个默认距离  通过table-spacing来设置这个距离 -->
+<!-- style="border-collapse: collapse;"  可以用来合并table和td之间的边框合并 -->
+			<tr><th>Header</th><th>Header</th><th>Header</th><th>Header</th></tr>
+			<!-- 可以使用th来设置表头 th有一些默认的效果比如居中和加粗等 th就是特殊的td -->
+			<tr><td>Data</td><td>Data</td><td>Data</td><td>Data</td></tr>
+			<tr><td>Data</td><td>Data</td><td>Data</td><td>Data</td></tr>
+			<tr><td>Data</td><td>Data</td><td>Data</td><td>Data</td></tr>
+		</table>
+	</body>
+</html>
+
