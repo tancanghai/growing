@@ -12,7 +12,9 @@
 			<a href="#/login">登录</a>
 			<a href="#/zuce">注册</a>
 			<!-- <router-link></router-link>这是官方自带的写法包含一些自带的class类 使用这个方便很多 -->
-			<router-link to="/login"> 登录</router-link>
+			<!-- 传递路由参数的写法 -->
+			<!-- <router-link :to="{ path: 'register', query: { plan: 'private' }}">Register</router-link> -->
+			<router-link to="/login?plan=private"> 登录</router-link>
 			<router-link to="/zuce"> 注册</router-link>
 			<!-- router-view 是router提供的元素，专门用来显示router url中地址中 匹配到的组件  -->
 			<router-view></router-view>
@@ -21,7 +23,11 @@
 			//创建一个路由对象,当导入vue-router包之后,在window全局对象中,就有了一个路由的构造函数,叫做VueRouter
 			//在new路由对象的时候，可以构造函数，传递一个配置对象
 			var login = {
-				template: "<h1>第一个登录模板对象</h1>"
+				template: "<h1>第一个登录模板对象</h1>",
+				created(){
+					console.log(this);//this.$router==VueRouter;
+					console.log(this);//this.$route==当前激活的路由信息对象。这个属性是只读的;可以获取当前query和params参数
+				}
 			};
 			var zuce = {
 				template: "<h1>第一个注册模板对象</h1>"
@@ -29,7 +35,10 @@
 
 			var routerobj = new VueRouter({
 				//route//这个配置对象中的route表示路由匹配规则的意思
-				routes: [ //路由匹配规则
+				routes: [ //路由匹配规则参考文档//https://router.vuejs.org/zh/  
+				// 路由嵌套children
+				// { path: 'register', query: { plan: 'private' },component: login}
+				    // { path: 'register/:id',component: login}
 					{
 						path: '/', //黑匣子: redirect不会写
 						redirect: "/login"//自定义默认定义路径为login
