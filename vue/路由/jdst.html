@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/vue-router.js" type="text/javascript" charset="utf-8"></script>
+		<title></title>
+	</head>
+	
+	<body>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.bottom{
+				border: #000000 1px solid;
+				height: 500px;
+			}
+			.header{
+				height: 200px;
+				background-color: #009F95;
+				font-weight: 100;
+				text-align: center;
+			}
+			.left{
+				float: left;
+				height: 500px;
+				width: 30%;
+				background-color: #00FF00;
+			}
+			.content{
+				float: right;
+				height: 500px;
+				width: 70%;
+				background-color: #01AAED;
+			}
+		</style>
+		
+		<div id="app" >
+			<router-link to="/content1">content1</router-link>
+			<router-link to="/content2">content2</router-link>
+			<router-view name="header"></router-view>
+			<div class="bottom" >
+				<router-view name="left"></router-view>
+				<router-view name="content1"></router-view>
+				<router-view name="content2"></router-view>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			var header={
+				template:"<div class='header'>header</div>"
+			};
+			var left={
+				template:"<div class='left'>left</div>"
+			};
+			var content1={
+				template:"<div class='content'>content1</div>"
+			};
+			var content2={
+				template:"<div class='content'>content2</div>"
+			};
+			
+			var objRouter=new VueRouter({
+				routes:[
+					{path:'/',components:{
+						'header':header,
+						'left':left,
+						'content1':content1
+					}},
+					{path:'/content1',components:{
+						'header':header,
+						'left':left,
+						'content1':content1
+					}},
+					{path:'/content2',components:{
+						'header':header,
+						'left':left,
+						'content1':content2
+					}},
+				]
+			});
+			
+			var vue=new Vue({
+				el:"#app",
+				data:{
+					
+				},
+				methods:{
+					
+				},
+				router:objRouter
+				
+			});
+		</script>
+	</body>
+</html>
