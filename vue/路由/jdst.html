@@ -35,16 +35,21 @@
 				width: 70%;
 				background-color: #01AAED;
 			}
+			.content2{
+				height: 500px;
+				background-color: darkred;
+			}
+			.content3{
+				height: 500px;
+				background-color: gold;
+			}
 		</style>
 		
 		<div id="app" >
-			<router-link to="/content1">content1</router-link>
-			<router-link to="/content2">content2</router-link>
 			<router-view name="header"></router-view>
 			<div class="bottom" >
 				<router-view name="left"></router-view>
-				<router-view name="content1"></router-view>
-				<router-view name="content2"></router-view>
+				<router-view name="content"></router-view>
 			</div>
 		</div>
 		
@@ -53,13 +58,16 @@
 				template:"<div class='header'>header</div>"
 			};
 			var left={
-				template:"<div class='left'>left</div>"
+				template:"<div class='left'><router-link to='/content'>content</router-link><br><router-link to='/content/content1'>content1</router-link><br><router-link to='/content/content2'>content2</router-link></div>"
+			};
+			var content={
+				template:"<div class='content'><router-view></router-view></div>"
 			};
 			var content1={
-				template:"<div class='content'>content1</div>"
+				template:"<div class='content2'>content1</div>"
 			};
 			var content2={
-				template:"<div class='content'>content2</div>"
+				template:"<div class='content3'>content2</div>"
 			};
 			
 			var objRouter=new VueRouter({
@@ -67,18 +75,18 @@
 					{path:'/',components:{
 						'header':header,
 						'left':left,
-						'content1':content1
+						'content':content1
 					}},
-					{path:'/content1',components:{
+					{path:'/content',components:{
 						'header':header,
 						'left':left,
-						'content1':content1
-					}},
-					{path:'/content2',components:{
-						'header':header,
-						'left':left,
-						'content1':content2
-					}},
+						'content':content
+					},children:[
+						{path:'content1',component:content1},
+						{path:'content2',component:content2},
+					  ],
+					},
+					
 				]
 			});
 			
