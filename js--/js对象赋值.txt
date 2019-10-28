@@ -1,0 +1,15 @@
+var obj={};
+var obj1={};
+var obj2={};
+obj={obj1,obj2};
+obj1.name1="name1";
+obj2.name2="name2";
+console.log(obj);
+
+结果：
+{obj1: {…}, obj2: {…}}
+obj1: {name1: "name1"}
+obj2: {name2: "name2"}
+__proto__: Object
+
+对象随着属性成长而成长；
