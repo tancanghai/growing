@@ -1,0 +1,5 @@
+        // dlog(var_export($input,1));
+        var_export($input);
+
+
+headers:{'Accept': 'application/json, text/javascript, */*; q=0.01',"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",'X-Requested-With': 'XMLHttpRequest'},
