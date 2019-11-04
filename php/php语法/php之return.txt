@@ -1,0 +1,29 @@
+如果在一个函数中调用 return 语句，将立即结束此函数的执行并将它的参数作为函数的值返回。return 也会终止 eval() 语句或者脚本文件的执行。
+
+如果在 全局范围中 调用，则 当前脚本文件 中止运行。如果 当前脚本文件 是被 include 的或者 require 的，则控制交回调用文件。
+此外，如果 当前脚本 是被 include 的，则 return 的值会被当作 include 调用的返回值。如果在 主脚本文件 中调用 return，则 脚本中止 运行。
+如果 当前脚本文件 是在 php.ini 中的配置选项 auto_prepend_file 或者 auto_append_file 所指定的，则此脚本文件中止运行。
+
+函数内部遇到return，立即停止执行函数内部的代码，然后继续执行下面的代码，例如：
+不加return是这个样子：
+	<?php
+	    function fn(){
+	        echo 'hello'.'<br/>';
+	        echo 'world'.'<br/>';
+	    }
+	    fn();
+	    echo '!';
+	        输出：//hello world !
+	?>
+ 
+加上return是这个样子：
+	<?php
+	    function fn(){
+	        echo 'hello'.'<br/>';
+	        return;
+	        echo 'world'.'<br/>';
+	    }
+	    fn();
+	    echo '!';
+	        输出： //hello !
+	?>
