@@ -1,0 +1,67 @@
+nginx 配置虚拟主机( 基于域名 )
+一、创建网站目录及文件：
+
+复制代码
+[root@localhost data]# tree /data
+/data
+└── wwwroot
+    ├── www.1.com
+    │   └── index.html
+    └── www.2.com
+        └── index.html
+复制代码
+二、修改nginx.conf：
+
+复制代码
+[root@localhost nginx]# vim /usr/local/nginx/conf/nginx.conf
+
+worker_processes  1;
+events {
+    worker_connections  1024;
+}
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+    keepalive_timeout  65;
+    include vhost/*.conf;   #vhost目录下会包含所有的虚拟主机的配置文件
+}
+复制代码
+三、创建虚拟主机的配置文件目录：
+
+[root@localhost conf]mkdir /usr/local/nginx/conf/vhost
+四、创建虚拟主机配置文件：
+
+复制代码
+[root@localhost nginx]# vim /usr/local/nginx/conf/vhost/www.1.com.conf 
+server{
+    listen 80;
+    server_name 1.com www.1.com;
+    index index.html;
+    root /data/wwwroot/www.1.com;
+}
+复制代码
+复制代码
+[root@localhost nginx]# vim /usr/local/nginx/conf/vhost/www.2.com.conf  
+server{
+    listen 80;
+    server_name 2.com www.2.com;
+    index index.html;
+    root /data/wwwroot/www.2.com;
+}
+复制代码
+[root@localhost nginx]# vim /usr/local/nginx/conf/vhost/default.conf          
+server{
+    listen 80 default_server;  #使用default_server指定nginx的默认虚拟主机
+    deny all;
+}
+若使用其他域名来访问虚拟主机时，会匹配到默认虚拟主机，该配置会拒绝未定义的域名的虚拟主机。若不配置该选项，默认排在最前边的server会成为默认虚拟主机。
+
+五、测试配置文件是否存在问题：
+
+[root@localhost root]# cd /usr/local/nginx/sbin
+[root@localhost sbin]# ./nginx -t 
+nginx: the configuration file /usr/local/nginx/conf/nginx.conf syntax is ok
+nginx: configuration file /usr/local/nginx/conf/nginx.conf test is successful
+六、当配置文件修改时，可以使用一下命令重新加载配置文件
+
+[root@localhost sbin]# ./nginx -s reload

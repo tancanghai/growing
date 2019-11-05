@@ -1,0 +1,87 @@
+        个人总结：一个服务器可以对应多个ip地址，一个ip地址可以对应多个域名，域名相当于ip的别名；而每个域名访问ip地址对应的服务器的时候，通过服务器配置
+文件的解读，使得不同域名访问不同的文件，获取权限等等操作；而虚拟主机的作用就是把不同的的域名访问不同的文件夹，配置不同的参数；虚拟主机配置可以直接
+写入服务器配置文件中，  也可以有服务器配置文件通过include加载虚拟机配置文件【如：apache:  # Virtual hosts  #Include conf/extra/httpd-vhosts.conf           
+如：ngix:    include vhosts.conf;】。
+
+      本地：
+当然，你需要在windows/system32/drivers/etc/hosts中设置几个域名和IP的映射：
+127.0.0.1 www.hellocations.com
+127.0.0.1 www.sina.com
+      远程：
+通过DNS解析关联到对应的ip
+
+简单示例：
+
+解决方案：虚拟主机是设置在httpd-vhosts.conf还是vhosts.conf还是httpd.conf？
+答案是：都可以。但是推荐在vhosts.conf中设置。
+
+——官方文档的举例是在httpd.conf中设置的。
+——百度一下会发现99%都是在httpd-vhosts.conf中设置的。但是这种设置会存在一些问题，比如设置后localhost打不开等等问题，虽然解决方案简单，但是毕竟感觉不太保险。
+——在vhosts.conf中设置的话，比较简单，而且没有什么幺蛾子问题。
+
+<VirtualHost *:80>
+ServerName localhost
+DocumentRoot "E:\WWW"
+DirectoryIndex index.html index.php
+<Directory "E:\WWW">
+Options Indexes
+Order Allow,Deny
+Allow From All
+</Directory>
+</VirtualHost>
+
+<VirtualHost *:80>
+ServerName www.hellocations.com
+DocumentRoot "E:\hellocations"
+DirectoryIndex index.html index.php
+<Directory "E:\hellocations">
+Options Indexes
+Order Allow,Deny
+Allow From All
+</Directory>
+</VirtualHost>
+
+<VirtualHost *:80>
+ServerName www.sina.com
+DocumentRoot "E:\sina"
+DirectoryIndex index.html index.php
+<Directory "E:\sina">
+Options Indexes
+Order Allow,Deny
+Allow From All
+</Directory>
+</VirtualHost>
+
+当然，你需要在windows/system32/drivers/etc/hosts中设置几个域名和IP的映射：
+127.0.0.1 www.hellocations.com
+127.0.0.1 www.sina.com
+
+（1）问题1：是不是需要在httpd.conf中打开包含虚拟主机设置文件的那条语句？不需要。用phpstudy配置集成环境的话，我们看httpd.conf的配置文件，如下，发现vhosts.conf
+文件已经默认被包含了，而htttpd-vhosts.conf默认没有包含，所以如果你执意要在httpd-vhosts.conf中设置虚拟主机的话，那么你需要把如下第二行的#去掉即可。
+# Virtual hosts
+#Include conf/extra/httpd-vhosts.conf
+……
+Include conf/vhosts.conf
+
+# Secure (SSL/TLS) connections
+#Include conf/extra/httpd-ssl.conf
+
+（2）虚拟主机设置的格式以及注意事项？
+——方法一：这个百度一下即可。
+——方法二：查看官方文档，或者下载一个离线的apache手册。
+——方法三：看配置文件中的示例。在httpd-vhosts.conf中有示例，如下。这也是为什么99%的人都在这个配置文件中配置的原因吧。不过apache的配置文件都是相通的。也就是
+说，有一个主配置文件httpd.conf，在其他地方还有很多分散的配置文件，当然这些分散的配置文件要想生效就需要在主配置文件中包含一下。思想和import或者include一样一样
+的。
+
+# Add any other Virtual Hosts below
+#<VirtualHost *:80>
+# ServerAdmin webmaster@dummy-host.example.com
+# DocumentRoot "/Apache24/docs/dummy-host.example.com"
+# ServerName dummy-host.example.com
+# ServerAlias www.dummy-host.example.com
+# ErrorLog "logs/dummy-host.example.com-error.log"
+# CustomLog "logs/dummy-host.example.com-access.log" common
+#</VirtualHost>
+
+——设置格式的注意事项，需要说明的是一般除了设置serverName和DocumentRoot外，还需要对目录进行设置，即<Directory></Directory>的东西。否则会出现无权限访问之
+类的问题，其他参数诸如错误日志、用户访问信息、别名设置等等可以设置也可以省略。
