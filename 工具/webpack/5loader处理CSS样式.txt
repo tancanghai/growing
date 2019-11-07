@@ -1,0 +1,20 @@
+1.先下载  npm install style-loader css-loader -D;
+2.再把写好的样式导入到main.js中    import './css/index.css';
+3.再到webpack-config.js 写入
+module: {
+	     rules: [
+	       {
+	         test: /\.css$/,
+	         use: [
+	           { loader: 'style-loader' },
+	           {
+	             loader: 'css-loader',
+	             options: {
+	               modules: true
+	             }
+	           }
+	         ]
+	       }
+	     ]
+	   },
+4.再重新执行一下webpack-dev-server也就是 npm run dev；  

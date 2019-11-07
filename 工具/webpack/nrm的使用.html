@@ -1,0 +1,25 @@
+
+	nrm 的安装和使用
+	作用：提供了一些最常用的npm包镜像地址，能够够让我们快速的切换安装包的时候的服务器地址；
+	运行 npm inrm -g 全局安装nrm包
+	使用nrm ls查看当前所有可用的景象源地址以及当前所有使用的镜像源头地址；
+	使用nrm use npm  或者 nrm use  taobao切换到不同的镜像源地址；
+	
+	注意：nrm只是单存的提供了几个常用的下载包的url地址，并且能够让我们在这几个地址之间很方便的进行切换，
+	但是我们每次装包的时候，使用的装包工具都是npm
+	
+	1.nrm：
+	安装：
+	npm install -g nrm
+	查看所有可用源：
+	nrm ls
+	* npm -----  https://registry.npmjs.org/
+	  cnpm ----  http://r.cnpmjs.org/
+	  taobao --  https://registry.npm.taobao.org/
+	  nj ------  https://registry.nodejitsu.com/
+	  rednpm -- http://registry.mirror.cqupt.edu.cn
+	  skimdb -- https://skimdb.npmjs.com/registry
+	切换源：（建议更换为淘宝的）
+	nrm use taobao    切换源
+	nrm del  taobao   删除对应的源（如果不想用了就可以删除它）
+	  

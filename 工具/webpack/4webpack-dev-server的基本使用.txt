@@ -1,0 +1,35 @@
+使用webpack-dev-server这个工具来实现自动打包编译的功能
+1.进入到项目目录下运行 npm i webpack-dev-server  -D把这个工具安装到项目的本地开发依赖
+
+2.安装完毕后,这个工具的用法和webpack命令的用法完全一样
+
+3.由于我们是在项目中本地安装的webpack-dev-server所以无法把它当作脚本命令来执行,(只有安装在全局的工具才能在终端正常执行 所以需要在packege.json中配置
+ "dev": "webpack-dev-server" 然后 npm run dev)
+ 
+4.注意：webpack-dev-server这个工具如果想要正常运行，要求在本地项目中也必须安装webpack和webpack-cli 命令：npm install webpack -D和npm install webpack-cli -D；
+像webpack这样的工具可以安装在本地开发中 jquery这样的就必须安装在生产环境中;
+
+5.运行npm run dev 
+显示：
+ Project is running at http://localhost:8080/
+ webpack output is served from /
+ Content not from webpack is served from C:\Users\Administration\Desktop\test-webpack\test-webpack
+表示：
+ 项目放置在了http://localhost:8080/下面
+ output输出在/下面 
+    http://localhost:8080/bundle.js的文件复制到你需要存储的文件里面就能放置到线上去了；把这个<script src="http://localhost:8080/dist/bundle.js" type="text/javascript" charset="utf-8"></script>
+ 你本地就能保存就更新bundle.js；实现监测；因为本来的bundle.js不是8080端口下的bundle.js，8080下的文件是内存文件；访问原先的是监测不了的需要访问8080下的文件；
+    这个时候还要注意的一点就是在webpack.config.js文件里面，如果配置了output的publicPath这个字段的值的话，在index.html文件里面也应该做出调整。
+ 因为webpack-dev-server伺服的文件是相对publicPath这个路径的。因此，如果你的webpack.config.js配置成这样的：
+ output: {
+         path: './dist/js',
+         filename: 'bundle.js'，
+         publicPath: '/assets/'
+     }
+assets/bundle.js，路径前面就得添加assets  	 
+
+"scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack-dev-server --hot"//中添加参数--hot可以实现代码局部更新；
+  },
+  注意每次修改package.js文件都需要重新执行一下npm run dev重新运行webpack-dev-server;

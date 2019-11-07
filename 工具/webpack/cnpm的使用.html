@@ -1,0 +1,36 @@
+cnpm：
+介绍：
+因为npm安装插件是从国外服务器下载，受网络影响大，可能出现异常，所以我们乐于分享的淘宝团队干了这事。来自官网：“这是一个完整 npmjs.org 镜像，你可以用此代替官方版本(只读，不能发布自己的包或注册用户)，同步频率目前为 10分钟 一次以保证尽量与官方服务同步。”
+
+安装：
+npm install cnpm -g --registry=https://registry.npm.taobao.org
+
+注意：安装完后最好查看其版本号cnpm -v或关闭命令提示符重新打开，安装完直接使用有可能会出现错误 
+PS：cnpm跟npm用法完全一致，只是在执行命令时将npm改为cnpm。
+
+参考：
+https://www.jianshu.com/p/538d91eadb76
+https://www.jianshu.com/p/f581cf9360a2
+
+由于网络原因，npm 在国内使用比较慢，所以建议切换 npm 源到国内镜像或者使用cnpm。
+有两种比较方便的方式切换您的 npm 源：（ps：如果您的node版本太低可能会升级失败哦）
+
+1.nrm：
+安装：
+npm install -g nrm
+查看所有可用源：
+nrm ls
+* npm -----  https://registry.npmjs.org/
+  cnpm ----  http://r.cnpmjs.org/
+  taobao --  https://registry.npm.taobao.org/
+  nj ------  https://registry.nodejitsu.com/
+  rednpm -- http://registry.mirror.cqupt.edu.cn
+  skimdb -- https://skimdb.npmjs.com/registry
+切换源：（建议更换为淘宝的）
+nrm use taobao    切换源
+nrm del  taobao   删除对应的源（如果不想用了就可以删除它）
+2.cnpm：
+
+安装：
+npm install -g cnpm --registry=https://registry.npm.taobao.org
+
