@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/**
+			 * if语句的原理是跟Boolean()这个方法有关，
+			 * 此方法为自动执行（在需要判定Boolean的语句中中自动执行），这些转换规则对理解if控制语句自动执行相应的Boolean转换非常重要，
+
+这是我们平时所写的代码
+    var a = "auto"
+    if(a){
+        console.log("执行")
+    }
+    
+其实执行起来是这样，理解一下
+    var a = "auto"
+    if(Boolean(a)){
+        console.log("执行")
+    }
+这样其实就好理解了，每个类型的值其实都可以转换为Boolean值
+			 */
+		</script>
+	</body>
+</html>
