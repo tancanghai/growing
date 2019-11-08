@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//把不是不是number的进行运算会先转换为数字再运算;除了+时例外;
+			result=true+1;//2
+			result=true+false;//1
+			//任何值和NAN做运算都得NAN;
+			result=NaN+1;//NaN;
+			//JS字符串换行是没有连接的,
+			var str="aaa"
+			"bbb";
+			//aaa
+			//var str="aaa
+			//bbb";//报错;
+			//任何值和字符串+都会转换为字符串在拼接
+			result=true+"hello";//truehello;
+			result=1+2+"3";//33
+		</script>
+	</body>
+</html>
