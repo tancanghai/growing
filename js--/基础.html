@@ -33,6 +33,12 @@ console.log(undefined);console.log(null);console.log("");输出结果:undefined;
 	null 这个值表示一个空的对象；使用tupeof检查一个null值时，会返回一个object
 	undefined（未定义）当申明一个变量，但是并不给变量赋值时，它的值就是undefined;	
 		
+		2. Number(value)
+		Number对象，可以用来执行类型转换。如果参数无法被转换为数字，则返回NaN
+		Number( '123') // 123
+		Nuber('123abc') // NaN
+		parseInt('abc123') // NaN
+		parseFloat('abc123') // NaN
 字符串转换
 1：转换成整数
 parseInt('10');//10

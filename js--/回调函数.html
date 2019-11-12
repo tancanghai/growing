@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/**
+			  var x=function(){
+				console.log("x");
+			}
+			function fun(callback){
+				callback();
+				console.log("fun");
+				callback();
+			}
+			fun(x);
+			*/
+			/**
+			var add=function(a,b){
+				return a+b;
+			}
+			var mylti=function(a,b){
+				return a*b;
+			}
+			function sum(a,b,callback){
+				console.log(callback(a,b));
+			}
+			//sum(2,3,"add");//报错;callback必须是一个函数;
+			sum(2,3,add);
+			*/
+		   /**
+		   var add=function(a,b){
+		   	console.log(`${a}`); 
+		   }
+		   var mylti=function(a,b){
+		   	return a*b;
+		   }
+		  function sum(a,b,callback){
+		  	console.log(callback(a,b));
+		  }
+         sum(2,3,function(a,b){
+			 console.log(11);
+			 return a*b;
+			 
+			 }
+			 );
+			 */
+		</script>
+	</body>
+</html>

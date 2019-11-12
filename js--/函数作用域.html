@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function a(){
+				var a="a";
+				function b(){
+					var a="b";
+					function c(){
+						var a="c";
+						console.log(a);
+					}
+					c();//函数作用域 先在自身找变量a，没有再一层一层往上寻找;想调用全局的a就使用window.a;
+				}
+			}
+			
+			function x(){
+				console.log(a);//
+				//var a="a";//函数里面的变量也会提前声明,函数也是一样;
+				//a="a";//但是没有var声明的变量不会提前声明，而是被当成全局变量了,在这函数之后也能调用;
+			}
+		</script>
+	</body>
+</html>
