@@ -1,0 +1,14 @@
+1.先下载  npm install url-loader file-loader -D;
+2.再把写好的样式import引入
+3.再到webpack-config.js 写入
+module: {
+	     rules: [
+	       {
+	         test: /\.(ttf|eot|svg|woff|woff2)$/,
+	         use: [
+	           { loader: 'url-loader0' },
+	         ]
+	       },
+	     ]
+	   },
+4.再重新执行一下webpack-dev-server也就是 npm run dev；  

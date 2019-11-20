@@ -1,0 +1,14 @@
+1.先下载  npm install url-loader file-loader -D;
+2.再把写好的样式写入css文件中    background-image:url('./../1.jpg');
+3.再到webpack-config.js 写入
+module: {
+	     rules: [
+	       {
+	         test: /\.(jpg|png|gif|bmp|jpeg)$/,
+	         use: [
+	           { loader: 'url-loader?limit=121450' },//limit限制图片的大小
+	         ]
+	       },
+	     ]
+	   },
+4.再重新执行一下webpack-dev-server也就是 npm run dev；  
