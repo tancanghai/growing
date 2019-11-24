@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+	</head>
+	<body>
+		<div id="app" >
+			<p>{{msg}}</p>
+		</div>
+	</body>
+	<script src="http://localhost:8080/dist/bundle.js" type="text/javascript" charset="utf-8"></script>
+	
+	<!-- 
+	 vue.js报错 [Vue warn]: Cannot find element: #app
+	 在做vue.js案列练习时，会出现 [Vue warn]: Cannot find element: #app的错误；
+	 
+	 原因是：我把相关的js文件放在head里面，导致文件未加载完成就运行js文件，所以js找不到 #app 。
+	 
+	 改正： 把相关js文件放至尾部，保证页面全部渲染完成才加载js，就可以避免这个错误。
+	 -->
+</html>
+<!-- 
+ 1.配置好所有webpack之前的程序
+ 2.install vue到项目中
+ 3.写好main.js和index.html
+ 如下：
+ import Vue from '../node_modules/vue/dist/vue.js'//写的是相对路径；如果写的是import Vue from 'vue.js'
+ 那么使用的是模块目录下node_modules下的vue目录下的package.json中的"main": "dist/vue.runtime.common.js",这个文件；
+ console.log("ss");
+ var vm=new Vue({
+ 	el:"#app",
+ 	data:{
+ 		msg:"nihaoVue!"
+ 	}
+ });
+ 4.重新使用npm run dev；
+ 
+ import Vue from 'vue.js' 的查找文件规则：
+ a.找项目根目录中有没有node_modules的文件夹
+ b.在node_modules中根据包名，找对应的vue文件夹
+ 3.在vue文件中找package.json包配置属性
+ 4.在package.json中查找一个main属性【main书相应指定了这个包在被加载时候的入口文件}
+ -->

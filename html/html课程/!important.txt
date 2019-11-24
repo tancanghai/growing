@@ -1,0 +1,26 @@
+CSS中提升优先级属性!important的用法总结
+一、语法
+选择器{样式:值!import;}
+二、说明
+提升指定样式规则的应用优先权，即!important为开发者提供了一个增加样式权重的方法，让浏览器首选执行这个语句。
+
+例如下面这个样式：
+
+div{
+margin-left:20px!important;
+margin-left:40px;
+}
+如果是在除了IE6的浏览器中，这些浏览器支持!important属性，也就是说他们会默认让margin-left:20px!important; 这条语句生效，下面的不带!important声明的样式将不会覆盖它，换句话说就是他的级别最高，下面的人都不能取代我！
+在IE6及以下浏览器有个比较显式的支持问题存在，!important在同一条规则集里不生效。请看下述代码：
+
+div {
+margin-left:20px!important;
+}
+div {
+margin-left:40px;
+}
+在上述代码中，IE6及以下浏览器中div的margin-left与其它浏览器一致，都为20px;
+注意：
+1、IE6及更早浏览器下，!important在同一条规则集内不生效。
+2、如果!important被用于一个简写的样式属性，那么这条简写的样式属性所代表的子属性都会被作用上!important。
+3、关键字!important必须放在一行样式的末尾并且要放在该行分号前，否则就没有效果。

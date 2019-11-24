@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+	</head>
+	<body>
+		<div id="app" >
+			<p>{{msg}}</p>
+		</div>
+	</body>
+	<script src="http://localhost:8080/dist/bundle.js" type="text/javascript" charset="utf-8"></script>
+</html>
+<!-- 
+//使用render渲染指定的组件
+1.安装
+npm install -D vue-loader vue-template-compiler
+
+2.webpack 配置
+// webpack.config.js
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
+
+module.exports = {
+  module: {
+    rules: [
+      // ... 其它规则
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'
+      }
+    ]
+  },
+  plugins: [
+    // 请确保引入这个插件！
+    new VueLoaderPlugin()
+  ]
+}
+
+3.
+import Vue from 'vue'
+import login  from "./vue/login.vue"
+var vm=new Vue({
+	el:"#app",
+	data:{
+		msg:"nihaoVue!"
+	},
+	render:function(createElements){//
+		//createElements是一个方法，调用它能够把指定的组件模板，渲染为html
+		return createElements(login);//替换掉el容器
+	}
+});
+ -->
