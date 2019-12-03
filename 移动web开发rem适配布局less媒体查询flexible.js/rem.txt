@@ -1,0 +1,54 @@
+document.documentElement.clientWidth
+获取浏览器窗口文档显示区域的宽度，不包括滚动条。
+document.documentElement.clientHeight
+获取浏览器窗口文档显示区域的高度，不包括滚动条。
+
+rem的大小是根据html也就是document文档元素根元素来设置的；
+如果不修改html根元素的大小那么rem是固定的1rem=16px;
+
+但是通过以下设置便能设置成html字体大小和文档的宽度成一定的比例，
+也造成rem成为了文档宽度的一定比例；
+
+html.style.fontSize = document.documentElement.clientWidth/37+'px';//我自己的写法是因为一般的手机屏幕像素是370左右；除以37可以使1rem=clientWidth/37≈10px;
+
+简单示例：
+1.先设置header里面的meta标签：
+meta name="viewport" content="initial-scale=1,maximum-scale=1, minimum-scale=1"
+2.在header写上script标签
+document.documentElement.style.fontSize = document.documentElement.clientWidth / 640*100 + 'px';
+要设置Html的font-size： 设置html标签的font-size，上面概论（使用rem为元素设定字体大小时，相对大小对比的是HTML根元素）写的很清晰，页面元素使用rem单位时，是相对于这个html标签的font-size的大小为基础的。
+
+var html =document.querySelector('html');
+html.style.fontSize = document.documentElement.clientWidth/10+'px';
+
+2.复杂示例；
+<!DOCTYPE html>
+<html style="font-size:100px">
+    <head>
+        <meta charset='utf-8'>
+        <meta name="viewport" content="width=320px, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <title>手机端模板</title>
+        <script>
+        (function(doc, win) {
+            var html = doc.getElementsByTagName("html")[0],
+            // orientationchange->手机屏幕转屏事件
+            // resize->页面大小改变事件(一边pc端有用)
+                reEvt = "orientationchange" in win ? "orientationchange" : "resize",
+                reFontSize = function() {
+                    var clientW = doc.documentElement.clientWidth || doc.body.clientWidth;
+                    if(!clientW) {
+                        return;
+                    }
+                    html.style.fontSize = 100 * (clientW / 375) + "px";
+            }
+            win.addEventListener(reEvt, reFontSize);
+            // DOMContentLoaded->dom加载完就执行,onload要dom/css/js都加载完才执行
+            doc.addEventListener("DOMContentLoaded", reFontSize);
+        })(document, window);
+        </script>
+    </head>
+    <body>
+     
+    </body>
+    <script></script>
+</html>
