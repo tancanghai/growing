@@ -1,0 +1,17 @@
+1.通过对比使用vscode这个编辑软件；
+2.通过控制面板->程序与功能 卸载已经安装的程序
+3.https://code.visualstudio.com/Download 下载 安装
+
+windows下搭建go开发环境-安装和配置sdk
+sdk的全程是软件开发工具包  包含了开发语言的工具包
+安装包下载地址：https://golang.google.cn/dl/
+ 
+go在window需要配置三个环境变量
+GOROOT 指定sdk的安装路径
+path添加sdk的/bin目录
+GOPATH 工作目录，项目路径
+
+使用命令：go version检测是否安装成功
+
+通过：go build 文件；对该go文件进行编译，生成.exe文件。
+在dos命令下执行.exe文件就可以看到执行结果；
