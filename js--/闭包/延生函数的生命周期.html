@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//定义一个函数不会开创内存空间，只有当被调用的时候才会开创一个内存空间，当函数被调用完成之后没有被使用就会清除内存空间
+			//全局属性不会被清除，但是如果是函数未被使用的函数作用域空间在调用完成之后会被清除
+			//但是当函数内部被使用是不会被清除的；
+			//https://www.cnblogs.com/xjnotxj/p/7452698.html
+		function hd(){
+			var  n=1;
+			return function sum(){
+				console.log(++n);
+			}
+		}
+		var a=hd();
+		a();
+		a();
+		var b=a();
+		console.log(b);
+		</script>
+	</body>
+</html>
