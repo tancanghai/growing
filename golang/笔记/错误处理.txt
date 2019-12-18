@@ -1,0 +1,2 @@
+go种的错误处理为 ：defer,panic,recover
+抛出一个panic的异常，然后再defer种通过recover捕获这个异常，然后正常处理；

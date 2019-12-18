@@ -1,0 +1,29 @@
+1.
+func main(){
+    res1 := func (n1 int, n2 int) int {
+        return n1 + n2
+    }(10, 30)  //括号里的10,30 就相当于参数列表，分别对应n1和n2
+    
+    fmt.Println("res1=",res1)
+}
+
+2.
+func main(){
+    //将匿名函数fun 赋给变量test_fun
+    //则test_fun的数据类型是函数类型，可以通过test_fun完成调用
+    test_fun := func (n1 int, n2 int) int {
+        return n1 - n2
+    }
+}
+
+3.
+var (
+    Test_fun = func (n1 int, n2 int) int {
+        return n1 - n2
+    }
+)
+func main(){
+    val1 := Test_fun(9, 7)
+
+    fmt.Println("val1=", val1)
+}
