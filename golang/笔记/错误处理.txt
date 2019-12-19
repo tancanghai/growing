@@ -1,2 +1,31 @@
 go种的错误处理为 ：defer,panic,recover
 抛出一个panic的异常，然后再defer种通过recover捕获这个异常，然后正常处理；
+进行错误处理后，程序不会轻易挂掉，如果加入预警代码，就可以让程序更加的健壮；
+
+func main(){
+
+	defer func(){
+		res:=recover()
+		if res!=nil{
+			fmt.Println(res) 
+			fmt.Println("报警")
+		}else{
+			fmt.Println("ok")
+		}
+	}()
+	test()
+
+}
+func  init(){
+
+}
+func test(){
+	fmt.Println(time.Now())//获取当前时间
+	fmt.Printf("%T\n",time.Now())
+	var yibai=100
+	var lin=0
+	var rusl=yibai/lin
+	fmt.Println(rusl)
+	fmt.Println()
+}
+
