@@ -1,0 +1,34 @@
+map是引用类型，  map增加元素容量自动增加没有限制；
+
+
+map使用的三种方式
+1.
+var maps map[类型]类型
+maps  =make(map[类型]类型)
+2.
+var maps =make(map[类型]类型)
+3.
+var maps map[类型]类型=map[类型]类型{
+	“key”:"value"
+}
+map的增删改查
+增加和修改
+maps["key"]=value
+
+删除
+delete(maps,"key");有就删除没有就不操作
+全部删除 ：
+1.遍历时用delete()
+2.maps=make()make一个新的map替换原来的map让系统回收 
+
+查找
+val,find:=maps["key"] 
+如果有则find为true否则false  val为键值
+
+map的遍历只能使用for -range遍历不能使用for遍历 因为key不是为数字；
+
+切片的数据如果是map，则我们能称为map切片，这样使用则map个数就可以动态变化了。
+slices:=[]map[类型]类型    make([]map[类型]类型)   使用切片的append函数动态增加map
+
+
+
