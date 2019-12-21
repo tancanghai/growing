@@ -1,0 +1,29 @@
+切片： 
+切片是数组的引用，使用和数组类似，遍历切片，访问切片的元素和求切片长度和数组都一样；
+切片的长度时可以变化的；
+
+切片的使用
+1.
+第一种方式：定义一个切片，然后让切片去引用一个已经创建好的数组，比如前面的案例就是这样的
+	var arr [4]int=[...]int{1,2,3,4}
+	var slic=arr[1:3]
+2.
+第二种方式：通过make来创建切片
+基本语法：
+var 切片名  []type=make([]type,len,[cap])  【说明：type:就是数据类型；len：大小；cap：指定切片容量，可选】
+var slics []int=make([]int,3,4)
+3.
+第三种方式：直接指定具体数组
+基本语法：
+var 切片名  []type=[]int{}
+var slics []int=[]int{1,2,3}
+
+切片可以继续切片；
+
+cap时一个内置函数，用于同级切片的容量，即最大可以存放多少个元素；
+var slice=arr[0:end]  var slice=arr[start:end]  var slice=arr[:]   
+
+使用append可以对切片进行动态追加 var slice=append(slic,10,20,30)
+
+string底层是一个byte数组，因此string也可以进行切片处理
+如果需要修改字符串，可以先将string->[]byte或者[]rune->修改->重写转成string
