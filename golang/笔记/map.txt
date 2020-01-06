@@ -1,14 +1,16 @@
 map是引用类型，  map增加元素容量自动增加没有限制；
+Go语言中 map 是一种特殊的数据结构，一种元素对（pair）的无序集合，pair 对应一个 key（索引）和一个 value（值），
+所以这个结构也称为关联数组或字典，这是一种能够快速寻找值的理想结构，给定 key，就可以迅速找到对应的 value。
 
 
 map使用的三种方式
 1.
-var maps map[类型]类型
-maps  =make(map[类型]类型)
+var maps map[keytype]valuetype
+maps  =make(map[keytype]valuetype)
 2.
-var maps =make(map[类型]类型)
+var maps =make(map[keytype]valuetype)
 3.
-var maps map[类型]类型=map[类型]类型{
+var maps map[keytype]valuetype=map[keytype]valuetype{
 	“key”:"value"
 }
 map的增删改查
