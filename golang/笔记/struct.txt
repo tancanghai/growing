@@ -33,3 +33,40 @@ func main()  {
    (*person3).Age = 23
    fmt.Println(*person3)
 }
+
+创建结构体示例时，可以直接指定字段的值
+方式1 
+var stu  Student=Student{"value1","value2","value3"}//直接对应结构体的field顺序来排列
+方式2
+var stu  Student =Student{
+	key1:"value1",
+	key2:"value2",
+	key3:"value3",
+}
+
+结构体市用户单独定义的类型，和其它类型进行转换时需要有完全相同的字段（名字，个数和类型）
+
+将结构体序列化成json传递
+type Person struct {
+   Name string   `json:"name"`
+   Age int            `json:"age"`
+}
+jsonStr,err:=json.Marshal(person)
+
+
+结构体调用
+package model
+type Box struct {
+	Width  float64
+	Height float64
+	Length float64
+}
+调用：
+func main() {
+	var box =model.Box{//结构体名需要大写
+		Width  : 10.1,//字段名需要大写
+		Height : 10.2,
+		Length : 10.3,
+	}
+	fmt.Printf("%v", box)
+}

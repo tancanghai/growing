@@ -1,0 +1,13 @@
+下载elasticsearch
+还需要安装java环境（菜鸟教程有）   
+
+JDK环境变量配置
+        3.1：计算机—右键—属性—高级系统设置—环境变量设置
+        3.2：新建一个名为JAVA_HOME的环境变量
+                变量名：JAVA_HOME
+                变量值：E:\Java\jdk1.8.0_40 （即为JDK路径）
+                
+       3.2：找到系统变量中名为Path的环境变量，点击编辑
+               变量末尾添加值：;%JAVA_HOME%\bin
+验证JDK环境配置成功
+       dos命令，输入cmd，命令下输入javac -version，出现相应jdk版本，则环境配置成功，至此，JDK1.8版本环境搭建完成。
