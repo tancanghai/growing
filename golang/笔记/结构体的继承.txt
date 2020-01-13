@@ -1,0 +1,55 @@
+嵌套匿名结构体的基本语法
+type  Goods struct {
+	Name string
+	Price int
+}
+
+type Book struct {
+	Goods//嵌套匿名结构体Goos
+	Writer string
+}
+1.结构体可以使用嵌套匿名结构体所有的字段和方法，
+2.匿名结构体字段访问可以简化，如：
+func main(){
+    var b Book
+    b.Goods.Name=b.Name
+    b.Goods.say()=b.say()
+}
+3.当结构体和匿名结构体有相同的字段或者方法时，编译器采用就近原则访问，如希望访问匿名
+结构体的字段和方法时，可以通过匿名结构体名来区分比如：b.Goods.say()
+4.结构体嵌入俩个（或者多个）匿名结构体，如俩个匿名结构体有相同的字段和方法（同时结构体本身没有
+同名的字段和方法），在访问时，就必须明确指定匿名结构体名字，否则编译报错。同上第3点
+
+
+
+例子：
+type  Goods struct {
+	Name string
+	Price int
+}
+
+func (g Goods)NewGoods() Goods{
+	return Goods{
+		Name:"apal",
+		Price:10,
+	}
+}
+func (g Goods) apal()  {
+	fmt.Println("apal",g.NewGoods())
+}
+
+
+type Book struct {
+	Goods//嵌套匿名结构体Goos
+	Writer string
+}
+
+func (b Book) books()  {
+	fmt.Println(b)
+}
+
+func  main()  {
+	b:=Book{}
+	//b.books()
+	b.apal()
+}

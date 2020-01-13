@@ -1,7 +1,6 @@
 结构体是值类型
 结构体的4种创建方式
 package main
- 
 import "fmt"
  
 type Person struct {

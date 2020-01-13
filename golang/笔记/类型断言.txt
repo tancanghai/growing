@@ -1,0 +1,61 @@
+类型断言的语法：
+  value ,ok := x.(type)
+  x表示一个接口的类型，type表示一个具体实现的类型
+  value表示返回值,ok并表示判断 返回bool值
+  
+ 如果 T 是具体某个类型，类型断言会检查 x 的动态类型是否等于具体类型 T。如果检查成功，类型断言返回的结果是 x 的动态值，其类型是 T。
+如果 T 是接口类型，类型断言会检查 x 的动态类型是否满足 T。如果检查成功，x 的动态值不会被提取，返回值是一个类型为 T 的接口值。
+无论 T 是什么类型，如果 x 是 nil 接口值，类型断言都会失败。
+
+  例子：一
+  package  main 
+   import "fmt"
+   func main (){
+        var  x interface{}
+        x=10
+       value,ok := x.(type)  //返回值   10，true  如果失败 panic: interface conversion: interface {} is string, not int
+ }
+
+例子：二
+func getType(a interface{}) {
+    switch a.(type) {
+    case int:
+        fmt.Println("the type of a is int")
+    case string:
+        fmt.Println("the type of a is string")
+    case float64:
+        fmt.Println("the type of a is float")
+    default:
+        fmt.Println("unknown type")
+    }
+}
+ 
+例子三 ：
+    package  main 
+   import "fmt"
+   func main (){
+        type X  interface{
+             func1
+             func2
+       }
+
+        type  Usb  struct{
+            name  string
+            old     int
+        }
+        func (usb  Usb)  func1(){
+            fmt.println("11")
+       }
+       func  (usb  Usb) func2(){
+            fmt.println("22")
+       }
+       func  (usb  Usb) func3(){
+            fmt.println("33")
+       }
+
+      var  x  X
+      var usb  Usb
+      x=usb
+      value.ok  :=  x.(Usb)
+      value.func3()//通过类型断言实现接口里面没有的方法
+  }

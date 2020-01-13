@@ -1,0 +1,47 @@
+package main
+
+import "fmt"
+
+type usb interface {
+	start()
+	end()
+}
+type iphone struct {
+	name string
+	size int
+}
+
+func (i iphone) start()  {
+	fmt.Println("手机开始....")
+}
+func (i iphone) end()  {
+	fmt.Println("手机停止....")
+}
+
+type computer struct {
+	name string
+	size int
+}
+
+func (c computer) start()  {
+	fmt.Println("手机开始....")
+}
+func (c computer) end()  {
+	fmt.Println("手机停止....")
+}
+
+type usbInterface struct {
+	name string
+	size int
+}
+
+func (u usbInterface) use(usb1 usb){
+	usb1.start()
+	usb1.end()
+}
+func main()  {
+	var i iphone=iphone{}
+	//var c computer=computer{}
+	var u usbInterface=usbInterface{}
+	u.use(i)
+}
