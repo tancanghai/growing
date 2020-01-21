@@ -1,0 +1,17 @@
+1. os.file封装了所有文件相关的操作，file是一个结构体
+bufio	    	bufio 包实现了带缓存的I/O操作.
+ ioutil	    	ioutil 实现了一些I/O的工具函数。
+
+os.open()  打开一个文件
+File.Close() 关闭一个文件  
+
+2. 读取文件内容并显示再终端（带缓冲区的方式），
+使用os.open,file.Close,bufio.NewReader(),reader.ReadString函数和方法；
+
+3.  读取文件内容并显示再终端(使用ioutil一次将整个文件读入到内存中)，
+这种方式适用于文件不大的情况  使用ioutil.ReadFile
+#ReadFile 读取名为 filename 的文件并返回其内容。 一次成功的调用应当返回 err == nil，
+#而非 err == EOF。因为 ReadFile 会读取整个文件， 它并不会将来自 Read 的EOF视作错误来报告。
+
+4.将一个文件的内容写入另外一个文件。
+使用ioutil.ReadFile()和ioutil.WriteFile()

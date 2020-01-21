@@ -1,0 +1,38 @@
+package main
+
+import (
+	"bufio"
+	"fmt"
+	"os"
+)
+
+func main() {
+	//创建一个新文件，写入内容5句"hello"
+	//1.打开文件D:/wenjian/xudalao.txt
+	filePath:="D:/wenjian/xudalao.txt"
+	file,err:=os.OpenFile(filePath,os.O_WRONLY |os.O_CREATE,0666)
+	//func OpenFile(name string, flag int, perm FileMode) (file *File, err error)
+	//第二个参数是这个包里面的常量，注意选择合适的常量，第三个是权限模式
+	if err !=nil{
+		fmt.Printf("open file err=%v\n",err)
+		return
+	}
+	defer file.Close()//关闭文件
+
+	//写入str
+	str := "hello\n\r"//因为编辑器有些是认\n有些是\n
+	//写入缓存
+	writer := bufio.NewWriter(file)
+	for i:=0;i<5;i++{
+		writer.WriteString(str)
+	}
+	//再把写入缓存的数据Flush()到文件中
+	writer.Flush()
+	/*
+	hello
+	hello
+	hello
+	hello
+	hello
+	*/
+}

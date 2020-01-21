@@ -1,0 +1,34 @@
+package main
+
+import (
+	"bufio"
+	"fmt"
+	"io"
+	"os"
+)
+
+func main() {
+	//file是结构体
+	//1.file对象，file指针，file文件句柄
+	file, err := os.Open("D:/wenjian/xudalao.txt")
+	defer file.Close()
+	if err != nil {
+		fmt.Print(err)
+	} else {
+		fmt.Println(file)   //输出的是文件的指针地址
+	}
+	reader := bufio.NewReader(file)
+	/*
+	Reader实现了对一个io.Reader对象的缓冲读。
+	NewReader返回一个新的Reader，这个Reader的大小是默认的大小。
+	bufio 包实现了带缓存的I/O操作. 它封装了一个io.Reader或者io.Writer对象，另外创建了一个对象 （Reader或者Writer），这个对象也实现了一个接口，并提供缓冲和文档读写的帮助。
+	*/
+	for {
+		str,err := reader.ReadString('\n')// 读取一行然后第二次从第下一行开始读取
+		if err == io.EOF {//读取结束
+			break
+		}
+		fmt.Print(str)
+	}
+	fmt.Println("文件读取结束！")
+}
