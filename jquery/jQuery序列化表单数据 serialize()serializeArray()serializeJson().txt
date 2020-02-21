@@ -1,0 +1,16 @@
+1.var str = $("#test_form").serialize();//返回字符串
+输出：username=&password=&hobby=eat&sex=man&school=yangguang
+
+2.var jsonData = $("#test_form").serializeArray();//返回json对象
+输出：[
+	{"name":"username","value":""},
+	{"name":"password","value":""},
+	{"name":"hobby","value":"eat"},
+	{"name":"sex","value":"man"},
+	{"name":"school","value":"yangguang"}
+          ]
+
+3.使用serializeJson()，并不是jquery自带的函数，
+使用：var data = $("#test_form").serializeJson();//返回json对象
+
+输出：序列化为json格式为：{"hobby":"eat","sex":"man","school":"yangguang"}
