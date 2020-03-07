@@ -1,0 +1,29 @@
+https://www.cnblogs.com/aksir/p/7183492.html
+注意:开启扩展注意是否已经 安装了 redis， 并且 开启了 redis服务
+
+开启扩展
+1.使用phpinfo()函数查看PHP的版本信息，这会决定扩展文件版本。
+
+php extension build     ;php version;
+
+下载地址：【选择适合的版本】
+
+http://windows.php.net/downloads/pecl/snaps/redis/
+
+http://windows.php.net/downloads/pecl/releases/igbinary/
+
+ps：如果在PHP目录下看到php7ts.dll则选择ts版本
+
+3.解压缩后，将php_redis.dll和php_igbinary.dll拷贝至php的ext目录下
+
+4.修改php.ini，(PS：此php.ini文件是在Apache目录）在该文件中加入：
+
+; php_redis
+
+extension=php_igbinary.dll
+
+extension=php_redis.dll
+
+注意：extension=php_igbinary.dll一定要放在extension=php_redis.dll的前面，否则此扩展不会生效
+
+5.重启Apache后，使用phpinfo查看扩展是否成功安装

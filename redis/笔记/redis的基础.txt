@@ -1,0 +1,7 @@
+http://redisdoc.com  redis文档
+
+string(字符串)  相当于变量   变量值
+hash(哈希)   相当于 go 语言的map    有键名的数组    var hash =['key1':value1,'key2':value2]
+list(列表)   相当于    无键名的数组      var list=[value1,value2]  列表值是排序的  先入后出 形式 像数据库倒序取值
+set(集合)   相当于    var  set= 值集合 
+set(有序集合)   相当于    var  set= （值+标签score）的集合

@@ -1,0 +1,41 @@
+redis的官方文档：http://www.redis.cn/
+  下载后直接解压就有redis的 服务器端程序 (redis-server.exe) 和 客户端程序 (redis-cli.exe)，直接双击解压即可运行，并不需要安装
+
+安装服务
+
+下载地址：
+  https://github.com/MSOpenTech/redis/releases   
+  或者
+  https://github.com/antirez/redis/releases
+  在github下面下载需要的redis版本     
+
+切换到redis根目录 
+
+redis-server.exe，启动redis    检测redis是否可以成功启动
+打开命令行，进入redis目录，执行 redis-server.exe --service-install redis.windows.conf --loglevel verbose，添加到“服务”且
+如果执行了redis命令 查看logs文件夹和dbcache文件夹，有logfile.log和dump.rdb。
+
+注意 ：如果在命令行窗口输入redis-server.exe redis.windows.conf指令执行 报错误
+[13164] 27 Dec 20:57:07.820 # Creating Server TCP listening socket 127.0.0.1:637 9: bind: No error。
+那么可以输入如下的命令依次执行第一条指令：redis-cli.exe，第二条指令：shutdown第三条指令：exit
+
+
+redis.windows.conf 文件的配置（Linux中的名字叫做redis.conf），这里只配置5项基本
+参数：
+	daemonize no   配置redis是否为后台运行
+	pidfile /var/run/redis_6379.pid   设置进程保存路径
+	logfile "./logs/logfile.log"    日志保存目录
+	databases 16     支持的数据库个数
+	dir ./dbcache      保存数据文件的目录
+
+
+另外，配置一下环境变量，将redis路径添加到path中。
+
+如果要练习客户端命令等，需要另外启动一个命令窗口，同样在同一个目录里，输入命令Redis-cli.exe就可以连接上了（如果没有改
+默认配置的端口号），如果改了，就输入更加详细的命令：redis-cli.exe -h 127.0.0.1 -p 6379就可以，根据这种格式对应改自己的
+修改的配置即可
+set  aa  first
+get aa
+
+
+
