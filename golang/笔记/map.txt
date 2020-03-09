@@ -10,7 +10,7 @@ maps  =make(map[keytype]valuetype)
 2.
 var maps =make(map[keytype]valuetype)
 3.
-var maps map[keytype]valuetype=map[keytype]valuetype{
+var maps =map[keytype]valuetype{
 	“key”:"value"
 }
 map的增删改查
