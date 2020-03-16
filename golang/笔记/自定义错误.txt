@@ -2,13 +2,17 @@
 
 New 返回一个按给定文本格式化的错误。
 代码：
-
-err := errors.New("emit macho dwarf: elf header corrupted")
-if err != nil {
-    fmt.Print(err)
+if  (正确 )
+ {
+ }
+else{
+     err := errors.New("emit macho dwarf: elf header corrupted")
 }
-输出：
 
+  if err != nil {
+       fmt.Print(err)
+   }
+输出：
 emit macho dwarf: elf header corrupted
 
 

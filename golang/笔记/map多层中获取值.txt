@@ -1,0 +1,34 @@
+package main
+
+import (
+	"encoding/json"
+	"fmt"
+)
+
+func main()  {
+	// 我们使用的数据为json后的map, 内容与上面展示的完全相同，所以需要先从json解析到map
+	cityInfo := "{\"status\": 0,\"result\": {\"location\": {\"lat\": 39.88,\"lng\": 118.69},\"address\": \"河北省唐山市迁安市京哈高速公路\",\"address_component\": {\"nation\": \"中国\",\"province\": \"河北省\",\"city\": \"唐山市\",\"district\": \"迁安市\",\"street\": \"京哈高速公路\",\"street_number\": \"京哈高速公路\"}}}"
+	//fmt.Println(cityInfo)
+
+	cityInfoMap := JSONToMap(cityInfo)
+	//fmt.Println(cityInfoMap)
+
+	cityName,_:= cityInfoMap["result"].(map[string]interface{})["address_component"].(map[string]interface{})["district"]
+	fmt.Println(cityName)   // 这里会输出迁安市， 取到对应的值，OK
+
+
+}
+
+// json转Map ()
+func JSONToMap(str string) map[string]interface{} {
+
+	var tempMap = make(map[string]interface{})
+
+	err := json.Unmarshal([]byte(str), &tempMap)
+
+	if err != nil {
+		panic(err)
+	}
+
+	return tempMap
+}
