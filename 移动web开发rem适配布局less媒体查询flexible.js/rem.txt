@@ -9,14 +9,16 @@ rem的大小是根据html也就是document文档元素根元素来设置的；
 但是通过以下设置便能设置成html字体大小和文档的宽度成一定的比例，
 也造成rem成为了文档宽度的一定比例；
 
-html.style.fontSize = document.documentElement.clientWidth/37+'px';//我自己的写法是因为一般的手机屏幕像素是370左右；除以37可以使1rem=clientWidth/37≈10px;
+html.style.fontSize = document.documentElement.clientWidth/37+'px';//我自己的写法是因为一般的手机屏幕像素是370左右；除以37
+可以使1rem=clientWidth/37≈10px;
 
 简单示例：
 1.先设置header里面的meta标签：
 meta name="viewport" content="initial-scale=1,maximum-scale=1, minimum-scale=1"
 2.在header写上script标签
 document.documentElement.style.fontSize = document.documentElement.clientWidth / 640*100 + 'px';
-要设置Html的font-size： 设置html标签的font-size，上面概论（使用rem为元素设定字体大小时，相对大小对比的是HTML根元素）写的很清晰，页面元素使用rem单位时，是相对于这个html标签的font-size的大小为基础的。
+要设置Html的font-size： 设置html标签的font-size，上面概论（使用rem为元素设定字体大小时，相对大小对比的是HTML根元素）写的很
+清晰，页面元素使用rem单位时，是相对于这个html标签的font-size的大小为基础的。
 
 var html =document.querySelector('html');
 html.style.fontSize = document.documentElement.clientWidth/10+'px';

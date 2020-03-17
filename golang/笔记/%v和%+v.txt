@@ -1,0 +1,20 @@
+Go语言中打印结构体推荐使用“%+v”，而不是“%v”。看一下二者区别：
+
+package main
+
+import "fmt"
+
+type info struct {
+    name string
+    id int
+}
+
+func main()  {
+    v := info{"Nan", 33}
+    fmt.Printf("%v\n", v)
+    fmt.Printf("%+v\n", v)
+}
+运行结果如下：
+
+{Nan 33}
+{name:Nan id:33}

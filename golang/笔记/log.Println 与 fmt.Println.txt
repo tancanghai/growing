@@ -1,0 +1,15 @@
+func main() {
+	fmt.Println("fmt.Println")
+	log.Println("log.Println")
+}
+运行结果：
+
+$ go run main.go
+
+fmt.Println
+2019/10/20 15:27:38 log.Println
+可见：
+
+log.Println：包含时间戳
+fmt.Println：不包含时间戳
+所以，对于日志打印及查看的场景，还是使用 log.Println 更好。
