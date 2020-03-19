@@ -16,10 +16,13 @@
 				console.log(++n);
 			}
 		}
+		hd()();//2
+		hd()();//2
 		var a=hd();
-		a();
-		a();
-		var b=a();
+		console.log(a);
+		a();//2
+		a();//3
+		var b=a();//4
 		console.log(b);
 		</script>
 	</body>
