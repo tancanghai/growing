@@ -1,8 +1,10 @@
 ﻿SELECT NOW() 黑匣子 不能单独使用now() 必须用select
 SELECT STR_TO_DATE(start_date,'%Y-%m-%d') FROM efo_ad WHERE id='44' 黑匣子:在图形管理工具里引号里面的字符串为红色，关键字是蓝色
-DATE_FORMAT(date,format)          date 参数是合法的日期。format 规定日期/时间的输出格式。  DATE_FORMAT(NOW(),'%m-%d-%Y')；select  DATE_FORMAT('2019,02,22',"%Y %m  %d");select  DATE_FORMAT('2019-02-22',"%Y ,%m , %d");select  DATE_FORMAT('20190222',"%Y ,%m , %d");都是正确的
+DATE_FORMAT(date,format)          date 参数是合法的日期。format 规定日期/时间的输出格式。  DATE_FORMAT(NOW(),'%m-%d-%Y')；select 
+ DATE_FORMAT('2019,02,22',"%Y %m  %d");select  DATE_FORMAT('2019-02-22',"%Y ,%m , %d");select  DATE_FORMAT('20190222',"%Y ,%m , %d");都是正确的
 FROM_UNIXTIME(created, '%Y-%m-%d')  把时间戳转换成时间格式
-数据类型  date 日期。格式：YYYY-MM-DD     ;    DATETIME 日期和时间的组合。格式：YYYY-MM-DD HH:MM:SS  ;  TIME 时间。格式：HH:MM:SS 注释：支持的范围是从 '-838:59:59' 到 '838:59:59'
+数据类型  date 日期。格式：YYYY-MM-DD     ;    DATETIME 日期和时间的组合。格式：YYYY-MM-DD HH:MM:SS  ;  TIME 时间。格式：HH:MM:SS 注释：支持的范围是从 
+'-838:59:59' 到 '838:59:59'
 
 SELECT DISTINCT(ad_position_id) from efo_ad  黑匣子  distinct 打错字了
 SELECT * from efo_ad WHERE (id=44 or id=45) and id=44
