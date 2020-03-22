@@ -1,0 +1,27 @@
+rpm -qa     ：查询已经安装哪些软件包。
+rpm -q 软件包名：   查询指定软件包是否已经安装。
+YUM（全称为 Yellow dog Updater, Modified）是一个在Fedora和RedHat以及CentOS中的Shell前端软件包管理器。基于RPM包管理，
+能够从指定的服务器自动下载RPM包并且安装，可以自动处理依赖性关系，并且一次安装所有依赖的软件包，避免了手动安装的麻烦(寻找
+资源、下载；放到指定目录安装；处理依赖关系并下载依赖关系的包进行安装)。所以用yum安装，实质上是用RPM安装，所以RPM查询信
+息的指令都可用。
+如果使用RPM安装了一些包，一般来说，RPM默认安装路径如下：
+/etc
+一些配置文件的目录，例如/etc/init.d/mysql
+/usr/bin
+一些可执行文件
+/usr/lib
+一些程序使用的动态函数库
+/usr/share/doc
+一些基本的软件使用手册与帮助文档
+/usr/share/man
+一些man page文件
+以MySQL的安装为例，我们使用RPM方式安装了MySQL的两个包，其实rpm有两个参数-l和-c可以帮助我们查看具体的安装路径。
+-l 显示软件包中的文件列表
+-c 显示配置文件列表
+[root@DB-Server ~]# rpm -qa | grep -i mysql
+
+  MySQL-server-advanced-5.6.20-1.rhel5
+  MySQL-client-advanced-5.6.20-1.rhel5
+
+[root@DB-Server ~]# rpm -ql MySQL-client-advanced-5.6.20-1.rhel5
+[root@DB-Server tmp]# rpm -ql MySQL-server-advanced-5.6.20-1.rhel5
