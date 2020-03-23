@@ -5,10 +5,13 @@ touch：文件不存在的时候创建文件
 rm :- rf   强制删除
 cp或者mv :-a  复制或者剪切文件所有信息 cp -a  原文件名   /tmp/文件名(不加文件名 保持原来的文件名)
 pwd：文件所在目录
+
 find 范围(/)  -name   文件名          例如： find /root -name  "install.log*"
 grep:  [选项 -i 忽略大小写 ] 字符串  文件名     
+
 通配符：* 所有内容   ？任意一个字符   []匹配里面的字符  
 man :帮助命令
+
 tar :
 -c:打包
 -v:像是过程
@@ -17,6 +20,9 @@ tar :
 -z :压缩为tar.gz格式
 打包压缩： tar -zcvf 打包文件名   原文件
 解包 ：tar -zxvf   打包文件名 
+执行tar解压到/usr/loacl目录下（官方推荐），得到go文件夹等
+tar -C /usr/local -zxvf  go1.11.5.linux-amd64.tar.gz
+
 ctrl+c  强制终止当前命令
 ctrl+l 清屏
 tab 单机补全  双击提示
