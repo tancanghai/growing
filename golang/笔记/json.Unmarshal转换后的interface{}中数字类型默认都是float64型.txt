@@ -1,0 +1,5 @@
+我这里需要将interface{}型转化为int型，这个interface{}是通过json.Unmarshal解析过
+来的，不确定json中interface{}对应的实际会是数字字符串，还是数字型，另外，
+json.Unmarshal转换后的interface{}中数字类型默认都是float64型。
+
+用反射转换:
