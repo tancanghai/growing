@@ -1,0 +1,36 @@
+SELECT
+	* 
+FROM
+	tmp_scan_20200323 AS a
+	LEFT JOIN (
+SELECT
+	MAX( b.evt_time ) AS max_evt_time,
+	b.app_user_code 
+FROM
+	tmp_lottery_get_20200323 a
+	LEFT JOIN tmp_scan_20200323 b ON a.user_id = b.`app_user_code` 
+	AND a.evt_time > b.`evt_time` 
+GROUP BY
+	b.app_user_code 
+	) AS b ON  a.app_user_code = b.app_user_code  
+WHERE
+	a.evt_time = b.max_evt_time;
+
+比
+SELECT
+	* 
+FROM
+	tmp_scan_20200323 AS a
+	LEFT JOIN (
+SELECT
+	MAX( b.evt_time ) AS max_evt_time,
+	b.app_user_code 
+FROM
+	tmp_lottery_get_20200323 a
+	LEFT JOIN tmp_scan_20200323 b ON a.user_id = b.`app_user_code` 
+	AND a.evt_time > b.`evt_time` 
+GROUP BY
+	b.app_user_code 
+	) AS b ON  a.app_user_code = b.app_user_code  and a.evt_time = b.max_evt_time;
+快很多 原因evt_time加了索引
+	
