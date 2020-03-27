@@ -1,0 +1,21 @@
+帮助命令：
+ 	docker   version       查看docker的版本信息，
+	docker   info             查看Docker的系统信息，例如CPU、内存、容器个数等
+	docker   --help         Usage:	docker [OPTIONS] COMMAND
+
+镜像命令：
+	docker    images  
+		-a : 列出本地所有的镜像(包含中间映像层)
+		-q : 只显示镜像ID
+	docker    search   某个镜像的名字  【从https://hub.docker.com上查找】
+	docker    pull    镜像名字 [:TAG]
+	docker    rmi  -f   某个xxx镜像名字ID  
+  
+容器命令：【有镜像才能创建容器】
+
+
+docker run    [OPTIONS] IMAGE [COMMAND] [ARG...]
+创建从本地或者仓库镜像实例一个容器并运行
+-d: 后台运行容器，并返回容器ID；
+-P: 随机端口映射，容器内部端口随机映射到主机的高端口
+-p: 指定端口映射，格式为：主机(宿主)端口:容器端口
