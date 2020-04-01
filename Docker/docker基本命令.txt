@@ -11,6 +11,7 @@
 	docker    pull    镜像名字 [:TAG]
 	docker    rmi  -f   某个xxx镜像名字ID  
                  	docker commit -m "提交的描述信息"   -a="作者"   容器ID  要创建的目标镜像名:[标签名]
+      	提交容器副本使之成为本地新的镜像：例如：tancanghai/tomcat:1.2
   
 容器命令：【有镜像才能创建容器】
 	新建并启动容器：
@@ -43,7 +44,7 @@
 			-q :静默模式，只显示容器编号。
 			--no-trunc :不截断输出。
 	退出容器：
-		exit 容器停止退出
+		exit  容器不停止退出
 		ctrl+P+Q 容器不停止退出
 	启动容器：
 		docker start  容器ID或者容器名
