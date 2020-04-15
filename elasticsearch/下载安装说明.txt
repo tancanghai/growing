@@ -1,5 +1,6 @@
 下载elasticsearch
-还需要安装java环境（菜鸟教程有）   
+还需要安装java环境（菜鸟教程有）   如果要使用kibana那么在下载好elasticsearh的情况下还需要下载同版本的kibana
+
 
 JDK环境变量配置
         3.1：计算机—右键—属性—高级系统设置—环境变量设置
