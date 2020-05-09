@@ -1,6 +1,5 @@
 1.通过对比使用vscode这个编辑软件；
 2.通过控制面板->程序与功能 卸载已经安装的程序
-3.https://code.visualstudio.com/Download 下载 安装
 
 windows下搭建go开发环境-安装和配置sdk
 sdk的全程是软件开发工具包  包含了开发语言的工具包

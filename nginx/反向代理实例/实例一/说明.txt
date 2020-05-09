@@ -1,0 +1,1 @@
+打开浏览器，在浏览器地址栏中输入地址www.123.com访问nginx   跳转到   linux系统tomcat主页面中
