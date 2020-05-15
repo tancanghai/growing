@@ -1,0 +1,216 @@
+Date: Thu, 7 May 2020 15:28:58 +0800
+Message-ID: <0006249c$cb148b00$e652b96b$YinXiangBiJi>
+MIME-Version: 1.0
+Content-Type: text/html; 
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+X-Mailer: Evernote® v6.20.2.1568
+
+<html>
+<head>
+  <title>Evernote Export</title>
+  <basefont face=3D"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91" size=3D"2" />
+  <meta http-equiv=3D"Content-Type" =
+content=3D"text/html;charset=3Dutf-8" />
+  <meta name=3D"exporter-version" content=3D"YXBJ Windows/601568 (zh-CN, =
+DDL); Windows/10.0.0 (Win64); EDAMVersion=3DV2;"/>
+  <meta name=3D"content-class" content=3D"yinxiang.markdown"/>
+  <style>
+    body, td {
+      font-family: =E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91;
+      font-size: 10pt;
+    }
+  </style>
+</head>
+<body>
+<a name=3D"574"/>
+
+<div><span><div style=3D"font-size: 14px; margin: 0; padding: 0; width: =
+100%;"><h2 style=3D"line-height: 160%; box-sizing: content-box; =
+font-weight: 700; font-size: 34px; border-bottom: 1px solid #dbdbdb; =
+color: =
+#333;">ES=E9=9B=86=E7=BE=A4=E6=90=AD=E5=BB=BA=EF=BC=88=E5=85=AD=EF=BC=89=E5=
+=BA=97=E9=93=BA=E4=B8=AD=E5=8F=B0=E5=BA=94=E7=94=A8</h2>=0A<h4 =
+style=3D"line-height: 160%; box-sizing: content-box; font-size: 20px; =
+color: =
+#333;">1=E3=80=81=E5=88=9B=E5=BB=BA=E5=9F=BA=E6=9C=ACindex&amp;aliases</h=
+4>=0A<pre style=3D"line-height: 160%; box-sizing: content-box; border: =
+0; border-radius: 0; margin: 2px 0 8px; background-color: =
+#f5f7f8;"><code style=3D"display: block; overflow-x: auto; background: =
+#1e1e1e; line-height: 160%; box-sizing: content-box; border: 0; =
+border-radius: 0; letter-spacing: -.3px; padding: 18px; color: #f4f4f4; =
+white-space: pre-wrap;">POST /_aliases=0A{=0A    &quot;actions&quot; : =
+[=0A        { &quot;add&quot; : { &quot;index&quot; : =
+&quot;shop_v2&quot;, &quot;alias&quot; : &quot;shop&quot; } }=0A    =
+]=0A}=0A</code></pre>=0A<pre style=3D"line-height: 160%; box-sizing: =
+content-box; border: 0; border-radius: 0; margin: 2px 0 8px; =
+background-color: #f5f7f8;"><code style=3D"display: block; overflow-x: =
+auto; background: #1e1e1e; line-height: 160%; box-sizing: content-box; =
+border: 0; border-radius: 0; letter-spacing: -.3px; padding: 18px; =
+color: #f4f4f4; white-space: pre-wrap;">DELETE shop_v2=0A=0APUT =
+/shop_v2=0A{=0A	&quot;settings&quot;: {=0A		&quot;index&quot;: {=0A			=
+&quot;number_of_shards&quot;: 1,=0A			&quot;number_of_replicas&quot;: =
+0,=0A			&quot;refresh_interval&quot;: -1=0A		}=0A	},=0A	=
+&quot;mappings&quot;: {=0A		&quot;_doc&quot;: {=0A			=
+&quot;properties&quot;: {=0A				&quot;shop_uuid&quot;: {=0A					=
+&quot;type&quot;: &quot;keyword&quot;=0A				},=0A				=
+&quot;shop_name&quot;: {=0A					&quot;type&quot;: &quot;keyword&quot;=0A	=
+			},=0A				&quot;national_code&quot;: {=0A					&quot;type&quot;: =
+&quot;keyword&quot;=0A				},=0A				&quot;monopoly_license_no&quot;: {=0A	=
+				&quot;type&quot;: &quot;keyword&quot;=0A				},=0A				=
+&quot;location&quot;: {=0A					&quot;type&quot;: =
+&quot;geo_point&quot;,=0A					&quot;null_value&quot;: &quot;0,0&quot;=0A	=
+			},=0A				&quot;prvn_code&quot;: {=0A					&quot;type&quot;: =
+&quot;keyword&quot;=0A				},=0A				&quot;city_code&quot;: {=0A					=
+&quot;type&quot;: &quot;keyword&quot;=0A				},=0A				=
+&quot;area_code&quot;: {=0A					&quot;type&quot;: &quot;keyword&quot;=0A	=
+			},=0A				&quot;address&quot;: {=0A					&quot;type&quot;: =
+&quot;keyword&quot;=0A				},=0A				&quot;contact&quot;: {=0A					=
+&quot;type&quot;: &quot;keyword&quot;=0A				},=0A				&quot;mobile&quot;: =
+{=0A					&quot;type&quot;: &quot;keyword&quot;=0A				},=0A				=
+&quot;om_state&quot;: {=0A					&quot;type&quot;: &quot;keyword&quot;=0A		=
+		},=0A				&quot;hlm_state&quot;: {=0A					&quot;type&quot;: =
+&quot;keyword&quot;=0A				},=0A				&quot;hlm_auth_state&quot;: {=0A					=
+&quot;type&quot;: &quot;keyword&quot;=0A				},=0A				=
+&quot;oe_state&quot;: {=0A					&quot;type&quot;: &quot;keyword&quot;=0A		=
+		},=0A				&quot;is_maintain&quot;: {=0A					&quot;type&quot;: =
+&quot;keyword&quot;=0A				},=0A				&quot;industry_code&quot;: {=0A					=
+&quot;type&quot;: &quot;keyword&quot;=0A				},=0A              =
+&quot;industry_region_city&quot;: {=0A					&quot;type&quot;: =
+&quot;keyword&quot;=0A				},=0A              =
+&quot;industry_region_prvn&quot;: {=0A					&quot;type&quot;: =
+&quot;keyword&quot;=0A				},=0A              &quot;main_img&quot;: {=0A		=
+			&quot;type&quot;: &quot;keyword&quot;,=0A                 =
+&quot;index&quot; : false=0A				},=0A				&quot;imgs&quot;: {=0A					=
+&quot;type&quot;: &quot;nested&quot;,=0A					&quot;properties&quot;: =
+{=0A						&quot;tags&quot;: {=0A							&quot;type&quot;: =
+&quot;keyword&quot;=0A						},=0A						&quot;url&quot;: {=0A							=
+&quot;type&quot;: &quot;keyword&quot;,=0A							&quot;index&quot;: =
+&quot;false&quot;=0A						}=0A					}=0A				},=0A				=
+&quot;data_verify_state&quot;:{=0A				  &quot;type&quot;: =
+&quot;keyword&quot;=0A				},=0A				&quot;tags_code&quot;: {=0A					=
+&quot;type&quot;: &quot;keyword&quot;=0A				},=0A				=
+&quot;tags_txt&quot;: {=0A					&quot;type&quot;: &quot;keyword&quot;=0A		=
+		},=0A				&quot;om_last_visit_time&quot;: {=0A					&quot;type&quot;: =
+&quot;keyword&quot;=0A				},=0A				&quot;om_last_visit_saler_name&quot;: =
+{=0A					&quot;type&quot;: &quot;keyword&quot;=0A				},=0A				=
+&quot;om_last_visit_saler_code&quot;: {=0A					&quot;type&quot;: =
+&quot;keyword&quot;=0A				},=0A				&quot;om_tag_header&quot;: {=0A					=
+&quot;type&quot;: &quot;keyword&quot;=0A				}=0A			}=0A		}=0A	=
+}=0A}=0A</code></pre>=0A<p style=3D"line-height: 160%; box-sizing: =
+content-box; margin: 10px 0; color: #333;">=E6=B5=8B=E8=AF=95</p>=0A<pre =
+style=3D"line-height: 160%; box-sizing: content-box; border: 0; =
+border-radius: 0; margin: 2px 0 8px; background-color: #f5f7f8;"><code =
+style=3D"display: block; overflow-x: auto; background: #1e1e1e; =
+line-height: 160%; box-sizing: content-box; border: 0; border-radius: 0; =
+letter-spacing: -.3px; padding: 18px; color: #f4f4f4; white-space: =
+pre-wrap;">PUT shop_v1/_doc/1?refresh=0A{=0A&quot;text&quot;: =
+&quot;=E9=97=A8=E5=A4=B4=E7=85=A7&quot;,=0A&quot;mentou&quot;: =
+&quot;imgtags&quot;=0A}=0A=0APUT =
+shop_v1/_doc/1?refresh=0A{=0A&quot;text&quot;: =
+&quot;=E5=BA=97=E5=86=85=E7=85=A7&quot;,=0A&quot;mentou&quot;: =
+&quot;imgtags&quot;=0A}=0A=0APUT =
+shop_v1/_doc/3?routing=3D1&amp;refresh=0A{=0A=C2=A0=C2=A0&quot;text&quot;=
+: &quot;imgurl1&quot;,=0A=C2=A0=C2=A0&quot;imgs&quot;: =
+{=0A=C2=A0=C2=A0=C2=A0=C2=A0&quot;name&quot;: =
+&quot;answer&quot;,=0A=C2=A0=C2=A0=C2=A0=C2=A0&quot;parent&quot;: =
+&quot;1&quot;=0A=C2=A0=C2=A0}=0A}=0A=0APUT =
+shop_v1/_doc/3?routing=3D1&amp;refresh=0A{=0A=C2=A0=C2=A0&quot;text&quot;=
+: &quot;imgurl2&quot;,=0A=C2=A0=C2=A0&quot;imgs&quot;: =
+{=0A=C2=A0=C2=A0=C2=A0=C2=A0&quot;name&quot;: =
+&quot;answer&quot;,=0A=C2=A0=C2=A0=C2=A0=C2=A0&quot;parent&quot;: =
+&quot;1&quot;=0A=C2=A0=C2=A0}=0A}=0A</code></pre>=0A</div><center =
+style=3D"display:none !important;visibility:collapse !important;height:0 =
+!important;white-space:nowrap;width:100%;overflow:hidden">%23%23%20ES%E9%=
+9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA%EF%BC%88%E5%85%AD%EF%BC%89%E5%BA%97%E9%9=
+3%BA%E4%B8%AD%E5%8F%B0%E5%BA%94%E7%94%A8%0A%23%23%23%23%201%E3%80%81%E5%8=
+8%9B%E5%BB%BA%E5%9F%BA%E6%9C%ACindex%26aliases%0A%0A%60%60%60%0APOST%20%2=
+F_aliases%0A%7B%0A%20%20%20%20%22actions%22%20%3A%20%5B%0A%20%20%20%20%20=
+%20%20%20%7B%20%22add%22%20%3A%20%7B%20%22index%22%20%3A%20%22shop_v2%22%=
+2C%20%22alias%22%20%3A%20%22shop%22%20%7D%20%7D%0A%20%20%20%20%5D%0A%7D%0=
+A%60%60%60%0A%0A%60%60%60%0ADELETE%20shop_v2%0APUT%20%2Fshop_v2%0A%7B%0A%=
+09%22settings%22%3A%20%7B%0A%09%09%22index%22%3A%20%7B%0A%09%09%09%22numb=
+er_of_shards%22%3A%201%2C%0A%09%09%09%22number_of_replicas%22%3A%200%2C%0=
+A%09%09%09%22refresh_interval%22%3A%20-1%0A%09%09%7D%0A%09%7D%2C%0A%09%22=
+mappings%22%3A%20%7B%0A%09%09%22_doc%22%3A%20%7B%0A%09%09%09%22properties=
+%22%3A%20%7B%0A%09%09%09%09%22shop_uuid%22%3A%20%7B%0A%09%09%09%09%09%22t=
+ype%22%3A%20%22keyword%22%0A%09%09%09%09%7D%2C%0A%09%09%09%09%22shop_name=
+%22%3A%20%7B%0A%09%09%09%09%09%22type%22%3A%20%22keyword%22%0A%09%09%09%0=
+9%7D%2C%0A%09%09%09%09%22national_code%22%3A%20%7B%0A%09%09%09%09%09%22ty=
+pe%22%3A%20%22keyword%22%0A%09%09%09%09%7D%2C%0A%09%09%09%09%22monopoly_l=
+icense_no%22%3A%20%7B%0A%09%09%09%09%09%22type%22%3A%20%22keyword%22%0A%0=
+9%09%09%09%7D%2C%0A%09%09%09%09%22location%22%3A%20%7B%0A%09%09%09%09%09%=
+22type%22%3A%20%22geo_point%22%2C%0A%09%09%09%09%09%22null_value%22%3A%20=
+%220%2C0%22%0A%09%09%09%09%7D%2C%0A%09%09%09%09%22prvn_code%22%3A%20%7B%0=
+A%09%09%09%09%09%22type%22%3A%20%22keyword%22%0A%09%09%09%09%7D%2C%0A%09%=
+09%09%09%22city_code%22%3A%20%7B%0A%09%09%09%09%09%22type%22%3A%20%22keyw=
+ord%22%0A%09%09%09%09%7D%2C%0A%09%09%09%09%22area_code%22%3A%20%7B%0A%09%=
+09%09%09%09%22type%22%3A%20%22keyword%22%0A%09%09%09%09%7D%2C%0A%09%09%09=
+%09%22address%22%3A%20%7B%0A%09%09%09%09%09%22type%22%3A%20%22keyword%22%=
+0A%09%09%09%09%7D%2C%0A%09%09%09%09%22contact%22%3A%20%7B%0A%09%09%09%09%=
+09%22type%22%3A%20%22keyword%22%0A%09%09%09%09%7D%2C%0A%09%09%09%09%22mob=
+ile%22%3A%20%7B%0A%09%09%09%09%09%22type%22%3A%20%22keyword%22%0A%09%09%0=
+9%09%7D%2C%0A%09%09%09%09%22om_state%22%3A%20%7B%0A%09%09%09%09%09%22type=
+%22%3A%20%22keyword%22%0A%09%09%09%09%7D%2C%0A%09%09%09%09%22hlm_state%22=
+%3A%20%7B%0A%09%09%09%09%09%22type%22%3A%20%22keyword%22%0A%09%09%09%09%7=
+D%2C%0A%09%09%09%09%22hlm_auth_state%22%3A%20%7B%0A%09%09%09%09%09%22type=
+%22%3A%20%22keyword%22%0A%09%09%09%09%7D%2C%0A%09%09%09%09%22hlm_link_tim=
+e%22%20%3A%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%22type%22%20%3A%2=
+0%22keyword%22%0A%20%20%20%20%20%20%20%20%20%20%7D%2C%0A%09%09%09%09%22oe=
+_state%22%3A%20%7B%0A%09%09%09%09%09%22type%22%3A%20%22keyword%22%0A%09%0=
+9%09%09%7D%2C%0A%09%09%09%09%22is_maintain%22%3A%20%7B%0A%09%09%09%09%09%=
+22type%22%3A%20%22keyword%22%0A%09%09%09%09%7D%2C%0A%09%09%09%09%22indust=
+ry_code%22%3A%20%7B%0A%09%09%09%09%09%22type%22%3A%20%22keyword%22%0A%09%=
+09%09%09%7D%2C%0A%20%20%20%20%20%20%20%20%22industry_region_city%22%3A%20=
+%7B%0A%09%09%09%09%09%22type%22%3A%20%22keyword%22%0A%09%09%09%09%7D%2C%0=
+A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22industry_region_prvn%22%3A%=
+20%7B%0A%09%09%09%09%09%22type%22%3A%20%22keyword%22%0A%09%09%09%09%7D%2C=
+%0A%20%20%20%20%20%20%20%20%22main_img%22%3A%20%7B%0A%09%09%09%09%09%22ty=
+pe%22%3A%20%22keyword%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%=
+20%20%20%22index%22%20%3A%20false%0A%09%09%09%09%7D%2C%0A%20%20%20%20%20%=
+20%20%20%22operating_state%22%3A%20%7B%0A%09%09%09%09%09%22type%22%3A%20%=
+22keyword%22%0A%09%09%09%09%7D%2C%0A%09%09%09%09%22imgs%22%3A%20%7B%0A%09=
+%09%09%09%09%22type%22%3A%20%22nested%22%2C%0A%09%09%09%09%09%22propertie=
+s%22%3A%20%7B%0A%09%09%09%09%09%09%22tags%22%3A%20%7B%0A%09%09%09%09%09%0=
+9%09%22type%22%3A%20%22keyword%22%0A%09%09%09%09%09%09%7D%2C%0A%09%09%09%=
+09%09%09%22url%22%3A%20%7B%0A%09%09%09%09%09%09%09%22type%22%3A%20%22keyw=
+ord%22%2C%0A%09%09%09%09%09%09%09%22index%22%3A%20%22false%22%0A%09%09%09=
+%09%09%09%7D%0A%09%09%09%09%09%7D%0A%09%09%09%09%7D%2C%0A%09%09%09%09%22d=
+ata_verify_state%22%3A%7B%0A%09%09%09%09%20%20%22type%22%3A%20%22keyword%=
+22%0A%09%09%09%09%7D%2C%0A%09%09%09%09%22tags_code%22%3A%20%7B%0A%09%09%0=
+9%09%09%22type%22%3A%20%22keyword%22%0A%09%09%09%09%7D%2C%0A%09%09%09%09%=
+22tags_txt%22%3A%20%7B%0A%09%09%09%09%09%22type%22%3A%20%22keyword%22%0A%=
+09%09%09%09%7D%2C%0A%09%09%09%09%22om_last_visit_time%22%3A%20%7B%0A%09%0=
+9%09%09%09%22type%22%3A%20%22keyword%22%0A%09%09%09%09%7D%2C%0A%09%09%09%=
+09%22om_last_visit_saler_name%22%3A%20%7B%0A%09%09%09%09%09%22type%22%3A%=
+20%22keyword%22%0A%09%09%09%09%7D%2C%0A%09%09%09%09%22om_last_visit_saler=
+_code%22%3A%20%7B%0A%09%09%09%09%09%22type%22%3A%20%22keyword%22%0A%09%09=
+%09%09%7D%2C%0A%09%09%09%09%22om_tag_header%22%3A%20%7B%0A%09%09%09%09%09=
+%22type%22%3A%20%22keyword%22%0A%09%09%09%09%7D%2C%0A%20%20%20%20%20%20%2=
+0%20%22is_head%22%3A%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%22type%=
+22%3A%20%22keyword%22%0A%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%=
+20%20%20%22facade_name%22%3A%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20=
+%22type%22%3A%20%22keyword%22%0A%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%2=
+0%20%20%20%20%20%22national_code_other%22%3A%20%7B%0A%20%20%20%20%20%20%2=
+0%20%20%20%20%20%22type%22%3A%20%22keyword%22%0A%20%20%20%20%20%20%20%20%=
+7D%2C%0A%20%20%20%20%20%20%20%20%22type%22%3A%20%7B%0A%20%20%20%20%20%20%=
+20%20%20%20%20%20%22type%22%3A%20%22keyword%22%2C%0A%20%20%20%20%20%20%20=
+%20%20%20%20%20%22index%22%20%3A%20false%0A%20%20%20%20%20%20%20%20%7D%2C=
+%0A%20%20%20%20%20%20%20%20%22%40timestamp%22%3A%20%7B%0A%20%20%20%20%20%=
+20%20%20%20%20%20%20%22type%22%3A%20%22date%22%0A%20%20%20%20%20%20%20%20=
+%7D%0A%09%09%09%7D%2C%0A%09%09%09%22dynamic%22%3A%22strict%22%0A%09%09%7D=
+%0A%09%7D%0A%7D%0A%60%60%60%0A%0A%E6%B5%8B%E8%AF%95%0A%0A%60%60%60%0APUT%=
+20shop_v1%2F_doc%2F1%3Frefresh%0A%7B%0A%22text%22%3A%20%22%E9%97%A8%E5%A4=
+%B4%E7%85%A7%22%2C%0A%22mentou%22%3A%20%22imgtags%22%0A%7D%0A%0APUT%20sho=
+p_v1%2F_doc%2F1%3Frefresh%0A%7B%0A%22text%22%3A%20%22%E5%BA%97%E5%86%85%E=
+7%85%A7%22%2C%0A%22mentou%22%3A%20%22imgtags%22%0A%7D%0A%0APUT%20shop_v1%=
+2F_doc%2F3%3Frouting%3D1%26refresh%0A%7B%0A%C2%A0%C2%A0%22text%22%3A%20%2=
+2imgurl1%22%2C%0A%C2%A0%C2%A0%22imgs%22%3A%20%7B%0A%C2%A0%C2%A0%C2%A0%C2%=
+A0%22name%22%3A%20%22answer%22%2C%0A%C2%A0%C2%A0%C2%A0%C2%A0%22parent%22%=
+3A%20%221%22%0A%C2%A0%C2%A0%7D%0A%7D%0A%0APUT%20shop_v1%2F_doc%2F3%3Frout=
+ing%3D1%26refresh%0A%7B%0A%C2%A0%C2%A0%22text%22%3A%20%22imgurl2%22%2C%0A=
+%C2%A0%C2%A0%22imgs%22%3A%20%7B%0A%C2%A0%C2%A0%C2%A0%C2%A0%22name%22%3A%2=
+0%22answer%22%2C%0A%C2%A0%C2%A0%C2%A0%C2%A0%22parent%22%3A%20%221%22%0A%C=
+2%A0%C2%A0%7D%0A%7D%0A%60%60%60%0A%0A%0A</center></span>=0A</div></body><=
+/html>
+ 

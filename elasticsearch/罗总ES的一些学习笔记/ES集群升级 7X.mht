@@ -1,0 +1,274 @@
+Date: Thu, 7 May 2020 15:30:03 +0800
+Message-ID: <000b249c$97714a60$ab302f01$YinXiangBiJi>
+MIME-Version: 1.0
+Content-Type: text/html; 
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+X-Mailer: Evernote® v6.20.2.1568
+
+<html>
+<head>
+  <title>Evernote Export</title>
+  <basefont face=3D"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91" size=3D"2" />
+  <meta http-equiv=3D"Content-Type" =
+content=3D"text/html;charset=3Dutf-8" />
+  <meta name=3D"exporter-version" content=3D"YXBJ Windows/601568 (zh-CN, =
+DDL); Windows/10.0.0 (Win64); EDAMVersion=3DV2;"/>
+  <style>
+    body, td {
+      font-family: =E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91;
+      font-size: 10pt;
+    }
+  </style>
+</head>
+<body>
+<a name=3D"790"/>
+
+<div>=0A<span><div>ES=E9=9B=86=E7=BE=A4=E5=8D=87=E7=BA=A7 =
+7X</div><div><br/></div><div>1=E3=80=81=E8=8E=B7=E5=8F=96docker=E9=95=9C=E5=
+=83=8F</div><div><br/></div><div style=3D"box-sizing: border-box; =
+padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier =
+New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); =
+border-radius: 4px; background-color: rgb(251, 250, 248); border: 1px =
+solid rgba(0, 0, 0, 0.15);-en-codeblock:true;"><div>sudo docker login =
+--username=3Dphuangb@hngytobacco.com =
+registry-vpc.cn-shanghai.aliyuncs.com</div><div>docker pull =
+registry-vpc.cn-shanghai.aliyuncs.com/luohz1980/elasticsearch:7.5.0</div>=
+</div><div><br/></div><div>2=E3=80=81Rolling=C2=A0Upgrade</div><div><br/>=
+</div><div>=E5=81=9C=E7=94=A8ETL=E8=BF=87=E7=A8=8B</div><div =
+style=3D"box-sizing: border-box; padding: 8px; font-family: Monaco, =
+Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; =
+color: rgb(51, 51, 51); border-radius: 4px; background-color: rgb(251, =
+250, 248); border: 1px solid rgba(0, 0, 0, =
+0.15);-en-codeblock:true;"><div>sudo docker stop =
+shop.logstash.7x</div><div><br/></div><div>sudo docker stop =
+om.logstash</div></div><div><br/></div><div><span style=3D"box-sizing: =
+border-box; font-size: 16px; letter-spacing: normal; orphans: 2; =
+text-indent: 0px; text-transform: none; white-space: normal; widows: 2; =
+word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: =
+rgb(255, 255, 255); color: rgb(52, 55, 65); font-family: Inter, =
+sans-serif; font-variant-caps: normal; font-variant-ligatures: normal; =
+font-weight: bold;">Disable shard allocation</span><span =
+style=3D"font-size: 16px; letter-spacing: normal; orphans: 2; =
+text-indent: 0px; text-transform: none; white-space: normal; widows: 2; =
+word-spacing: 0px; -webkit-text-stroke-width: 0px; color: rgb(52, 55, =
+65); font-family: Inter, sans-serif; font-variant-caps: normal; =
+font-variant-ligatures: normal;">.</span></div><div style=3D"box-sizing: =
+border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, =
+&quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, =
+51); border-radius: 4px; background-color: rgb(251, 250, 248); border: =
+1px solid rgba(0, 0, 0, 0.15);-en-codeblock:true;"><div>PUT =
+_cluster/settings{</div><div>=C2=A0=C2=A0&quot;persistent&quot;: =
+{</div><div>=C2=A0=C2=A0=C2=A0=C2=A0&quot;cluster.routing.allocation.enab=
+le&quot;: =
+&quot;primaries&quot;</div><div>=C2=A0}}</div></div><div><br/></div><div>=
+<span style=3D"box-sizing: border-box; font-size: 16px; letter-spacing: =
+normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: =
+normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; =
+background-color: rgb(255, 255, 255); color: rgb(52, 55, 65); =
+font-family: Inter, sans-serif; font-variant-caps: normal; =
+font-variant-ligatures: normal; font-weight: bold;">Stop non-essential =
+indexing and perform a synced flush.</span><span style=3D"font-size: =
+16px; letter-spacing: normal; orphans: 2; text-indent: 0px; =
+text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; =
+-webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); =
+color: rgb(52, 55, 65); font-family: Inter, sans-serif; =
+font-variant-caps: normal; font-variant-ligatures: =
+normal;">=C2=A0</span><span style=3D"font-size: 16px; letter-spacing: =
+normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: =
+normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; =
+color: rgb(52, 55, 65); font-family: Inter, sans-serif; =
+font-variant-caps: normal; font-variant-ligatures: =
+normal;">(Optional)</span></div><div style=3D"box-sizing: border-box; =
+padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier =
+New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); =
+border-radius: 4px; background-color: rgb(251, 250, 248); border: 1px =
+solid rgba(0, 0, 0, 0.15);-en-codeblock:true;"><div>POST =
+_flush/synced</div></div><div><br/></div><div><span style=3D"box-sizing: =
+border-box; font-size: 16px; letter-spacing: normal; orphans: 2; =
+text-indent: 0px; text-transform: none; white-space: normal; widows: 2; =
+word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: =
+rgb(255, 255, 255); color: rgb(52, 55, 65); font-family: Inter, =
+sans-serif; font-variant-caps: normal; font-variant-ligatures: normal; =
+font-weight: bold;">Temporarily stop the tasks associated with active =
+machine learning jobs and datafeeds.</span><span style=3D"font-size: =
+16px; letter-spacing: normal; orphans: 2; text-indent: 0px; =
+text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; =
+-webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); =
+color: rgb(52, 55, 65); font-family: Inter, sans-serif; =
+font-variant-caps: normal; font-variant-ligatures: =
+normal;">=C2=A0</span><span style=3D"font-size: 16px; letter-spacing: =
+normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: =
+normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; =
+color: rgb(52, 55, 65); font-family: Inter, sans-serif; =
+font-variant-caps: normal; font-variant-ligatures: =
+normal;">(Optional)</span></div><div style=3D"box-sizing: border-box; =
+padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier =
+New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); =
+border-radius: 4px; background-color: rgb(251, 250, 248); border: 1px =
+solid rgba(0, 0, 0, 0.15);-en-codeblock:true;"><div>POST =
+_ml/set_upgrade_mode?enabled=3Dtrue</div></div><div><br/></div><div><span=
+ style=3D"box-sizing: border-box; font-size: 16px; letter-spacing: =
+normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: =
+normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; =
+color: rgb(52, 55, 65); font-family: Inter, sans-serif; =
+font-variant-caps: normal; font-variant-ligatures: normal; font-weight: =
+bold;">Shut down a single node</span></div><div style=3D"box-sizing: =
+border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, =
+&quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, =
+51); border-radius: 4px; background-color: rgb(251, 250, 248); border: =
+1px solid rgba(0, 0, 0, 0.15);-en-codeblock:true;"><div><span =
+style=3D"font-size: 12pt; color: rgb(52, 55, 65); font-family: =
+Inter;">docker stop</span></div></div><div><span style=3D"font-size: =
+12pt;"><br/></span></div><div><span style=3D"font-size: 12pt;"><span =
+style=3D"box-sizing: border-box; font-size: 16px; letter-spacing: =
+normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: =
+normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; =
+color: rgb(52, 55, 65); font-family: Inter, sans-serif; =
+font-variant-caps: normal; font-variant-ligatures: normal; font-weight: =
+bold;">Upgrade the node you shut down.</span></span></div><div =
+style=3D"box-sizing: border-box; padding: 8px; font-family: Monaco, =
+Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; =
+color: rgb(51, 51, 51); border-radius: 4px; background-color: rgb(251, =
+250, 248); border: 1px solid rgba(0, 0, 0, =
+0.15);-en-codeblock:true;"><div>sudo docker run -d --name es04 =
+\</div><div>-e ES_JAVA_OPTS=3D&quot;-Xms30g -Xmx30g&quot; \</div><div>-e =
+&quot;bootstrap.memory_lock=3Dtrue&quot; \</div><div>--ulimit =
+memlock=3D-1:-1 \</div><div>-p 9200:9200 \</div><div>-p 9300:9300 =
+\</div><div>-v /data/es/data:/usr/share/elasticsearch/data =
+\</div><div>-v =
+/data/es/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.=
+yml \</div><div>-v =
+/data/es/cert/elastic-certificates.p12:/usr/share/elasticsearch/config/el=
+astic-certificates.p12 \</div><div>-v /etc/localtime:/etc/localtime =
+\</div><div>registry-vpc.cn-shanghai.aliyuncs.com/luohz1980/elasticsearch=
+:7.5.0</div></div><div><br/></div><div>=E8=A7=82=E5=AF=9F=E8=8A=82=E7=82=B9=
+=E6=83=85=E5=86=B5</div><div><span style=3D"box-sizing: border-box; =
+font-size: 16px; overflow: auto; border: none; white-space: pre; =
+background-color: rgb(52, 55, 65); width: auto; max-width: 10000px; =
+letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: =
+none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; =
+color: rgb(27, 169, 245); font-family: Consolas, Menlo, &quot;DejaVu =
+Sans Mono&quot;, &quot;Bitstream Vera Sans Mono&quot;, &quot;Lucida =
+Console&quot;; font-variant-caps: normal; font-variant-ligatures: =
+normal; line-height: 1.5em;">GET</span> <span style=3D"box-sizing: =
+border-box; font-size: 16px; overflow: auto; border: none; white-space: =
+pre; background-color: rgb(52, 55, 65); width: auto; max-width: 10000px; =
+letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: =
+none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; =
+color: rgb(173, 239, 255); font-family: Consolas, Menlo, &quot;DejaVu =
+Sans Mono&quot;, &quot;Bitstream Vera Sans Mono&quot;, &quot;Lucida =
+Console&quot;; font-variant-caps: normal; font-variant-ligatures: =
+normal; line-height: 1.5em;">_cat</span><span style=3D"box-sizing: =
+border-box; font-size: 16px; overflow: auto; border: none; white-space: =
+pre; background-color: rgb(52, 55, 65); width: auto; max-width: 10000px; =
+letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: =
+none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; =
+color: rgb(245, 247, 250); font-family: Consolas, Menlo, &quot;DejaVu =
+Sans Mono&quot;, &quot;Bitstream Vera Sans Mono&quot;, &quot;Lucida =
+Console&quot;; font-variant-caps: normal; font-variant-ligatures: =
+normal; line-height: 1.5em;">/</span><span style=3D"box-sizing: =
+border-box; font-size: 16px; overflow: auto; border: none; white-space: =
+pre; background-color: rgb(52, 55, 65); width: auto; max-width: 10000px; =
+letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: =
+none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; =
+color: rgb(173, 239, 255); font-family: Consolas, Menlo, &quot;DejaVu =
+Sans Mono&quot;, &quot;Bitstream Vera Sans Mono&quot;, &quot;Lucida =
+Console&quot;; font-variant-caps: normal; font-variant-ligatures: =
+normal; line-height: 1.5em;">nodes</span></div><div><span =
+style=3D"box-sizing: border-box; font-size: 16px; overflow: auto; =
+border: none; white-space: pre; background-color: rgb(52, 55, 65); =
+width: auto; max-width: 10000px; letter-spacing: normal; orphans: 2; =
+text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; =
+-webkit-text-stroke-width: 0px;"><br/></span></div><div><span =
+style=3D"box-sizing: border-box; font-size: 16px; letter-spacing: =
+normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: =
+normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; =
+color: rgb(52, 55, 65); font-family: Inter, sans-serif; =
+font-variant-caps: normal; font-variant-ligatures: normal; font-weight: =
+bold;">Reenable shard allocation.</span></div><div =
+style=3D"background-color: rgb(52, 55, 65); font-size: 16px; =
+letter-spacing: normal; orphans: 2; white-space: pre; widows: 2; =
+word-spacing: 0px;"><span style=3D"box-sizing: border-box; font-size: =
+16px; color: rgb(27, 169, 245); font-family: Consolas, Menlo, =
+&quot;DejaVu Sans Mono&quot;, &quot;Bitstream Vera Sans Mono&quot;, =
+&quot;Lucida Console&quot;; font-variant-caps: normal; =
+font-variant-ligatures: normal; line-height: 1.5em;">PUT</span> <span =
+style=3D"box-sizing: border-box; font-size: 16px; color: rgb(173, 239, =
+255); font-family: Consolas, Menlo, &quot;DejaVu Sans Mono&quot;, =
+&quot;Bitstream Vera Sans Mono&quot;, &quot;Lucida Console&quot;; =
+font-variant-caps: normal; font-variant-ligatures: normal; line-height: =
+1.5em;">_cluster</span><span style=3D"box-sizing: border-box; font-size: =
+16px; color: rgb(245, 247, 250); font-family: Consolas, Menlo, =
+&quot;DejaVu Sans Mono&quot;, &quot;Bitstream Vera Sans Mono&quot;, =
+&quot;Lucida Console&quot;; font-variant-caps: normal; =
+font-variant-ligatures: normal; line-height: 1.5em;">/</span><span =
+style=3D"box-sizing: border-box; font-size: 16px; color: rgb(173, 239, =
+255); font-family: Consolas, Menlo, &quot;DejaVu Sans Mono&quot;, =
+&quot;Bitstream Vera Sans Mono&quot;, &quot;Lucida Console&quot;; =
+font-variant-caps: normal; font-variant-ligatures: normal; line-height: =
+1.5em;">settings</span><span style=3D"box-sizing: border-box; font-size: =
+16px; color: rgb(245, 247, 250); font-family: Consolas, Menlo, =
+&quot;DejaVu Sans Mono&quot;, &quot;Bitstream Vera Sans Mono&quot;, =
+&quot;Lucida Console&quot;; font-variant-caps: normal; =
+font-variant-ligatures: normal; line-height: 1.5em;">{</span></div><div =
+style=3D"background-color: rgb(52, 55, 65); font-size: 16px; =
+letter-spacing: normal; orphans: 2; white-space: pre; widows: 2; =
+word-spacing: 0px;"><span style=3D"box-sizing: border-box; font-size: =
+16px; color: rgb(173, 239, 255); font-family: Consolas, Menlo, =
+&quot;DejaVu Sans Mono&quot;, &quot;Bitstream Vera Sans Mono&quot;, =
+&quot;Lucida Console&quot;; font-variant-caps: normal; =
+font-variant-ligatures: normal; line-height: =
+1.5em;">&quot;persistent&quot;</span><span style=3D"box-sizing: =
+border-box; font-size: 16px; color: rgb(245, 247, 250); font-family: =
+Consolas, Menlo, &quot;DejaVu Sans Mono&quot;, &quot;Bitstream Vera Sans =
+Mono&quot;, &quot;Lucida Console&quot;; font-variant-caps: normal; =
+font-variant-ligatures: normal; line-height: 1.5em;">:</span> <span =
+style=3D"box-sizing: border-box; font-size: 16px; color: rgb(245, 247, =
+250); font-family: Consolas, Menlo, &quot;DejaVu Sans Mono&quot;, =
+&quot;Bitstream Vera Sans Mono&quot;, &quot;Lucida Console&quot;; =
+font-variant-caps: normal; font-variant-ligatures: normal; line-height: =
+1.5em;">{</span></div><div style=3D"background-color: rgb(52, 55, 65); =
+font-size: 16px; letter-spacing: normal; orphans: 2; white-space: pre; =
+widows: 2; word-spacing: 0px;"><span style=3D"box-sizing: border-box; =
+font-size: 16px; color: rgb(173, 239, 255); font-family: Consolas, =
+Menlo, &quot;DejaVu Sans Mono&quot;, &quot;Bitstream Vera Sans =
+Mono&quot;, &quot;Lucida Console&quot;; font-variant-caps: normal; =
+font-variant-ligatures: normal; line-height: =
+1.5em;">&quot;cluster.routing.allocation.enable&quot;</span><span =
+style=3D"box-sizing: border-box; font-size: 16px; color: rgb(245, 247, =
+250); font-family: Consolas, Menlo, &quot;DejaVu Sans Mono&quot;, =
+&quot;Bitstream Vera Sans Mono&quot;, &quot;Lucida Console&quot;; =
+font-variant-caps: normal; font-variant-ligatures: normal; line-height: =
+1.5em;">:</span> <span style=3D"box-sizing: border-box; font-size: 16px; =
+color: rgb(27, 169, 245); font-family: Consolas, Menlo, &quot;DejaVu =
+Sans Mono&quot;, &quot;Bitstream Vera Sans Mono&quot;, &quot;Lucida =
+Console&quot;; font-variant-caps: normal; font-variant-ligatures: =
+normal; line-height: 1.5em;">null</span></div><div =
+style=3D"background-color: rgb(52, 55, 65); font-size: 16px; =
+letter-spacing: normal; orphans: 2; white-space: pre; widows: 2; =
+word-spacing: 0px;"><span style=3D"box-sizing: border-box; font-size: =
+16px; color: rgb(245, 247, 250); font-family: Consolas, Menlo, =
+&quot;DejaVu Sans Mono&quot;, &quot;Bitstream Vera Sans Mono&quot;, =
+&quot;Lucida Console&quot;; font-variant-caps: normal; =
+font-variant-ligatures: normal; line-height: 1.5em;">}</span><span =
+style=3D"box-sizing: border-box; font-size: 16px; color: rgb(245, 247, =
+250); font-family: Consolas, Menlo, &quot;DejaVu Sans Mono&quot;, =
+&quot;Bitstream Vera Sans Mono&quot;, &quot;Lucida Console&quot;; =
+font-variant-caps: normal; font-variant-ligatures: normal; line-height: =
+1.5em;">}</span></div><div><br/></div><div><br/></div><div><br/></div><di=
+v>=E9=9B=86=E7=BE=A4=E5=88=9D=E5=A7=8B=E7=94=A8=E6=88=B7=E5=AF=86=E7=A0=81=
+</div><div><br/></div><div style=3D"box-sizing: border-box; padding: =
+8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, =
+monospace; font-size: 12px; color: rgb(51, 51, 51); border-radius: 4px; =
+background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, =
+0.15);-en-codeblock:true;"><div>elastic =
+:=C2=A0=C2=A0elastic2020#OK</div><div>apm_system =
+:=C2=A0=C2=A0luoisok</div><div>kibana:=C2=A0=C2=A0=C2=A0goodstudy#HaHa</d=
+iv><div>logstash_system:=C2=A0=C2=A0=C2=A0logstash#HaHa</div><div>beats_s=
+ystem: =
+beats#HaHa</div><div>remote_monitoring_user:=C2=A0=C2=A0=C2=A0=C2=A0monit=
+or#HaHa</div><div><br/></div><div><br/></div><div><br/></div><div>logstas=
+h_user=C2=A0 =
+:logstash#HaHa</div></div><div><br/></div></span>=0A</div></body></html>
+ 

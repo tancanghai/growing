@@ -1,0 +1,242 @@
+Date: Thu, 7 May 2020 15:28:08 +0800
+Message-ID: <0002249c$f4e6ab00$c41a6fe8$YinXiangBiJi>
+MIME-Version: 1.0
+Content-Type: text/html; 
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+X-Mailer: Evernote® v6.20.2.1568
+
+<html>
+<head>
+  <title>Evernote Export</title>
+  <basefont face=3D"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91" size=3D"2" />
+  <meta http-equiv=3D"Content-Type" =
+content=3D"text/html;charset=3Dutf-8" />
+  <meta name=3D"exporter-version" content=3D"YXBJ Windows/601568 (zh-CN, =
+DDL); Windows/10.0.0 (Win64); EDAMVersion=3DV2;"/>
+  <style>
+    body, td {
+      font-family: =E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91;
+      font-size: 10pt;
+    }
+  </style>
+</head>
+<body>
+<a name=3D"792"/>
+
+<div>=0A<span><div><div><span style=3D"font-weight: =
+bold;">ES=E9=9B=86=E7=BE=A4=E6=90=AD=E5=BB=BA=EF=BC=88=E4=BA=8C=EF=BC=89=E9=
+=9B=86=E7=BE=A4=E8=A7=84=E5=88=92</span></div><hr/><div><div><br/></div><=
+div><font style=3D"font-size: 16pt;"><span style=3D"font-size: 16pt; =
+font-weight: =
+bold;">=E6=9C=8D=E5=8A=A1=E5=99=A8=E5=87=86=E5=A4=87</span></font></div><=
+table style=3D"border-collapse: collapse; min-width: =
+100%;"><colgroup><col style=3D"width: 130px;"></col><col style=3D"width: =
+130px;"></col><col style=3D"width: 116px;"></col><col style=3D"width: =
+130px;"></col><col style=3D"width: 130px;"></col><col style=3D"width: =
+130px;"></col></colgroup><tbody><tr><td style=3D"border: 1px solid =
+rgb(204, 204, 204); width: 130px; padding: 8px;"><div>IP</div></td><td =
+style=3D"border: 1px solid rgb(204, 204, 204); width: 130px; padding: =
+8px;"><div><br/></div></td><td style=3D"border: 1px solid rgb(204, 204, =
+204); width: 116px; padding: 8px;"><div>=E7=B1=BB=E5=9E=8B</div></td><td =
+style=3D"border: 1px solid rgb(204, 204, 204); width: 130px; padding: =
+8px;"><div><br/></div></td><td style=3D"border: 1px solid rgb(204, 204, =
+204); width: 130px; padding: 8px;">6.5.4</td><td style=3D"border: 1px =
+solid rgb(204, 204, 204); width: 130px; padding: =
+8px;"><div>=E5=8D=87=E7=BA=A77</div></td></tr><tr><td style=3D"border: =
+1px solid rgb(204, 204, 204); width: 130px; padding: =
+8px;"><div>10.0.101.87</div></td><td style=3D"border: 1px solid rgb(204, =
+204, 204); width: 130px; padding: =
+8px;"><div>101.132.69.119</div></td><td style=3D"border: 1px solid =
+rgb(204, 204, 204); width: 116px; padding: 8px;"><div>master =
+data</div></td><td style=3D"border: 1px solid rgb(204, 204, 204); width: =
+130px; padding: 8px;"><div>node01</div></td><td style=3D"border: 1px =
+solid rgb(204, 204, 204); width: 130px; padding: =
+8px;"><div>es1</div></td><td style=3D"border: 1px solid rgb(204, 204, =
+204); width: 130px; padding: 8px;"><div>es01</div></td></tr><tr><td =
+style=3D"border: 1px solid rgb(204, 204, 204); width: 130px; padding: =
+8px;"><div>10.0.101.91</div></td><td style=3D"border: 1px solid rgb(204, =
+204, 204); width: 130px; padding: 8px;"><div><br/></div></td><td =
+style=3D"border: 1px solid rgb(204, 204, 204); width: 116px; padding: =
+8px;"><div>master data</div></td><td style=3D"border: 1px solid rgb(204, =
+204, 204); width: 130px; padding: 8px;"><div>node02</div></td><td =
+style=3D"border: 1px solid rgb(204, 204, 204); width: 130px; padding: =
+8px;"><div>es2</div></td><td style=3D"border: 1px solid rgb(204, 204, =
+204); width: 130px; padding: 8px;"><div>es02</div></td></tr><tr><td =
+style=3D"border: 1px solid rgb(204, 204, 204); width: 130px; padding: =
+8px;"><div>10.0.101.86</div></td><td style=3D"border: 1px solid rgb(204, =
+204, 204); width: 130px; padding: 8px;"><div><br/></div></td><td =
+style=3D"border: 1px solid rgb(204, 204, 204); width: 116px; padding: =
+8px;"><div>master data</div></td><td style=3D"border: 1px solid rgb(204, =
+204, 204); width: 130px; padding: 8px;"><div>node03</div></td><td =
+style=3D"border: 1px solid rgb(204, 204, 204); width: 130px; padding: =
+8px;"><div>es3</div></td><td style=3D"border: 1px solid rgb(204, 204, =
+204); width: 130px; padding: 8px;"><div>es03</div></td></tr><tr><td =
+style=3D"border: 1px solid rgb(204, 204, 204); width: 130px; padding: =
+8px;"><div><span style=3D"font-size: 12px; letter-spacing: normal; =
+orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; =
+widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; =
+background-color: rgb(249, 249, 250); color: rgb(51, 51, 51); =
+font-family: &quot;Helvetica Neue&quot;, &quot;Luxi Sans&quot;, =
+&quot;DejaVu Sans&quot;, Tahoma, &quot;Hiragino Sans GB&quot;, STHeiti, =
+&quot;Microsoft YaHei&quot;; font-variant-caps: normal; =
+font-variant-ligatures: normal;">10.0.101.90</span></div></td><td =
+style=3D"border: 1px solid rgb(204, 204, 204); width: 130px; padding: =
+8px;"><div><br/></div></td><td style=3D"border: 1px solid rgb(204, 204, =
+204); width: 116px; padding: 8px;"><div><br/></div></td><td =
+style=3D"border: 1px solid rgb(204, 204, 204); width: 130px; padding: =
+8px;"><div>node04</div></td><td style=3D"border: 1px solid rgb(204, 204, =
+204); width: 130px; padding: 8px;"><div>es4</div></td><td =
+style=3D"border: 1px solid rgb(204, 204, 204); width: 130px; padding: =
+8px;"><div>es04</div></td></tr></tbody></table><h3 style=3D"box-sizing: =
+border-box; outline: 0px; padding: 0px; margin: 8px 0px 16px; font-size: =
+22px; word-wrap: break-word; letter-spacing: normal; orphans: 2; =
+text-align: start; text-indent: 0px; text-transform: none; white-space: =
+normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: =
+0px;"><span style=3D"font-size: 22px; color: rgb(255, 0, =
+0);">=E6=B3=A8=E6=84=8F=EF=BC=9Aes=E6=9C=BA=E5=99=A8=E5=A6=82=E6=9E=9C=E4=
+=B8=8D=E5=9C=A8=E4=B8=80=E4=B8=AA=E5=AE=89=E5=85=A8=E7=BB=84=E5=88=99=E8=AE=
+=BF=E9=97=AE=E4=B8=8D=E5=88=B0</span></h3><h3 style=3D"box-sizing: =
+border-box; outline: 0px; padding: 0px; margin: 8px 0px 16px; font-size: =
+22px; word-wrap: break-word; letter-spacing: normal; orphans: 2; =
+text-align: start; text-indent: 0px; text-transform: none; white-space: =
+normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: =
+0px;"><span style=3D"font-size: =
+22px;">=E7=9B=AE=E5=BD=95=E5=87=86=E5=A4=87</span></h3><div =
+style=3D"box-sizing: border-box; padding: 8px; font-family: Monaco, =
+Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; =
+color: rgb(51, 51, 51); border-radius: 4px; background-color: rgb(251, =
+250, 248); border: 1px solid rgba(0, 0, 0, =
+0.15);-en-codeblock:true;"><div>mkdir -p /home/es/data</div><div>chmod =
+777=C2=A0/es/data <font =
+color=3D"#AD0000">(6.x=E7=89=88=E6=9C=AC=E9=9C=80=E8=A6=81=EF=BC=89</font=
+></div></div><div><br/></div><div><br/></div><div><br/></div><div =
+style=3D"text-align: start;"><font style=3D"font-size: 18pt;"><span =
+style=3D"font-size: 18pt; font-weight: =
+bold;">=E7=B3=BB=E7=BB=9F=E8=AE=BE=E7=BD=AE</span></font></div><div =
+style=3D"text-align: start;"></div><div style=3D"box-sizing: border-box; =
+padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier =
+New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); =
+border-radius: 4px; background-color: rgb(251, 250, 248); border: 1px =
+solid rgba(0, 0, 0, 0.15);-en-codeblock:true;"><div>echo =
+'vm.max_map_count =3D 262144' &gt;&gt; /etc/sysctl.conf</div><div>sysctl =
+-p</div></div><div style=3D"text-align: start;"></div><div =
+style=3D"box-sizing: border-box; padding: 8px; font-family: Monaco, =
+Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; =
+color: rgb(51, 51, 51); border-radius: 4px; background-color: rgb(251, =
+250, 248); border: 1px solid rgba(0, 0, 0, =
+0.15);-en-codeblock:true;"><div>echo &quot;vm.swappiness =3D =
+1&quot;&gt;&gt; /etc/sysctl.conf</div><div>sysctl -p</div></div><div =
+style=3D"text-align: start;"></div><h3 style=3D"box-sizing: border-box; =
+outline: 0px; padding: 0px; margin: 8px 0px 16px; word-wrap: break-word; =
+letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; =
+text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; =
+-webkit-text-stroke-width: 0px;"></h3><h3><br/></h3><h3><br/></h3><h3 =
+style=3D"box-sizing: border-box; outline: 0px; padding: 0px; margin: 8px =
+0px 16px; word-wrap: break-word; letter-spacing: normal; orphans: 2; =
+text-align: start; text-indent: 0px; text-transform: none; white-space: =
+normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: =
+0px;"><br/></h3><h3 style=3D"box-sizing: border-box; outline: 0px; =
+padding: 0px; margin: 8px 0px 16px; word-wrap: break-word; =
+letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; =
+text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; =
+-webkit-text-stroke-width: 0px;"><br/></h3><h3 style=3D"box-sizing: =
+border-box; outline: 0px; padding: 0px; margin: 8px 0px 16px; word-wrap: =
+break-word; letter-spacing: normal; orphans: 2; text-align: start; =
+text-indent: 0px; text-transform: none; white-space: normal; widows: 2; =
+word-spacing: 0px; -webkit-text-stroke-width: =
+0px;">docker-compose.yml=E9=85=8D=E7=BD=AE=E6=96=87=E4=BB=B6</h3></div><d=
+iv style=3D"box-sizing: border-box; padding: 8px; font-family: Monaco, =
+Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; =
+color: rgb(51, 51, 51); border-radius: 4px; background-color: rgb(251, =
+250, 248); border: 1px solid rgba(0, 0, 0, =
+0.15);-en-codeblock:true;"><div>es:</div><div>=C2=A0=C2=A0image:=C2=A0reg=
+istry-vpc.cn-shanghai.aliyuncs.com/luohz1980/elasticsearch:6.5.4</div><di=
+v>=C2=A0=C2=A0volumes:</div><div>=C2=A0=C2=A0=C2=A0=C2=A0- =
+/home/es/data:/usr/share/elasticsearch/data</div><div>=C2=A0=C2=A0=C2=A0=C2=
+=A0- =
+/home/es/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.=
+yml</div><div>=C2=A0=C2=A0ports:</div><div>=C2=A0=C2=A0=C2=A0=C2=A0- =
+9200:9200</div><div>=C2=A0=C2=A0=C2=A0=C2=A0- =
+9300:9300</div></div><div><br/></div><div><br/></div><div =
+style=3D"box-sizing: border-box; padding: 8px; font-family: Monaco, =
+Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; =
+color: rgb(51, 51, 51); border-radius: 4px; background-color: rgb(251, =
+250, 248); border: 1px solid rgba(0, 0, 0, =
+0.15);-en-codeblock:true;"><div>sudo docker run -d --name es01 =
+\</div><div>-e ES_JAVA_OPTS=3D&quot;-Xms30g -Xmx30g&quot; \</div><div>-e =
+&quot;bootstrap.memory_lock=3Dtrue&quot; \</div><div>--ulimit =
+memlock=3D-1:-1 \</div><div>-p 9200:9200 \</div><div>-p 9300:9300 =
+\</div><div>-v /data/es/data:/usr/share/elasticsearch/data =
+\</div><div>-v =
+/data/es/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.=
+yml \</div><div>-v /etc/localtime:/etc/localtime =
+\</div><div>4f90d9a6692f</div></div><div><br/></div><div><br/></div><div>=
+<br/></div><div><br/></div><div><br/></div><div><font =
+style=3D"font-size: 16pt;"><span style=3D"font-size: 16pt; font-weight: =
+bold;">elasticsearch.yml</span></font></div><div><br/></div><div =
+style=3D"box-sizing: border-box; padding: 8px; font-family: Monaco, =
+Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; =
+color: rgb(51, 51, 51); border-radius: 4px; background-color: rgb(251, =
+250, 248); border: 1px solid rgba(0, 0, 0, =
+0.15);-en-codeblock:true;"><div>cluster.name: =
+scrm-es-cluster</div><div>bootstrap.memory_lock: =
+true</div><div>node.name:=C2=A0node01</div><div><font =
+color=3D"#FF0000">node.master: true</font></div><div><font =
+color=3D"#FF0000">node.data: true</font></div><div>http.port: =
+9200</div><div>network.host: =
+0.0.0.0</div><div>network.publish_host:=C2=A010.0.101.87</div><div>discov=
+ery.zen.ping.unicast.hosts: =
+[&quot;10.0.101.86&quot;,&quot;10.0.101.87&quot;,&quot;10.0.101.91&quot;]=
+</div><div>discovery.zen.minimum_master_nodes: =
+2</div><div><br/></div><div>http.cors.allow-origin: =
+&quot;chrome-extension://jopjeaiilkcibeohjdmejhoifenbnmlh&quot;</div><div=
+>http.cors.enabled: true</div><div>http.cors.allow-headers : =
+X-Requested-With,X-Auth-Token,Content-Type,Content-Length,Authorization</=
+div><div>http.cors.allow-credentials: =
+true</div></div><div><br/></div><div style=3D"box-sizing: border-box; =
+padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier =
+New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); =
+border-radius: 4px; background-color: rgb(251, 250, 248); border: 1px =
+solid rgba(0, 0, 0, =
+0.15);-en-codeblock:true;"><div>cluster.name:=C2=A0scrm-es-cluster</div><=
+div>bootstrap.memory_lock:true</div><div>node.name:=C2=A0node02</div><div=
+><font color=3D"#E30000">node.master:=C2=A0true</font></div><div><font =
+color=3D"#E30000">node.data: true</font></div><div>http.port: =
+9200</div><div>network.host: =
+0.0.0.0</div><div>network.publish_host:=C2=A010.0.101.91</div><div>discov=
+ery.zen.ping.unicast.hosts: =
+[&quot;10.0.101.86&quot;,&quot;10.0.101.87&quot;,&quot;10.0.101.91&quot;]=
+</div><div>discovery.zen.minimum_master_nodes: =
+2</div></div><div><br/></div><div style=3D"box-sizing: border-box; =
+padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier =
+New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); =
+border-radius: 4px; background-color: rgb(251, 250, 248); border: 1px =
+solid rgba(0, 0, 0, 0.15);-en-codeblock:true;"><div>cluster.name: =
+scrm-es-cluster</div><div>bootstrap.memory_lock:true</div><div>node.name:=
+=C2=A0node03</div><div><font color=3D"#E30000">node.master: =
+true</font></div><div><font color=3D"#E30000">node.data: =
+true</font></div><div>http.port: 9200</div><div>network.host: =
+0.0.0.0</div><div>network.publish_host: =
+10.0.101.86</div><div>discovery.zen.ping.unicast.hosts: =
+[&quot;10.0.101.86&quot;,&quot;10.0.101.87&quot;,&quot;10.0.101.91&quot;]=
+</div><div>discovery.zen.minimum_master_nodes: =
+2</div></div><div><br/></div><div style=3D"box-sizing: border-box; =
+padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier =
+New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); =
+border-radius: 4px; background-color: rgb(251, 250, 248); border: 1px =
+solid rgba(0, 0, 0, 0.15);-en-codeblock:true;"><div>cluster.name: =
+scrm-es-cluster</div><div>bootstrap.memory_lock: =
+true</div><div>node.name: node04</div><div><font =
+color=3D"#E30000">node.master: false</font></div><div><font =
+color=3D"#E30000">node.data: true</font></div><div>network.host: =
+0.0.0.0</div><div>network.publish_host: =
+10.0.101.90</div><div>discovery.zen.ping.unicast.hosts: =
+[&quot;10.0.101.86&quot;,&quot;10.0.101.87&quot;,&quot;10.0.101.91&quot;]=
+</div><div>discovery.zen.minimum_master_nodes: =
+2</div></div><div><br/></div><div><br/></div><div><br/></div><div>ssh -i =
+/pem/scrm-es.pem root@10.0.101.91</div></div><div><br/></div><div>ssh -i =
+/pem/scrm-es-dev.pem=C2=A0scrm-dev@10.0.101.91</div><div>ssh -i =
+/pem/scrm-es-dev.pem=C2=A0scrm-dev@10.0.101.86</div><div><br/></div></spa=
+n>=0A</div></body></html>
+ 

@@ -1,0 +1,256 @@
+Date: Thu, 7 May 2020 15:28:22 +0800
+Message-ID: <0003249c$0f7d8980$64f2246e$YinXiangBiJi>
+MIME-Version: 1.0
+Content-Type: text/html; 
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+X-Mailer: Evernote® v6.20.2.1568
+
+<html>
+<head>
+  <title>Evernote Export</title>
+  <basefont face=3D"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91" size=3D"2" />
+  <meta http-equiv=3D"Content-Type" =
+content=3D"text/html;charset=3Dutf-8" />
+  <meta name=3D"exporter-version" content=3D"YXBJ Windows/601568 (zh-CN, =
+DDL); Windows/10.0.0 (Win64); EDAMVersion=3DV2;"/>
+  <style>
+    body, td {
+      font-family: =E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91;
+      font-size: 10pt;
+    }
+  </style>
+</head>
+<body>
+<a name=3D"789"/>
+
+<div>=0A<span><div>ES=E9=9B=86=E7=BE=A4=E6=90=AD=E5=BB=BA=EF=BC=88=E4=B8=89=
+=EF=BC=89=E6=95=B0=E6=8D=AE=E8=BF=81=E7=A7=BB =
+logstash</div><div><br/></div><div><br/></div><div><span style=3D"color: =
+rgb(227, 0, =
+0);">/usr/share/logstash/logstash-core/lib/jars/mysql-connector-java.jar<=
+/span></div><div><span style=3D"color: rgb(227, 0, =
+0);">=E5=A5=BD=E5=83=8F7x=E7=89=88=E6=9C=AC=E5=90=8E=EF=BC=8C=E9=9C=80=E8=
+=A6=81=E6=94=BE=E5=88=B0=E6=AD=A4=E7=9B=AE=E5=BD=95=EF=BC=8C=E5=90=A6=E5=88=
+=99=E6=89=BE=E4=B8=8D=E5=88=B0=E9=A9=B1=E5=8A=A8</span></div><div><br/></=
+div><div><br/></div><div><span style=3D"color: rgb(227, 0, =
+0);">COIN=C2=A0logstash</span></div><div><br/></div><div><br/></div><div>=
+<br/></div><div><br/></div><div><span style=3D"font-weight: bold;">SCRM =
+logstash=C2=A0 =
+=EF=BC=88es01=E6=9C=BA=E5=99=A8=E8=BF=90=E8=A1=8C=EF=BC=89</span></div><d=
+iv><br/></div><div style=3D"box-sizing: border-box; padding: 8px; =
+font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, =
+monospace; font-size: 12px; color: rgb(51, 51, 51); border-radius: 4px; =
+background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, =
+0.15);-en-codeblock:true;"><div>docker run --name shop.logstash.7x -d =
+-it \</div><div>-v =
+/app_conf/logstash-conf/pipeline/:/usr/share/logstash/pipeline/ =
+\</div><div>-v =
+/app_conf/logstash-conf/settings/logstash.yml:/usr/share/logstash/config/=
+logstash.yml \</div><div>-v =
+/app_conf/logstash-conf/mysql-connector-java-5.1.47-bin.jar:/usr/share/lo=
+gstash/logstash-core/lib/jars/mysql-connector-java.jar \</div><div>-v =
+/app_conf/logstash-conf/statement_file.d/:/etc/logstash/statement_file.d/=
+ \</div><div>-v =
+/app_conf/logstash-conf/run_metadata.d/:/etc/logstash/run_metadata.d/ =
+\</div><div>registry-vpc.cn-shanghai.aliyuncs.com/luohz1980/logstash:7.5.=
+0</div><div><br/></div><div>docker.elastic.co/logstash/logstash:7.5.0</di=
+v><div>registry.cn-shanghai.aliyuncs.com/luohz1980/logstash:6.5.4</div></=
+div><div><br/></div><div><br/></div><div>docker run =
+--name=C2=A0shop.logstash.6x -d -it \</div><div>-v =
+/app_conf/logstash-conf/pipeline/:/usr/share/logstash/pipeline/ =
+\</div><div>-v =
+/app_conf/logstash-conf/settings/logstash.yml:/usr/share/logstash/config/=
+logstash.yml \</div><div>-v =
+/app_conf/logstash-conf/mysql-connector-java-5.1.47-bin.jar:/usr/share/lo=
+gstash/logstash-core/lib/jars/mysql-connector-java.jar \</div><div>-v =
+/app_conf/logstash-conf/statement_file.d/:/etc/logstash/statement_file.d/=
+ \</div><div>-v =
+/app_conf/logstash-conf/run_metadata.d/:/etc/logstash/run_metadata.d/ =
+\</div><div><a =
+href=3D"http://registry.cn-shanghai.aliyuncs.com/luohz1980/logstash:6.5.4=
+">registry.cn-shanghai.aliyuncs.com/luohz1980/logstash:6.5.4</a></div><di=
+v><br/></div><div><a =
+href=3D"http://registry-vpc.cn-shanghai.aliyuncs.com/luohz1980/logstash:7=
+.5.0">registry-vpc.cn-shanghai.aliyuncs.com/luohz1980/logstash:7.5.0</a><=
+/div><div><br/></div><div><br/></div><div><br/></div><div><br/></div><div=
+>docker.elastic.co/logstash/logstash:7.5.0</div><div><a =
+href=3D"http://registry.cn-shanghai.aliyuncs.com/luohz1980/logstash:6.5.4=
+">registry.cn-shanghai.aliyuncs.com/luohz1980/logstash:6.5.4</a></div><di=
+v><br/></div><div><br/></div><div><br/></div><div>om.logstash</div><div><=
+br/></div><div style=3D"box-sizing: border-box; padding: 8px; =
+font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, =
+monospace; font-size: 12px; color: rgb(51, 51, 51); border-radius: 4px; =
+background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, =
+0.15);-en-codeblock:true;"><div>docker run --name om.logstash -d -it =
+\</div><div>-v =
+/app_conf/logstash-conf/pipeline/:/usr/share/logstash/pipeline/ =
+\</div><div>-v =
+/app_conf/logstash-conf/settings/logstash.yml:/usr/share/logstash/config/=
+logstash.yml \</div><div>-v =
+/app_conf/logstash-conf/mysql-connector-java-5.1.47-bin.jar:/usr/share/lo=
+gstash/logstash-core/lib/jars/mysql-connector-java.jar \</div><div>-v =
+/app_conf/logstash-conf/statement_file.d/:/etc/logstash/statement_file.d/=
+ \</div><div>-v =
+/app_conf/logstash-conf/run_metadata.d/:/etc/logstash/run_metadata.d/ =
+\</div><div>docker.elastic.co/logstash/logstash:7.5.0</div><div>docker.el=
+astic.co/logstash/logstash:6.8.5</div></div><div><br/></div><div><br/></d=
+iv><div>docker run --rm -it \</div><div>-v =
+/app_conf/logstash-conf/pipeline/:/usr/share/logstash/pipeline/ =
+\</div><div>-v =
+/app_conf/logstash-conf/settings/logstash.yml:/usr/share/logstash/config/=
+logstash.yml \</div><div>-v =
+/app_conf/logstash-conf/mysql-connector-java-5.1.47-bin.jar:/usr/share/lo=
+gstash/logstash-core/lib/jars/mysql-connector-java-5.1.36-bin.jar =
+\</div><div>-v =
+/app_conf/logstash-conf/statement_file.d/:/etc/logstash/statement_file.d/=
+ \</div><div>-v =
+/app_conf/logstash-conf/run_metadata.d/:/etc/logstash/run_metadata.d/ =
+\</div><div>docker.elastic.co/logstash/logstash:7.5.0</div><div>docker.el=
+astic.co/logstash/logstash:6.8.5</div><div>docker.elastic.co/logstash/log=
+stash:7.5.0</div><div><br/></div><div><br/></div><div><br/></div><div>ope=
+njdk version &quot;11.0.5&quot; 2019-10-15 LTS</div><div>OpenJDK Runtime =
+Environment 18.9 (build =
+11.0.5+10-LTS)</div><div><br/></div><div><br/></div><div><br/></div><div>=
+=E4=B8=B4=E6=97=B6=E4=BD=BF=E7=94=A8=E6=B5=8B=E8=AF=95</div><div><br/></d=
+iv><div style=3D"box-sizing: border-box; padding: 8px; font-family: =
+Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: =
+12px; color: rgb(51, 51, 51); border-radius: 4px; background-color: =
+rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, =
+0.15);-en-codeblock:true;"><div><br/></div><div><br/></div><div>docker =
+run --rm=C2=A0=C2=A0-it=C2=A0=C2=A0\</div><div>-v =
+/app_conf/logstash-conf/pipeline/shop_img2es.conf:/usr/share/logstash/pip=
+eline/shop_img2es.conf \</div><div>-v =
+/app_conf/logstash-conf/settings/logstash.yml:/usr/share/logstash/config/=
+logstash.yml \</div><div>-v =
+/app_conf/logstash-conf/mysql-connector-java-5.1.36-bin.jar:/home/mysql-c=
+onnector-java-5.1.36-bin.jar \</div><div>-v =
+/app_conf/logstash-conf/statement_file.d/:/etc/logstash/statement_file.d/=
+ \</div><div>-v =
+/app_conf/logstash-conf/run_metadata.d/:/etc/logstash/run_metadata.d/ =
+\</div><div>docker.elastic.co/logstash/logstash:7.5.0</div><div>registry.=
+cn-shanghai.aliyuncs.com/luohz1980/logstash:6.5.4</div><div><br/></div><d=
+iv><br/></div><div><br/></div><div><br/></div><div>docker run =
+--rm=C2=A0=C2=A0-it=C2=A0=C2=A0\</div><div>-v =
+/app_conf/logstash-conf/pipeline/coin_list2es-7x.conf:/usr/share/logstash=
+/pipeline/coin_list2es-7x.conf \</div><div>-v =
+/app_conf/logstash-conf/settings/logstash.yml:/usr/share/logstash/config/=
+logstash.yml \</div><div>-v =
+/app_conf/logstash-conf/mysql-connector-java-5.1.47-bin.jar:/usr/share/lo=
+gstash/logstash-core/lib/jars/mysql-connector-java.jar \</div><div>-v =
+/app_conf/logstash-conf/statement_file.d/:/etc/logstash/statement_file.d/=
+ \</div><div>-v =
+/app_conf/logstash-conf/run_metadata.d/:/etc/logstash/run_metadata.d/ =
+\</div><div>registry-vpc.cn-shanghai.aliyuncs.com/luohz1980/logstash:7.5.=
+0</div><div><span style=3D"font-size: 9pt; color: rgb(51, 51, 51); =
+font-family: Monaco;"><br/></span></div></div><div><br/></div><div><span =
+style=3D"box-sizing: border-box; font-size: 0.9em; letter-spacing: =
+normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: =
+normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; =
+background: rgb(248, 248, 248); border-radius: 4px; vertical-align: =
+middle; width: auto; color: rgb(85, 85, 85); font-family: Consolas, =
+Menlo, &quot;DejaVu Sans Mono&quot;, &quot;Bitstream Vera Sans =
+Mono&quot;, &quot;Lucida Console&quot;; font-variant-caps: normal; =
+font-variant-ligatures: normal; font-weight: =
+bold;">logstash.yml</span></div><div><span style=3D"box-sizing: =
+border-box; font-size: 0.9em; letter-spacing: normal; orphans: 2; =
+text-indent: 0px; text-transform: none; white-space: normal; widows: 2; =
+word-spacing: 0px; -webkit-text-stroke-width: 0px; background: rgb(248, =
+248, 248); border-radius: 4px; vertical-align: middle; width: =
+auto;"><br/></span></div><div style=3D"box-sizing: border-box; outline: =
+0px; padding: 0px; margin: 0px 0px 16px; font-size: 16px; overflow-x: =
+auto; word-wrap: break-word; letter-spacing: normal; orphans: 2; =
+text-align: start; text-indent: 0px; text-transform: none; white-space: =
+normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; =
+background-color: rgb(255, 255, 255);"><span style=3D"box-sizing: =
+border-box; outline: 0px; font-size: 16px; overflow-x: auto; word-wrap: =
+break-word; letter-spacing: normal; orphans: 2; text-indent: 0px; =
+text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; =
+-webkit-text-stroke-width: 0px; color: rgb(79, 79, 79); font-family: =
+&quot;Microsoft YaHei&quot;, &quot;SF Pro Display&quot;, Roboto, Noto, =
+Arial, &quot;PingFang SC&quot;, sans-serif; font-variant-caps: normal; =
+font-variant-ligatures: normal; line-height: =
+26px;">=E5=85=B3=E9=97=ADxpack=E6=8F=92=E4=BB=B6</span></div><div =
+style=3D"box-sizing: border-box; padding: 8px; font-family: Monaco, =
+Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; =
+color: rgb(51, 51, 51); border-radius: 4px; background-color: rgb(251, =
+250, 248); border: 1px solid rgba(0, 0, 0, =
+0.15);-en-codeblock:true;"><div>xpack.monitoring.enabled: =
+false</div></div><div style=3D"box-sizing: border-box; outline: 0px; =
+padding: 0px; margin: 0px 0px 16px; font-size: 16px; overflow-x: auto; =
+word-wrap: break-word; letter-spacing: normal; orphans: 2; text-align: =
+start; text-indent: 0px; text-transform: none; white-space: normal; =
+widows: 2; word-spacing: 0px; -webkit-text-stroke-width: =
+0px;"><br/></div><div style=3D"box-sizing: border-box; outline: 0px; =
+padding: 0px; margin: 0px 0px 16px; font-size: 16px; overflow-x: auto; =
+word-wrap: break-word; letter-spacing: normal; orphans: 2; text-align: =
+start; text-indent: 0px; text-transform: none; white-space: normal; =
+widows: 2; word-spacing: 0px; -webkit-text-stroke-width: =
+0px;"><br/></div><div style=3D"box-sizing: border-box; outline: 0px; =
+padding: 0px; margin: 0px 0px 16px; font-size: 16px; overflow-x: auto; =
+word-wrap: break-word; letter-spacing: normal; orphans: 2; text-align: =
+start; text-indent: 0px; text-transform: none; white-space: normal; =
+widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;"><span =
+style=3D"font-size: 16px;">kibana=C2=A0</span></div><div =
+style=3D"box-sizing: border-box; padding: 8px; font-family: Monaco, =
+Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; =
+color: rgb(51, 51, 51); border-radius: 4px; background-color: rgb(251, =
+250, 248); border: 1px solid rgba(0, 0, 0, =
+0.15);-en-codeblock:true;"><div>docker run --name kibana -it -d =
+\</div><div>-v =
+/app_conf/kibana/kibana.yml:/usr/share/kibana/config/kibana.yml =
+\</div><div>-p 5601:5601 \</div><div>kibana:7.5.0</div></div><div><span =
+style=3D"font-size: 12pt;"><br/></span></div><div style=3D"text-indent: =
+0px; margin-left: 0px; padding-left: 12px; list-style: =
+decimal;">kibana.yml</div><div style=3D"text-indent: 0px; margin-left: =
+0px; padding-left: 12px; list-style: decimal;"><div style=3D"box-sizing: =
+border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, =
+&quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, =
+51); border-radius: 4px; background-color: rgb(251, 250, 248); border: =
+1px solid rgba(0, 0, 0, 0.15);-en-codeblock:true;"><div>server.port: =
+5601</div><div>server.host: &quot;0.0.0.0&quot;</div><div>server.name: =
+&quot;kibana&quot;</div><div>elasticsearch.hosts: =
+[&quot;http://10.0.101.87:9200&quot;]</div><div>i18n.locale: =
+&quot;zh-CN&quot;</div><div>elasticsearch.username: =
+&quot;kibana&quot;</div><div>elasticsearch.password: =
+&quot;kibana_passwd&quot;</div><div>xpack.reporting.encryptionKey: =
+&quot;a_random_string&quot;</div><div>xpack.security.encryptionKey: =
+&quot;something_at_least_32_characters&quot;</div></div></div><div =
+style=3D"text-indent: 0px; margin-left: 0px; padding-left: 12px; =
+list-style: decimal;"><span style=3D"font-size: =
+8pt;"><br/></span></div><div><span style=3D"box-sizing: border-box; =
+overflow: auto; font-size: 16px; display: inline-block; word-break: =
+break-word; word-wrap: break-word; background-color: rgb(240, 240, 240); =
+border: none; border-radius: 0px 5px 5px 0px; white-space: pre; width: =
+auto; max-width: 10000px; letter-spacing: normal; orphans: 2; =
+text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; =
+-webkit-text-stroke-width: 0px;"><br/></span></div><div><span =
+style=3D"box-sizing: border-box; overflow: auto; font-size: 16px; =
+display: inline-block; word-break: break-word; word-wrap: break-word; =
+background-color: rgb(240, 240, 240); border: none; border-radius: 0px =
+5px 5px 0px; white-space: pre; width: auto; max-width: 10000px; =
+letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: =
+none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: =
+0px;"><br/></span></div><div><span style=3D"box-sizing: border-box; =
+overflow: auto; font-size: 16px; display: inline-block; word-break: =
+break-word; word-wrap: break-word; background-color: rgb(240, 240, 240); =
+border: none; border-radius: 0px 5px 5px 0px; white-space: pre; width: =
+auto; max-width: 10000px; letter-spacing: normal; orphans: 2; =
+text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; =
+-webkit-text-stroke-width: 0px;"><br/></span></div><div><span =
+style=3D"box-sizing: border-box; font-size: 0.9em; letter-spacing: =
+normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: =
+normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; =
+background: rgb(248, 248, 248); border-radius: 4px; vertical-align: =
+middle; width: auto;"><br/></span></div><div><span style=3D"box-sizing: =
+border-box; font-size: 0.9em; letter-spacing: normal; orphans: 2; =
+text-indent: 0px; text-transform: none; white-space: normal; widows: 2; =
+word-spacing: 0px; -webkit-text-stroke-width: 0px; background: rgb(248, =
+248, 248); border-radius: 4px; vertical-align: middle; width: =
+auto;"><br/></span></div><div><br/></div><div><span style=3D"box-sizing: =
+border-box; font-size: 0.9em; letter-spacing: normal; orphans: 2; =
+text-indent: 0px; text-transform: none; white-space: normal; widows: 2; =
+word-spacing: 0px; -webkit-text-stroke-width: 0px; background: rgb(248, =
+248, 248); border-radius: 4px; vertical-align: middle; width: =
+auto;"><br/></span></div></span>=0A</div></body></html>
+ 

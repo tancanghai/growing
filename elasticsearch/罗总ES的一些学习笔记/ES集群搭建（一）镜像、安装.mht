@@ -1,0 +1,176 @@
+Date: Thu, 7 May 2020 15:27:37 +0800
+Message-ID: <0001249c$9b54b4c0$7d482300$YinXiangBiJi>
+MIME-Version: 1.0
+Content-Type: text/html; 
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+X-Mailer: Evernote® v6.20.2.1568
+
+<html>
+<head>
+  <title>Evernote Export</title>
+  <basefont face=3D"=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91" size=3D"2" />
+  <meta http-equiv=3D"Content-Type" =
+content=3D"text/html;charset=3Dutf-8" />
+  <meta name=3D"exporter-version" content=3D"YXBJ Windows/601568 (zh-CN, =
+DDL); Windows/10.0.0 (Win64); EDAMVersion=3DV2;"/>
+  <style>
+    body, td {
+      font-family: =E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91;
+      font-size: 10pt;
+    }
+  </style>
+</head>
+<body>
+<a name=3D"1167"/>
+
+<div>=0A<span><div><span style=3D"font-weight: =
+bold;">ES=E9=9B=86=E7=BE=A4=E6=90=AD=E5=BB=BA=EF=BC=88=E4=B8=80=EF=BC=89=E9=
+=95=9C=E5=83=8F=E3=80=81=E5=AE=89=E8=A3=85</span></div><div><a =
+href=3D"https://www.elastic.co/guide/en/elasticsearch/reference/6.5/docke=
+r.html">https://www.elastic.co/guide/en/elasticsearch/reference/6.5/docke=
+r.html</a></div><div><br/></div><div>1=E3=80=81=E9=95=9C=E5=83=8F</div><d=
+iv style=3D"box-sizing: border-box; padding: 8px; font-family: Monaco, =
+Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; =
+color: rgb(51, 51, 51); border-radius: 4px; background-color: rgb(251, =
+250, 248); border: 1px solid rgba(0, 0, 0, =
+0.15);-en-codeblock:true;"><div>docker pull =
+docker.elastic.co/elasticsearch/elasticsearch:6.5.4</div></div><div><br/>=
+</div><div style=3D"box-sizing: border-box; padding: 8px; font-family: =
+Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: =
+12px; color: rgb(51, 51, 51); border-radius: 4px; background-color: =
+rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, =
+0.15);-en-codeblock:true;"><div>[root@izuf61h64dz1tlpk35hb3jz ~]# vi =
+/etc/sysctl.conf</div><div>[root@izuf61h64dz1tlpk35hb3jz ~]# sysctl =
+-p</div><div>net.ipv6.conf.all.disable_ipv6 =3D =
+1</div><div>net.ipv6.conf.default.disable_ipv6 =3D =
+1</div><div>net.ipv6.conf.lo.disable_ipv6 =3D 1</div><div>vm.swappiness =
+=3D 0</div><div>net.ipv4.neigh.default.gc_stale_time =3D =
+120</div><div>net.ipv4.conf.all.rp_filter =3D =
+0</div><div>net.ipv4.conf.default.rp_filter =3D =
+0</div><div>net.ipv4.conf.default.arp_announce =3D =
+2</div><div>net.ipv4.conf.lo.arp_announce =3D =
+2</div><div>net.ipv4.conf.all.arp_announce =3D =
+2</div><div>net.ipv4.tcp_max_tw_buckets =3D =
+5000</div><div>net.ipv4.tcp_syncookies =3D =
+1</div><div>net.ipv4.tcp_max_syn_backlog =3D =
+1024</div><div>net.ipv4.tcp_synack_retries =3D 2</div><div>kernel.sysrq =
+=3D 1</div><div>vm.max_map_count =3D =
+262144</div></div><div><br/></div><div><br/></div><div>2=E3=80=81=C2=A0</=
+div><div><span style=3D"font-size: 14px; letter-spacing: normal; =
+orphans: 2; text-indent: 0px; text-transform: none; white-space: pre; =
+widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; =
+background-color: rgb(246, 248, 250);"><br/></span></div><div><span =
+style=3D"font-size: 14px; letter-spacing: normal; orphans: 2; =
+text-indent: 0px; text-transform: none; white-space: pre; widows: 2; =
+word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: =
+rgb(246, 248, 250); color: rgb(79, 79, 79); font-family: &quot;Source =
+Code Pro&quot;, &quot;DejaVu Sans Mono&quot;, &quot;Ubuntu Mono&quot;, =
+&quot;Anonymous Pro&quot;, &quot;Droid Sans Mono&quot;, Menlo, Monaco, =
+Consolas, Inconsolata, Courier, monospace, &quot;PingFang SC&quot;, =
+&quot;Microsoft YaHei&quot;, sans-serif; font-variant-caps: normal; =
+font-variant-ligatures: common-ligatures;">docker run</span> <span =
+style=3D"box-sizing: border-box; outline: 0px; font-size: 14px; =
+word-wrap: break-word; letter-spacing: normal; orphans: 2; text-indent: =
+0px; text-transform: none; white-space: pre; widows: 2; word-spacing: =
+0px; -webkit-text-stroke-width: 0px; color: rgb(152, 195, 121); =
+font-family: &quot;Microsoft YaHei&quot;, &quot;SF Pro Display&quot;, =
+Roboto, Noto, Arial, &quot;PingFang SC&quot;, sans-serif; =
+font-variant-caps: normal; font-variant-ligatures: =
+common-ligatures;">-d</span> <span style=3D"box-sizing: border-box; =
+outline: 0px; font-size: 14px; word-wrap: break-word; letter-spacing: =
+normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: =
+pre; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; =
+color: rgb(152, 195, 121); font-family: &quot;Microsoft YaHei&quot;, =
+&quot;SF Pro Display&quot;, Roboto, Noto, Arial, &quot;PingFang =
+SC&quot;, sans-serif; font-variant-caps: normal; font-variant-ligatures: =
+common-ligatures;">-p</span> <span style=3D"box-sizing: border-box; =
+outline: 0px; font-size: 14px; word-wrap: break-word; letter-spacing: =
+normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: =
+pre; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; =
+color: rgb(0, 102, 102); font-family: &quot;Microsoft YaHei&quot;, =
+&quot;SF Pro Display&quot;, Roboto, Noto, Arial, &quot;PingFang =
+SC&quot;, sans-serif; font-variant-caps: normal; font-variant-ligatures: =
+common-ligatures;">9200</span><span style=3D"font-size: 14px; =
+letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: =
+none; white-space: pre; widows: 2; word-spacing: 0px; =
+-webkit-text-stroke-width: 0px; background-color: rgb(246, 248, 250); =
+color: rgb(79, 79, 79); font-family: &quot;Source Code Pro&quot;, =
+&quot;DejaVu Sans Mono&quot;, &quot;Ubuntu Mono&quot;, &quot;Anonymous =
+Pro&quot;, &quot;Droid Sans Mono&quot;, Menlo, Monaco, Consolas, =
+Inconsolata, Courier, monospace, &quot;PingFang SC&quot;, =
+&quot;Microsoft YaHei&quot;, sans-serif; font-variant-caps: normal; =
+font-variant-ligatures: common-ligatures;">:</span><span =
+style=3D"box-sizing: border-box; outline: 0px; font-size: 14px; =
+word-wrap: break-word; letter-spacing: normal; orphans: 2; text-indent: =
+0px; text-transform: none; white-space: pre; widows: 2; word-spacing: =
+0px; -webkit-text-stroke-width: 0px; color: rgb(0, 102, 102); =
+font-family: &quot;Microsoft YaHei&quot;, &quot;SF Pro Display&quot;, =
+Roboto, Noto, Arial, &quot;PingFang SC&quot;, sans-serif; =
+font-variant-caps: normal; font-variant-ligatures: =
+common-ligatures;">9200</span> <span style=3D"box-sizing: border-box; =
+outline: 0px; font-size: 14px; word-wrap: break-word; letter-spacing: =
+normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: =
+pre; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; =
+color: rgb(152, 195, 121); font-family: &quot;Microsoft YaHei&quot;, =
+&quot;SF Pro Display&quot;, Roboto, Noto, Arial, &quot;PingFang =
+SC&quot;, sans-serif; font-variant-caps: normal; font-variant-ligatures: =
+common-ligatures;">-p</span> <span style=3D"box-sizing: border-box; =
+outline: 0px; font-size: 14px; word-wrap: break-word; letter-spacing: =
+normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: =
+pre; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; =
+color: rgb(0, 102, 102); font-family: &quot;Microsoft YaHei&quot;, =
+&quot;SF Pro Display&quot;, Roboto, Noto, Arial, &quot;PingFang =
+SC&quot;, sans-serif; font-variant-caps: normal; font-variant-ligatures: =
+common-ligatures;">9300</span><span style=3D"font-size: 14px; =
+letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: =
+none; white-space: pre; widows: 2; word-spacing: 0px; =
+-webkit-text-stroke-width: 0px; background-color: rgb(246, 248, 250); =
+color: rgb(79, 79, 79); font-family: &quot;Source Code Pro&quot;, =
+&quot;DejaVu Sans Mono&quot;, &quot;Ubuntu Mono&quot;, &quot;Anonymous =
+Pro&quot;, &quot;Droid Sans Mono&quot;, Menlo, Monaco, Consolas, =
+Inconsolata, Courier, monospace, &quot;PingFang SC&quot;, =
+&quot;Microsoft YaHei&quot;, sans-serif; font-variant-caps: normal; =
+font-variant-ligatures: common-ligatures;">:</span><span =
+style=3D"box-sizing: border-box; outline: 0px; font-size: 14px; =
+word-wrap: break-word; letter-spacing: normal; orphans: 2; text-indent: =
+0px; text-transform: none; white-space: pre; widows: 2; word-spacing: =
+0px; -webkit-text-stroke-width: 0px; color: rgb(0, 102, 102); =
+font-family: &quot;Microsoft YaHei&quot;, &quot;SF Pro Display&quot;, =
+Roboto, Noto, Arial, &quot;PingFang SC&quot;, sans-serif; =
+font-variant-caps: normal; font-variant-ligatures: =
+common-ligatures;">9300</span> <span style=3D"box-sizing: border-box; =
+outline: 0px; font-size: 14px; word-wrap: break-word; letter-spacing: =
+normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: =
+pre; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; =
+color: rgb(152, 195, 121); font-family: &quot;Microsoft YaHei&quot;, =
+&quot;SF Pro Display&quot;, Roboto, Noto, Arial, &quot;PingFang =
+SC&quot;, sans-serif; font-variant-caps: normal; font-variant-ligatures: =
+common-ligatures;">-e</span> <span style=3D"box-sizing: border-box; =
+outline: 0px; font-size: 14px; word-wrap: break-word; letter-spacing: =
+normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: =
+pre; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; =
+color: rgb(0, 153, 0); font-family: &quot;Microsoft YaHei&quot;, =
+&quot;SF Pro Display&quot;, Roboto, Noto, Arial, &quot;PingFang =
+SC&quot;, sans-serif; font-variant-caps: normal; font-variant-ligatures: =
+common-ligatures;">&quot;discovery.type=3Dsingle-node&quot;</span> <span =
+style=3D"box-sizing: border-box; outline: 0px; font-size: 14px; =
+word-wrap: break-word; letter-spacing: normal; orphans: 2; text-indent: =
+0px; text-transform: none; white-space: pre; widows: 2; word-spacing: =
+0px; -webkit-text-stroke-width: 0px; color: rgb(79, 79, 79); =
+font-family: &quot;Microsoft YaHei&quot;, &quot;SF Pro Display&quot;, =
+Roboto, Noto, Arial, &quot;PingFang SC&quot;, sans-serif; =
+font-variant-caps: normal; font-variant-ligatures: =
+common-ligatures;">--</span><span style=3D"font-size: 14px; =
+letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: =
+none; white-space: pre; widows: 2; word-spacing: 0px; =
+-webkit-text-stroke-width: 0px; background-color: rgb(246, 248, 250); =
+color: rgb(79, 79, 79); font-family: &quot;Source Code Pro&quot;, =
+&quot;DejaVu Sans Mono&quot;, &quot;Ubuntu Mono&quot;, &quot;Anonymous =
+Pro&quot;, &quot;Droid Sans Mono&quot;, Menlo, Monaco, Consolas, =
+Inconsolata, Courier, monospace, &quot;PingFang SC&quot;, =
+&quot;Microsoft YaHei&quot;, sans-serif; font-variant-caps: normal; =
+font-variant-ligatures: common-ligatures;">name =
+es</span>=C2=A093109ce1d590</div><div><br/></div></span>=0A</div></body><=
+/html>
+ 
