@@ -1,0 +1,1 @@
+在项目目录下的终端输入webpack就会按照webpack.config.js 配置文件进行打包

@@ -28,8 +28,13 @@
      }
 assets/bundle.js，路径前面就得添加assets  	 
 
+
+ 注意 ：webpack-dev-server 添加参数
+
 "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --hot"//中添加参数--hot可以实现代码局部更新；
   },
   注意每次修改package.js文件都需要重新执行一下npm run dev重新运行webpack-dev-server;
+或者
+在webpack.config.json 中的devServer项中配置参数
