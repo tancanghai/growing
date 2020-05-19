@@ -16,7 +16,7 @@
 	 vue.js报错 [Vue warn]: Cannot find element: #app
 	 在做vue.js案列练习时，会出现 [Vue warn]: Cannot find element: #app的错误；
 	 
-	 原因是：我把相关的js文件放在head里面，导致文件未加载完成就运行js文件，所以js找不到 #app 。
+	 原因是：我把相关的js文件放在head里面，导致文件未加载完成就运行js文件，所以js找不到 #app 。已经打包成了js文件等页面加载完再加载js
 	 
 	 改正： 把相关js文件放至尾部，保证页面全部渲染完成才加载js，就可以避免这个错误。
 	 -->

@@ -45,7 +45,7 @@ var vm=new Vue({
 	data:{
 		msg:"nihaoVue!"
 	},
-	render:function(createElements){//
+	render:function(createElements){//使用.vue文件需要是用render
 		//createElements是一个方法，调用它能够把指定的组件模板，渲染为html
 		return createElements(login);//替换掉el容器
 	}
@@ -54,4 +54,5 @@ var vm=new Vue({
 使用.vue文件
 1.需要npm i vue-loader vue-template-complier -D
 2.需要使用render函数替换el
+//<style scoped>//vue中修改css属性无效,scoped表示当前style只对当前组件有效，避免组件间样式相互影响//不加scoped就是全局样式//如果需要支持scss或者less则需要设置lang属性如：lang:"scss"
  -->
