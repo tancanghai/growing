@@ -1,0 +1,29 @@
+<el-table :data="tableData" max-height="260" :span-method="merge" @cell-click="cellClick"
+                :cell-class-name='getCellIndex' :cell-style="setCellStyle">
+                <el-table-column fixed prop="name" width="70">
+
+
+
+//通过:cell-class-name='getCellIndex'先把索引绑定到row下，点击实获取索引
+<script>
+	cellClick: function (row, column, cell, event) {
+	  // console.log(row, column, cell, event);
+	  // var index = $(cell).index();
+	  this.forecastTime = parseFloat(column.label);
+	  this.size = parseFloat(row.size);
+	  // console.log(index, this.forecastTime);
+	  this.rowIndex = row.index;
+	  this.columnIndex = column.index;
+	},
+	getCellIndex: function ({ row, column, rowIndex, columnIndex }) {
+	  row.index = rowIndex;
+	  column.index = columnIndex;
+	},
+	setCellStyle: function ({ row, column, rowIndex, columnIndex }) {
+	  if (rowIndex === this.rowIndex && columnIndex === this.columnIndex) {
+	    return { "background-color": "#009221" }
+	  }
+	}
+</script>
+
+

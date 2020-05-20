@@ -1,0 +1,164 @@
+<?php $this->load->view("common/breadcrumb"); ?>
+<?php //$this->load->view("app/mod_query"); ?>
+
+<div id="apiderdata">
+    <div>
+        <el-table :data="tableData"  border :cell-class-name='getCellIndex' @cell-dblclick="cellDblclick"  :span-method="objectSpanMethod" style="width: 100%; margin-top: 20px">
+            <el-table-column prop="id" label="ID" width="180">
+            </el-table-column>
+            <el-table-column prop="name" label="姓名">
+            </el-table-column>
+            <el-table-column prop="amount1" label="数值 1（元）">
+            </el-table-column>
+            <el-table-column prop="amount2" label="数值 2（元）">
+            </el-table-column>
+            <el-table-column prop="amount3" label="数值 3（元）">
+            </el-table-column>
+        </el-table>
+    </div>
+</div>
+
+<script>
+    //在一元数组中向越来越小的键名方向查找最近的不小于0的位置
+    function checkMinValueMin(key,array) {
+        for(var i=key;i>=0;i--){
+            if(array[i]>0){
+                return i;
+                break;
+            }
+        }
+    }
+    //在一元数组中向越来越大的键名方向查找最近的不小于0的位置 ；当达到数组元素键名最大时还没有大于0的元素时取数组元素最大的键名+1
+    function checkMinValueMax(key,array) {
+        var j=0;
+        for(var i=key+1;i<array.length;i++){
+            if(array[i]  && array[i]>0){
+                j=i;
+                break;
+            }
+        }
+        if(j==0){
+            j=array.length;
+        }
+        return j;
+    }
+
+    var app = new Vue({
+        el: '#apiderdata',
+        data: {
+            tableData: [{
+                id: '12987122',
+                name: '王小虎',
+                amount1: '234',
+                amount2: '3.2',
+                amount3: 10
+            }, {
+                id: '12987123',
+                name: '王小虎',
+                amount1: '165',
+                amount2: '4.43',
+                amount3: 12
+            }, {
+                id: '12987124',
+                name: '王小虎',
+                amount1: '324',
+                amount2: '1.9',
+                amount3: 9
+            }, {
+                id: '12987125',
+                name: '王小虎',
+                amount1: '621',
+                amount2: '2.2',
+                amount3: 17
+            }, {
+                id: '12987126',
+                name: '王小虎',
+                amount1: '539',
+                amount2: '4.1',
+                amount3: 15
+            }, {
+                id: '12987126',
+                name: '王小虎',
+                amount1: '539',
+                amount2: '4.1',
+                amount3: 15
+            }]
+        },
+        mounted() {
+            this.matrix();//数据加载完；自动执行；
+        },
+        methods: {
+            //计算行列数 并矩阵倒置成所有元素为1；表示所有的单元格都是未进行合并操作的；
+            matrix:function(){
+                var tableData=this.tableData;
+                var row=tableData.length;
+                var column=Object.keys(tableData[0]).length;
+                var MatrixColumn = new Array();
+                for(var i=0;i<column;i++) {
+                    MatrixColumn[i] = new Array(i);
+                    for(var j=0;j<row;j++) {
+                        MatrixColumn[i][j] = 1;
+                    }
+                }
+                this.column=column;
+                this.MatrixColumn=MatrixColumn;
+                console.log(this.MatrixColumn);
+            },
+            //使用this.MatrixColumn二元数组把每列整成一个一元数组[4, 0, 0, 0, 1, 1, 1, 1, 1]合并的单元格数量为多少数字就是多少；0为被合并的单元格；
+            cellDblclick:function(row, column, cell, event){
+                var keyMax= checkMinValueMax(row.index,this.MatrixColumn[column.index]);
+                console.log(keyMax);
+                var list = {id: keyMax,
+                name: '姓名-'+keyMax,
+                amount1: '数值1-'+keyMax,
+                amount2: '数值2-'+keyMax,
+                amount3: '数值3-'+keyMax};
+                // this.tableData.push(list);
+                if(column.index<3){
+                    //添加一行   checkMinValueMax在这方法获取到的位置添加一行
+                      this.tableData.splice(keyMax,0,list);
+
+                    //在this.MatrixColumn子数组中键名小于等于column.index的数组的第row.index+1位置添加0元素 和
+                    // 向越来越小的键名方向查找最近的不小于0的的值加1；
+                    // 键名大于column.index其它位置添加1元素；
+                    //例如：操作this.MatrixColumn=[   的第二行第三列；           this.MatrixColumn=[
+                        //[1,1,1],                                                                //  [1,1,2,0],
+                       // [1,1,1],                                    变成=>                      //  [1,1,2,0],
+                       // [1,1,1]]  ;                                                             //  [1,1,1,1]];
+                    for(var i=0;i<=column.index;i++){
+                         this.MatrixColumn[i].splice(keyMax,0,0);
+                        var keyMin= checkMinValueMin(row.index,this.MatrixColumn[i]);
+                        this.MatrixColumn[i][keyMin]=this.MatrixColumn[i][keyMin]+1;
+                    }
+                    for(var j=column.index+1;j<this.MatrixColumn.length;j++){
+                          this.MatrixColumn[j].splice(keyMax,0,1);
+                    }
+                }
+            console.log(this.MatrixColumn);
+            this.rowIndex = row.index;
+            this.columnIndex = column.index;
+            },
+            //通过这方法 获取 点击的单元格 行列的索引row.index，column.index
+            getCellIndex: function ({ row, column, rowIndex, columnIndex }) {
+                row.index = rowIndex;
+                column.index = columnIndex;
+            },
+            // 通过[4, 0, 0, 0, 1, 1]控制合并竖向单元格
+            objectSpanMethod({ row, column, rowIndex, columnIndex }) {
+                //只有前三列有合并功能
+                    for(var n=0;n<3;n++){
+                        if(n == columnIndex){
+                                const _row = this.MatrixColumn[n][rowIndex];
+                                const _col = _row > 0 ? 1 : 0;
+                                return {
+                                    rowspan: _row,
+                                    colspan: _col
+                                };
+                        }
+                    }
+            },
+        }
+    });
+</script>
+
+

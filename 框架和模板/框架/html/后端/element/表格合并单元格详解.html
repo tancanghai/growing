@@ -1,0 +1,45 @@
+element-ui合并单元格使用详解
+
+看了看官方的示例，发现所谓的单元格跟我之前的认知不一样，比如有两个组合A、B，其中A是由a1和a2组合在一起(即A = [a1, a2])，B是由b1、b2和b3
+组合在一起(即B = [b1, b2, b3])，我之前一直以为饿了么的table的结构也是这样的，起初我还在想如果这个table组件让我写，我一定是写不出来的
+，感觉太难了。
+
+饿了么的前端技术就是牛，他们是这样实现的。上面的两个组合在table里面的数据其实还是a1、a2、b1、b2和b3，啊！跟正常的五条数据没有区别？
+没错，但是在table上有一个控制合并单元的方法。
+
+控制单元格是否合并就是靠objectSpanMethod，根据官方文档可知，这个函数是Function({ row, column, rowIndex, columnIndex })，
+上面table是要求第一列bundleName和第二列bundlePrice合并。
+
+所以objectSpanMethod可以这样写
+
+// 控制合并单元格  【 核心 】
+objectSpanMethod({ row, column, rowIndex, columnIndex }) {
+    if ([0,1].includes(columnIndex)) {
+        const _row = this.combineRowSpan[rowIndex];
+        const _col = _row > 0 ? 1 : 0;
+        return {
+            rowspan: _row,
+            colspan: _col
+        };
+    }
+},
+上面有个[0, 1]和combineRowSpan分别是什么鬼？
+
+[0, 1]这个简单，就是第一列、第二列的意思 combineRowSpan也是个数组，它就是记录你在需要组合的a1、a2、b1、b2和b3合并信息。
+针对这种组合的话，combineRowSpan就应该等于[2, 0, 3, 0, 0]，其中的2, 0就是a1和a2的合并信息，3, 0, 0就是b1、b2和b3的信息，
+其中是0的就代表该列准备隐藏，只有不是0的数据是table需要展示用的数据。也就是说上面的A组合的bundleName展示的是a1的bundleName，
+B组合的bundleName展示的是b1的bundleName。
+
+在官方的示例中，把鼠标hover上去，可以看的很明显，“同一行”会有一样的背景色，鉴于现在主机没发上次图片，大家去官网看吧。 
+当然如果你不想以第一行的数据作为合并后的显示，你可以这样： 让combineRowSpan等于[0, 2, 0, 0, 3]，我没试过，理论上是可以的。
+
+一个相对难点就是自己要知道怎么生成出数组[2, 0, 3, 0, 0]。 我是这样做的，还是以上面的A、B为例。其实你是有办法知道
+A = [a1, a2]和B = [b1, b2, b3]，如果这你都不知道，你怎么合并的。
+
+let rowSpan = [];
+function calcRowSpan (arr){
+    let newArr = new Array(arr.length).fill(0);
+    newArr[0] = arr.length; // 第一个元素改成元素的长度
+    rowSpan = [...rowSpan, ...newArr];
+}
+依次调用calcRowSpan(A)和calcRowSpan(B)即可，这样就得到[2, 0, 3, 0, 0]
