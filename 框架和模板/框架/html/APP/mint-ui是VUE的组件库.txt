@@ -1,6 +1,8 @@
 Mint -UI是新推出的移动端UI框架
 
 官网
+官网：https://mint-ui.github.io/#!/zh-cn             此网站进入官网不卡
+Github: https://github.com/ElemeFE/mint-ui/
 
 不过官网上的文档例子不是很全面。
 
