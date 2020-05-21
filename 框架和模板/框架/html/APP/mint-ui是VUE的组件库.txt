@@ -15,4 +15,5 @@ Mint -UI是新推出的移动端UI框架
 4.最后得到的是以下信息，表面打包有效。http://localhost:8080/#/
 
 
-如果全局导入那么css就不需要再import了，js还是需要import
+注意：如果全局导入那么   css  就不需要再import了，js  还是需要import
+按需导入 也需要import css

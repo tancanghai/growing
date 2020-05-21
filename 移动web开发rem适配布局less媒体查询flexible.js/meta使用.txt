@@ -1,7 +1,7 @@
 移动网站要加的html5相关meta和标签，H5网页手机端自适应设置   使页面适应各种设备
 
 1.   强制让文档的宽度与设备的宽度保持1:1，并且文档最大的宽度比例是1.0，且不允许用户点击屏幕放大浏览。
-<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+<meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no">
 
 2.   WebApp全屏模式   隐藏地址栏。
 <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -23,8 +23,7 @@ name 属性的 format-detection 值（忽略页面中的数字识别为电话号
 度不同造成了不能兼容所有浏览器或系统。
 
 首先解释该标签的含义：
-<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable
-=no"/>
+<meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no">
 如果你完全不了解这个标签的使用需要先百度一下。
 解释：content中的“width” 这个width指的是什么宽度，我看过的文章对这个都没有解释的很清楚，有几个备选：虚拟窗口的宽度、手机
 屏幕的宽度、还是页面的宽度等等？

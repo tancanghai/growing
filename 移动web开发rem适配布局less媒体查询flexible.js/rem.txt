@@ -23,6 +23,12 @@ document.documentElement.style.fontSize = document.documentElement.clientWidth /
 var html =document.querySelector('html');
 html.style.fontSize = document.documentElement.clientWidth/10+'px';
 
+(function (doc, win) {
+	var html = document.querySelector('html');
+	html.style.fontSize = document.documentElement.clientWidth / 10 + 'px';
+	console.log(html.style.fontSize);
+})(document, window);
+
 2.复杂示例；
 <!DOCTYPE html>
 <html style="font-size:100px">
