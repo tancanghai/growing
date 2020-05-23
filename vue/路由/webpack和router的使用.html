@@ -1,90 +1,115 @@
-1.在已经配置好的项目下
-2.npm install vue-router
-3.
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-Vue.use(VueRouter)
-4.index.html文件
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title></title>
-		
-	</head>
-	<body>
-		<div id="app" >
-		</div>
-	</body>
-	<script src="http://localhost:8080/dist/bundle.js" type="text/javascript" charset="utf-8"></script>
-	
-</html>
-5.main.js文件
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import index from './vue/index.vue'
-import login from './vue/login.vue'
-import zuce from './vue/regit.vue'
-
- Vue.use(VueRouter)//必须这一步
- var routerobj = new VueRouter({
- 	routes: [ 
- 		{
- 			path: '/login',
- 			component: login
- 		}, 
- 		{
- 			path: '/zuce',
- 			component: zuce
- 		}
- 	]
- });
-var vues=new Vue({
-	el:"#app",
-	data:{
-		
-	},
-	render:function(createElements){//使用默认的模块下的vue需要使用render
-		return createElements(index);
-	},
-	router: routerobj,
-})
-6..vue文件
-a.index.vue文件
+1.cart.vue 文件
 <template>
-	<div id="app" >
-		<router-link to="/login"> 登录</router-link>
-		<router-link to="/zuce"> 注册</router-link>
-		<router-view></router-view>
+	<div >
+		<h3>nihao:cart</h3>
 	</div>
 </template>
+
 <script>
 </script>
+
 <style>
 </style>
-b.login.vue文件
+
+2.App.vue文件
 <template>
-	<p>
-		this is a login
-	</p>
+	<div style="padding-top: 1rem;">
+		<!-- header -->
+		<mt-header fixed title="固定在顶部" ></mt-header>
+		<!-- content -->
+		<router-view></router-view>
+		<!-- footer -->
+		<nav class="mui-bar mui-bar-tab">
+			<router-link class="mui-tab-item mui-active"  to="/home">
+				<span class="mui-icon mui-icon-home"></span>
+				<span class="mui-tab-label">首页</span>
+			</router-link>
+			<router-link class="mui-tab-item"  to="/member">
+				<span class="mui-icon  mui-icon-contact"></span>
+				<span class="mui-tab-label">会员</span>
+			</router-link>
+			<router-link class="mui-tab-item" to="/cart">
+				<span class="mui-icon mui-icon-extra mui-icon-extra-cart"><span class="mui-badge">0</span></span>
+				<span class="mui-tab-label">购物车</span>
+			</router-link>
+			<router-link class="mui-tab-item" to="search">
+				<span class="mui-icon mui-icon-search"></span>
+				<span class="mui-tab-label">搜索</span>
+			</router-link>
+		</nav>
+	</div>
 </template>
-<style scoped>//vue中修改css属性无效,scoped表示当前style只对当前组件有效，避免组件间样式相互影响//不加scoped就是全局样式//如果需要支持scss或者less则需要设置lang属性如：lang:"scss"
-	p{
-		color:green;
-	}
-</style>
-<script>	
-</script>
-c.regit.vue文件
-<template>
-	<p>
-		this is a regit
-	</p>
-</template>
-<style scoped>
-	p{
-		color:red;
-	}
-</style>
+
 <script>
 </script>
+<style scoped >//vue中修改css属性无效,scoped表示当前style只对当前组件有效，避免组件间样式相互影响//不加scoped就是全局样式//如果需要支持scss或者less则需要设置lang属性如：lang:"scss"
+</style>
+
+3.router.js
+import home from "./src/components/home.vue";
+import member from "./src/components/member.vue";
+import cart from "./src/components/cart.vue";
+import search from "./src/components/search.vue";
+
+var routerobj = [
+					{
+						path: '/', 
+						redirect: "/home"
+				    },
+					{
+						path: '/home', 
+						component: home
+					},
+					{
+						path: '/member', 
+						component: member
+					},
+					{
+						path: '/cart', 
+						component: cart
+					},
+					{
+						path: '/search', 
+						component: search
+					},
+				];
+export default routerobj;
+
+4.main.js
+import Vue from "vue/dist/vue.js";
+import app from "./App.vue";
+import VueRouter from 'vue-router';
+import routers from "./router.js";
+
+import 'mint-ui/lib/style.css'
+import "./src/lib/mui/css/mui.min.css";
+import "./src/lib/mui/css/icons-extra.css";
+
+import { Header } from 'mint-ui';
+
+Vue.component(Header.name, Header);
+
+Vue.use(VueRouter);//必须这一步
+var router = new VueRouter({
+	routes:routers
+});
+
+(function (doc, win) {
+	var html = document.querySelector('html');
+	html.style.fontSize = document.documentElement.clientWidth / 10 + 'px';
+	console.log(html.style.fontSize);
+})(document, window);
+
+
+new Vue({
+	el: "#app",
+	data: {},
+	methods: {
+
+	},
+	router: router,
+	render: function (createElements) {//使用默认的模块下的vue需要使用render
+		//createElements是一个方法，调用它能够把指定的组件模板，渲染为html
+		return createElements(app); //替换掉el容器
+	}
+});
