@@ -1,0 +1,17 @@
+1.     APP  版本控制 
+ 	restful 在路由添加版本参数  控制器下添加版本目录 .../controller/v1.1   ..../controller/v1.2
+	Rou::get('api/:version/index','api/:version.index/index');    
+	Rou::get('api/:version/init','api/:version.index/init');
+
+
+2.    APP   版本升级的类型
+	a.  用户自主选择更新
+	b.  强制更新
+
+(1)  APP版本升级
+         	当打开APP的时候 初始化APP的时候 调用API初始化接口 在APP接口做相关判断
+	创建版本数据表  取得需要更新版本的那条数据 对比  然后判断是需要更新还是强制更新还是不需要更新 is_update=0 or 1 or 2   //0不更新 1强制更新 2选择更新
+
+(2) 用户版本表
+	app初始化的时候记录一条数据	
+

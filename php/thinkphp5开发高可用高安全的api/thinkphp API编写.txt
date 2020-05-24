@@ -1,0 +1,9 @@
+1.通过路由机制来配置API   使用restful API形式[thinkphp资源路由配置]    使用postman工具
+2.配置‘default_return_type’ 配置 log日志便于调试     配置路由route文件  
+2.help文件  json（）可设置状态码 
+3.不可预知异常处理
+4.API数据安全
+5.判断登陆参数token
+6.所有隐私或者重要信息都加密处理再传输
+
+

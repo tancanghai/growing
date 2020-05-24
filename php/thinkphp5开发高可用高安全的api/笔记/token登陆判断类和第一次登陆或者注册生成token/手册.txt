@@ -1,0 +1,5 @@
+IAuth 生成token
+LoginBase.php  根据token判断是否登陆  如需要判断是否登陆场景的继承这个类
+FirstLogin.php 第一次登陆或者注册生成用户信息 token等等
+还需要加强  对token加密 仿照sign的使用 如唯一性 时间性等等
+ 

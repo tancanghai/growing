@@ -1,0 +1,8 @@
+在项目中如果要对前后端传输的数据双向加密， 比如避免使用明文传输用户名，密码等数据。 就需要对前后端数据用同种方法进行加密，方便解密。
+这里介绍使用 CryptoJS 实现 AES 加解密。
+
+? ? ? ? 首先需要下载前台使用 CryptoJS 实现 MD5 加解密的，所以要先下载组件，下载 CryptoJS-v3.1.2 版本之后，
+文件中包含components 和 rollups 两个文件夹，components 文件夹下是单个组件，rollups 文件夹下是汇总，引用 rollups 下的 md5.js 文件即可。
+--------------------- 
+版权声明：本文为CSDN博主「ZCF1024」的原创文章，遵循CC 4.0 by-sa版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/zcf980/article/details/83213286

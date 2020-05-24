@@ -1,0 +1,95 @@
+http://www.vueshop.com/index.php/api/hello/index.html 没有配置路由的情况下的地址；
+project  应用部署目录
+├─application           应用目录（可设置）
+│  ├─common             公共模块目录（可更改）
+│  ├─exter             自定义配置文件目录             12
+│  │  ├─lib          配置文件             		13
+│  ├─index              模块目录(可更改)
+│  │  ├─config.php      模块配置文件
+│  │  ├─common.php      模块函数文件
+│  │  ├─controller      控制器目录
+│  │  │ ├─Admin                   2
+│  │  ├─model           模型目录
+│  │  │ ├─AdminUser           1
+│  │  ├─validate           验证目录
+│  │  │ ├─Admin           3
+│  │  ├─view            视图目录  6
+│  │  │ ├─admin                  
+│  │  │ │ ├─admin                   4
+│  │  │ ├─index                  
+│  │  │ │ ├─index                   5
+│  │  │ ├─public                  
+│  │  │ │ ├─_meta                   7
+│  │  └─ ...            更多类库目录
+│  ├─command.php        命令行工具配置文件
+│  ├─common.php         应用公共（函数）文件 （直接写函数不需要写类 调用的话直接调用就行了 如aa($title);）
+│  ├─config.php         应用（公共）配置文件
+│  ├─database.php       数据库配置文件
+│  ├─tags.php           应用行为扩展定义文件
+│  └─route.php          路由配置文件
+├─extend                扩展类库目录（可定义）
+│  ├─org             目录             10
+│  │  ├─Taobao          Taobao类                                         11       被调用方式：new \org\Taobao();  命名空间  namespace org;
+├─public                WEB 部署目录（对外访问目录）
+│  ├─static             静态资源存放目录(css,js,image)
+│  ├─index.php          应用入口文件
+│  ├─router.php         快速测试文件
+│  └─.htaccess          用于 apache 的重写
+├─runtime               应用的运行时目录（可写，可设置）
+├─vendor                第三方类库目录（Composer）                8
+│  ├─Est              Est 类库文件
+│  │  ├─phpest          phpest类                                               9   
+├─thinkphp              框架系统目录
+│  ├─lang               语言包目录
+│  ├─library            框架核心类库目录
+│  │  ├─think           Think 类库包目录
+│  │  └─traits          系统 Traits 目录
+│  ├─tpl                系统模板目录
+│  ├─.htaccess          用于 apache 的重写
+│  ├─.travis.yml        CI 定义文件
+│  ├─base.php           基础定义文件
+│  ├─composer.json      composer 定义文件
+│  ├─console.php        控制台入口文件
+│  ├─convention.php     惯例配置文件
+│  ├─helper.php         助手函数文件（可选）
+│  ├─LICENSE.txt        授权说明文件
+│  ├─phpunit.xml        单元测试配置文件
+│  ├─README.md          README 文件
+│  └─start.php          框架引导文件
+├─build.php             自动生成定义文件（参考）
+├─composer.json         composer 定义文件
+├─LICENSE.txt           授权说明文件
+├─README.md             README 文件
+├─think                 命令行入口文件
+
+1.   使用 Think 类库     use think\Controller;  use think\Db; use think\Request;  use think\Validate; use think\Model;
+2.   2调用1  $model = model('AdminUser');  $id = $model->add($datas);
+3.   2调用3  $validate = validate('Admin'); $result = $validate->check($data);
+4.   6文件调用 static静态资源存放目录(css,js,image)     <script type="text/javascript" src="__STATIC__/huiadmin/lib/jquery.contextmenu/jquery.contextmenu.r2.js"></script>   __STATIC__代表static目录层
+5.  5跳转4      src="{:url('welcome/index')}"
+6.  4或者5使用7      {include file="public/_meta"/}
+7.  4使用2      html中.    action="{:url('admin/admin')}"      js中. $.post("admin", {"code": code}, function (data, status) {
+8.  使用 验证码  use think\captcha\Captcha;
+9.  在 当前域名 下  <img id="captcha" src="/index.php/captcha" alt="captcha" />   地址前加/ 代表当前域名
+10. 调用 common文件夹下的类   先use app\admin\common\Admins; 然后new一下 ，再使用就行了 ；也可以封装成静态类 直接 类名如Iaut：：方法名；
+11. 调用 配置文件 中的东西   如12目录中的 配置文件 1.  config（“文件名.键名”）；  2.  define('YES', 0);  直接常量名字调用
+12.  // 视图输出字符串内容替换  'view_replace_str'       => [], 在配置文件中写下就行了  例如：{load href="/static/js/common.js" /}写成{load href="__STATIC__/js/common.js" /}  'view_replace_str'  =>  [  '__PUBLIC__'=>'/public/',   '__ROOT__' => '/','__STATIC__'=>'/public/static']
+13.  调用自定义js常量和函数  a.  首先建一个config.js文件 
+<script>var port = "http://siqi.ilikedh.com/guide/";
+function getPort(){
+  return port;
+}
+</script>
+b.  在html文件的脚本中使用这个常量  引入config.js这个文件   <script src="config.js"></script>  
+<script>
+	var interfaceAddress = getPort();//全局变量，可在本html页面中的任何函数中使用
+</script>
+14.  调用vendor第三方类库目录 如目录（wendor\Webmozart\Assert\Tests;） 类的命名空间写法namespace Webmozart\Assert\Tests; 引用是   Vendor（“文件名.类库文件名”）；如  Vendor（“Est.phpest”）；例如导入导出 和 支付宝支付 ；  实例化wendor最底层的类文件 new \TbkShopsGetRequest();
+15.  调用extend自定义类库目录 如目录extend\Webmozart\Assert\Tests;） 类的命名空间写法namespace Webmozart\Assert\Tests; 引用是   use Webmozart\Assert\Tests； new Tests();
+16 .  html中js变量可以这么写     <script type="text/javascript" >
+    swf     = '__STATIC__/uploadify/uploadify.swf';
+    uploader= '__STATIC__/uploadify/uploadify.php';
+</script>
+
+17.  调用路径  'exception_handle' => '\app\api\common\ApiHandleException',  \app
+
