@@ -1,0 +1,43 @@
+第一种 ：方案是使用try catch
+try {
+//异常代码
+    $pdo = new PDO("mysql:host=localhost;dbname=mysql", "root", "");
+} catch (PDOException $e) {
+//抛出异常
+    echo $e->getMessage();
+    // die(); // 终止异常
+}
+
+第二种 ：方案【报错会以json格式把错误显示出来 而不是渲染       debug模式下还是渲染 
+{
+    "status": 0,
+    "msg": "module not exists:indexa",
+    "data": []
+}】
+修改think/exception/Handle.php render()方法  render方法就是打开调试模式异常显示的渲染方法；
+修改配置文件
+    // 异常处理handle类 留空使用 \think\exception\Handle
+    'exception_handle'       => '\app\api\common\ApiHandleException',
+
+1.ApiHandleException 控制器  //修改父类render方法
+<?php
+namespace app\api\common;
+use app\api\common\Info;
+use think\exception\Handle;
+class ApiHandleException extends Handle
+{
+    public $httpCode=500;
+    public function render(\Exception $e)
+    {
+        //打开调试的时候使用父render
+        if(config('app_debug')==true){
+            return parent::render($e);
+        }
+        //修改内部异常处理时候的状态码
+        if ($e instanceof ApiException) {
+            $this->httpCode = $e->httpCode;
+        }
+        //服务端异常返还json数据
+            return Info::show(0, $e->getMessage(), [], $this->httpCode);//错误时候执行这条代码  返回例如：{"stauts":0,"data":[],"msg":"Parse error: syntax error, unexpected 'rr' (T_STRING)"}
+    }
+}

@@ -1,0 +1,42 @@
+<?php
+1.//修改exception()参数数据
+namespace app\api\common;
+
+use think\Exception;
+class ApiException extends Exception
+{
+    public $message = '';
+    public $httpCode = 500;
+    public $code = 0;
+    public function __construct($message = '', $httpCode = 0,$code = 0)
+    {
+        $this->httpCode = $httpCode;
+        $this->message = $message;
+        $this->code = $code;
+    }
+
+}
+
+2. 使用
+use app\api\common\Info;
+use app\api\common\ApiException;
+    public function index()
+    {
+        $data = input();
+        ddd;//错误服务端 服务端异常处理 500  
+        if ($data['key'] == 3) {//异常业务返回
+           throw new ApiException('您提交的数据不合法！',401); //内部异常处理
+        }
+        return Info::show(1, "成功", $data, 200);//正常返还数据
+    }
+
+3. show方法//正常业务返回
+    public static function show($status, $msg, $data = [], $code = 200)
+    {
+        $datas = [
+            'status' => $status,
+            'msg' => $msg,
+            'data' => $data
+        ];
+        return json($datas, $code);//help文件json()能添加状态码
+    }
