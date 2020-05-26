@@ -1,0 +1,7 @@
+
+    //生成一个唯一的token  设置登陆的token
+    public  function setAppLoginToken($phone=''){
+       $str= md5(uniqid(md5(microtime(true)),true));
+       $token=sha1($str.$phone);
+       return $token;
+    }

@@ -1,0 +1,21 @@
+客户端每次调用前访问后端  取得时间 对比去掉时间差 
+
+放开一个接口 获取时间
+
+1.第一次请求，服务器端传递一个服务器端的当前时间戳到客户端，
+2.客户端接收到这个时间戳，然后用js获取一下当前的时间戳是啥啥啥，
+3.用客户端的时间戳减去，服务器端的时间戳，对比两个的时间差，
+4.如果存在时间差，保存时间差，然后每次需要用到时间的时候，js获取当前时间+(时间差)，就能算出来，客户端的时间戳是多少了
+
+namespace app\api\controller;
+
+use think\Controller;
+use app\api\common\Info;
+
+class Time extends Controller
+{
+    public function index()
+    {
+        return Info:: show(1, 'ok', time(), $code = 200);
+    }
+}

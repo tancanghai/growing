@@ -1,0 +1,7 @@
+   //把sign写入缓存//确认唯一性
+        Cache::set($header['sign'],1,config('app_sign_cache_time'));
+
+  //sign的唯一性 //文件缓存
+        if(Cache::get($header['sign'])){
+            return false;
+        }
