@@ -1,0 +1,39 @@
+<!-- 如果完整引入了 Element，那么 Vue.prototype 上会有一个全局方法 $loading，它的调用方式为：this.$loading(options)，
+同样会返回一个 Loading 实例。 -->
+  <template>
+    <el-button
+      type="primary"
+      @click="openFullScreen"
+      v-loading.fullscreen.lock="fullscreenLoading">
+      指令方式
+    </el-button>
+    <el-button
+      type="primary"
+      @click="openFullScreen2">
+      服务方式
+    </el-button>
+  </template>
+  
+  <script>
+    export default {
+      data() {
+        return {
+          fullscreenLoading: false
+        }
+      },
+      methods: {
+        openFullScreen2() {
+			//this.$loading(options)，的使用方法
+          const loading = this.$loading({
+            lock: true,
+            text: 'Loading',
+            spinner: 'el-icon-loading',
+            background: 'rgba(0, 0, 0, 0.7)'
+          });
+          setTimeout(() => {
+            loading.close();
+          }, 2000);
+        }
+      }
+    }
+  </script>

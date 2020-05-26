@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			layer.load();
+			$.post("<?php //echo site_url("apps/accounts/subscribe"); ?>//", $data, function (d) {
+			   if (d.status) {
+			       layer.closeAll();
+			       layer.msg('操作成功！', { icon: 1, time: 2000});
+			       that.$refs.drawerClose.hide();
+			   } else {
+			       layer.closeAll();
+			       layer.msg(d.msg,{ icon: 1, time: 2000});
+			   }
+			}, "json");
+			layer.closeAll();
+		</script>
+	</body>
+</html>

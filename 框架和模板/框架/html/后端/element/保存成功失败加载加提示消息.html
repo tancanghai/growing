@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			            save(){//需要写到element的methods中
+			                // alert("nihao!");
+			                var that=this;
+			                this.$confirm('确定保存, 是否继续?', '提示', {
+			                    confirmButtonText: '确定',
+			                    cancelButtonText: '取消',
+			                    type: 'warning'
+			                }).then(() => {
+			                    const loading = that.$loading({
+			                        lock: true,
+			                        text: 'Loading',
+			                        spinner: 'el-icon-loading',
+			                        background: 'rgba(0, 0, 0, 0.7)'
+			                    });
+			                    if(1==2){//保存失败
+			                        setTimeout(() => {
+			                            loading.close();
+			                            this.$message.error('保存失败！');
+			                        }, 2000);
+			                    }else{
+			                        setTimeout(() => {
+			                            loading.close();
+			                            that.$message({
+			                                type: 'success',
+			                                message: '保存成功！'
+			                            });
+			                        }, 2000);
+			                    }
+			                }).catch(() => {
+			                    //取消保存
+			                });
+			                //使用loading实例来使用loading
+			                // const loading = that.$loading({
+			                //     lock: true,
+			                //     text: 'Loading',
+			                //     spinner: 'el-icon-loading',
+			                //     background: 'rgba(0, 0, 0, 0.7)'
+			                // });
+			                // setTimeout(() => {
+			                //     loading.close();
+			                // }, 2000);
+			
+			            },
+		</script>
+	</body>
+</html>
