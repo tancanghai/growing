@@ -15,8 +15,8 @@ return [
     'exception_handle' => '\app\api\common\ApiHandleException',
 
     //'password_pre_halt' => '_#sing_ty',// 密码加密盐
-    'aeskey' => 'sgg45747ss223455',//aes 密钥 , 服务端和客户端必须保持一致
-    'aesvi'  => 'sgg67895ss232459',//aes vi , 服务端和客户端必须保持一致
+    'aeskey' => 'contentWindowHig',//aes 密钥 , 服务端和客户端必须保持一致
+    'aesvi'  => 'contentDocuments',//aes vi , 服务端和客户端必须保持一致
     'apptypes' => [//app类型
         'ios',
         'android',

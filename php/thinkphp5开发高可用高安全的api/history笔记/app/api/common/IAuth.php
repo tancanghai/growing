@@ -19,7 +19,7 @@ class IAuth
         return $string;
     }
 
-    //设置13位的时间戳  取13就是为了防止和did重复
+    //设置13位的时间戳  取13就是为了防止和did重复生成唯一的did  k=3&dd=44&did=22298888  当解密sign时候对比header头中的did是否对应 did=IAuth::setTime(),
     public static function setTime()
     {
         list($time1, $time2) = explode(' ', microtime());//0.27165800 1379776428

@@ -16,9 +16,9 @@ class Aes2
      * 传入一个16字节的初始偏移向量IV
      */
     private static $method = 'AES-128-CBC';
-    private static $key = 'contentWindowHig';
+    private static $key = 'contentWindowHig';//aes 密钥 , 服务端和客户端必须保持一致
     private static $options = OPENSSL_RAW_DATA;
-    private static $iv = 'contentDocuments';
+    private static $iv = 'contentDocuments';//aes vi , 服务端和客户端必须保持一致
 
     public static function getKey()
     {

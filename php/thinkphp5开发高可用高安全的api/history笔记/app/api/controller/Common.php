@@ -61,7 +61,7 @@ class Common extends Controller
         //parse_str — 将字符串解析成多个变量
         parse_str($str, $array);
         //自己定义所需要的数据 例如 k=3&dd=44&did=22298888   可以多校验 也可以校验k参数合法性
-        if (!is_array($array) || empty($array['did']) || $array['did'] != $header['did']) {//校验did合法
+        if (!is_array($array) || empty($array['did']) || $array['did'] != $header['did']) {//校验did合法   当解密sign时候对比header头中的did是否对应
             return false;
         }
 
