@@ -28,7 +28,6 @@ redis.windows.conf 文件的配置（Linux中的名字叫做redis.conf），这�
 	databases 16     支持的数据库个数
 	dir ./dbcache      保存数据文件的目录
 
-
 另外，配置一下环境变量，将redis路径添加到path中。
 
 如果要练习客户端命令等，需要另外启动一个命令窗口，同样在同一个目录里，输入命令Redis-cli.exe就可以连接上了（如果没有改
@@ -36,6 +35,3 @@ redis.windows.conf 文件的配置（Linux中的名字叫做redis.conf），这�
 修改的配置即可
 set  aa  first
 get aa
-
-
-
