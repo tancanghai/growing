@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<title></title>
+	</head>
+	<body>
+		<div>
+			<button>按钮1</button>
+			<button>按钮2</button>
+			<button>按钮3</button>
+			<button>按钮4</button>
+			<button>按钮5</button>
+		</div>
+		<script>
+			// var data = {
+			// 	a: '123',
+			// 	b: '456',
+			// 	c: '789'
+			// };
+			// var dataObj = {}; //在外面定义对象
+			// var dataArr = [];
+			// for (var i in data) {
+			// 	dataObj.name = data[i];
+			// 	dataArr.push(dataObj);
+			// }
+			// console.log(dataArr);
+			// 结果输出的结果是：789,789,789，而不是期望的123,456,789
+
+			// 原因：每次取出来的值都放在dataObj.name中，因为是在外面的定义的对象，所以每次dataObj的地址
+			// 是一样的，dataArr中保存的是dataObj的地址，当最后一次给dataObj.name赋值为789时，由于
+			// 是同一个dataObj,所以最后一次给dataObj.name赋值给讲前两次的值给覆盖掉，其实第二次已经
+			// 把第一次的值覆盖过了
+			
+			// 解决方法：
+			// for (var i in data) {
+			// 	var dataObj = {}; //在里面定义对象
+			// 	dataObj.name = data[i];
+			// 	dataArr.push(dataObj);
+			// }
+			// console.log(dataArr);
+			// 这样每次都是新的对象，dataObj.name指向的地址都不一样，数据就对了
+			// 这样输出的结果就是：123,456,789
+
+			// $(function() {
+			// 	for (var i = 0; i < $("button").length; i++) {
+			// 		var fun = function() {
+			// 			console.log('点击了第' + i + '个按钮');
+			// 		}
+			// 		$($("div").find("button")[i]).on("click", fun)
+			// 	}
+			// });
+
+			// $(function() {
+			// 	for (var i = 0; i < $("button").length; i++) {
+			// 		$($("div").find("button")[i]).on("click", function() {
+			// 			console.log('点击了第' + i + '个按钮');
+			// 		})
+			// 	}
+			// });
+			//  点击按钮后弹出的都是第4个，原因是var定义变量i作用域造成的。
+
+			// 解决方法：
+
+			// （1）、let定义变量的方法：
+			// $(function() {
+			// 	for (let i = 0; i < $("button").length; i++) {
+			// 		$($("div").find("button")[i]).on("click", function() {
+			// 			console.log('点击了第' + i + '个按钮');
+			// 		})
+			// 	}
+			// });
+
+			// 以上写法在IE浏览区不支持，其他的浏览器支持，点击按钮能取到需要的值。
+			// （2）、var定义变量的方法：
+			// $(function() {
+			// 	for (var i = 0; i < $("button").length; i++) {
+			// 		(function(i) {
+			// 			$($("div").find("button")[i]).on("click", function() {
+			// 				console.log('点击了第' + i + '个按钮');
+			// 			})
+			// 		})(i);
+			// 	}
+			// });
+		</script>
+	</body>
+</html>

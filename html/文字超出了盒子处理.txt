@@ -1,0 +1,4 @@
+方法：
+1：强制换行。<div style="width:930px;word-break:break-all;word-wrap:break-word;"></div>
+2：溢du出隐藏。zhi
+<div style="overflow:hidden; width:930px;"></div>
