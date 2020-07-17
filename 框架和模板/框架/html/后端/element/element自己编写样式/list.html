@@ -1,0 +1,47 @@
+<?php $this->load->view("common/breadcrumb"); ?>
+<div id="appidapiderdata" >
+    <template>
+        <el-tabs v-model="activeName" type="card" @tab-click="handleClick" :before-leave="beforeLeaveTab">
+            <el-tab-pane v-for="(v,k) in list" :label="v.app_name" :name="v.app_id">
+                <div :id='"mainssss"+v.app_id'></div>
+            </el-tab-pane>
+        </el-tabs>
+    </template>
+</div>
+
+<script>
+    var app_id_first = "<?php echo $app_id; ?>";
+    var channel_app_rows= <?php echo $channel_app_rows; ?>;
+        new Vue({
+            el: '#appidapiderdata',
+            data: {
+                url: "<?php echo site_url('apider/ApiderData/get_data'); ?>",
+                list:channel_app_rows,
+                activeName: app_id_first,
+            },
+            methods: {
+                handleClick(tab, event) {
+
+                },
+                beforeLeaveTab(nowActiveName, oldActiveName){
+                     return this.$confirm('此页面操作您是否保存了?切换tab页如未保存，此前操作将失效！', '提示', {
+                        confirmButtonText: '确定',
+                        cancelButtonText: '取消',
+                        type: 'warning'
+                    }).then(() => {
+                         $("#mainssss"+oldActiveName).children().remove();
+                         $("#mainssss"+nowActiveName).load(this.url+"/"+nowActiveName);
+                        this.$message({
+                            type: 'success',
+                            message: '切换成功！'
+                        });
+                    }).catch(() => {
+                         throw new Error('取消成功！');
+                    });
+                },
+            },
+            mounted: function() {
+                $("#mainssss"+this.activeName).load(this.url+"/"+this.activeName);
+            },
+        });
+</script>

@@ -1,0 +1,196 @@
+<div id="appidapiderdataquery" >
+    <el-form :inline="true" :model="list" class="demo-ruleForm " ref="list"   status-icon >
+        <div v-if='column_field=="a_actor"'>
+            <div v-for="(v,k) in list.listf" >
+                <el-form-item  :label='"A行为主体中文"+(k+1)' style="margin-left: 10px;"  :prop="'listf.' + k + '.a_actor_zh'"
+                               :rules="[
+                                  { required: true, message: '请输入A行为主体中文', trigger: 'blur' },
+                                  { validator: checkZhongWen, trigger: 'blur' }
+                                ]"
+                >
+                    <el-input  :placeholder="v.a_actor_zh" v-model="v.a_actor_zh"></el-input>
+                </el-form-item>
+                <el-form-item  :label='"A行为主体英文"+(k+1)' :prop="'listf.' + k + '.a_actor'"
+                               :rules="[
+                                  { required: true, message: '请输入A行为主体英文', trigger: 'blur' },
+                                  { validator: checkYingWen, trigger: 'blur' }
+                                ]"
+                >
+                    <el-input  :placeholder="v.a_actor"  v-model="v.a_actor"></el-input>
+                </el-form-item>
+                <el-form-item>
+                    <el-button type="danger" @click.prevent="removeInput(k)">删除</el-button>
+                </el-form-item>
+            </div>
+        </div>
+        <div v-else-if="column_field == 'b_behav_object'">
+            <div v-for="(v,k) in list.listf" >
+                <el-form-item :label='"B行为客体中文"+(k+1)' style="margin-left: 10px;"  :prop="'listf.' + k + '.b_behav_object_zh'"
+                              :rules="[
+                                  { required: true, message: '请输入B行为客体中文', trigger: 'blur' },
+                                  { validator: checkZhongWen, trigger: 'blur' }
+                                ]"
+                >
+                    <el-input  :placeholder="v.b_behav_object_zh" v-model="v.b_behav_object_zh"></el-input>
+                </el-form-item>
+                <el-form-item :label='"B行为客体英文"+(k+1)'  :prop="'listf.' + k + '.b_behav_object'"
+                              :rules="[
+                                  { required: true, message: '请输入B行为客体英文', trigger: 'blur' },
+                                  { validator: checkYingWen, trigger: 'blur' }
+                                ]"
+                >
+                    <el-input  :placeholder="v.b_behav_object"  v-model="v.b_behav_object"></el-input>
+                </el-form-item>
+                <el-form-item>
+                    <el-button type="danger" @click.prevent="removeInput(v)">删除</el-button>
+                </el-form-item>
+            </div>
+        </div>
+        <div v-else-if="column_field == 'd_behav_means'">
+            <div v-for="(v,k) in list.listf" >
+                <el-form-item :label='"D行为手段中文"+(k+1)' style="margin-left: 10px;"  :prop="'listf.' + k + '.d_behav_means_zh'"
+                              :rules="[
+                                  { required: true, message: '请输入D行为手段中文', trigger: 'blur' },
+                                  { validator: checkZhongWen, trigger: 'blur' }
+                                ]"
+                >
+                    <el-input  :placeholder="v.d_behav_means_zh" v-model="v.d_behav_means_zh"></el-input>
+                </el-form-item>
+                <el-form-item :label='"D行为手段英文"+(k+1)' :prop="'listf.' + k + '.d_behav_means'"
+                              :rules="[
+                                  { required: true, message: '请输入D行为手段英文', trigger: 'blur' },
+                                  { validator: checkYingWen, trigger: 'blur' }
+                                ]"
+                >
+                    <el-input  :placeholder="v.d_behav_means"  v-model="v.d_behav_means"></el-input>
+                </el-form-item>
+                <el-form-item>
+                    <el-button type="danger" @click.prevent="removeInput(v)">删除</el-button>
+                </el-form-item>
+            </div>
+        </div>
+        <div v-else>
+
+        </div>
+        <el-form-item>
+            <el-button type="primary"  @click="submitForm('list')">保存</el-button>
+            <el-button type="success" @click="addInput">新增</el-button>
+            <el-button type="warning" style="margin-right:15px;" @click="resetForm('list')">重置</el-button>
+        </el-form-item>
+    </el-form>
+</div>
+
+<script>
+    var checkYingWen = (rule, value, callback) => {
+        if (value=="") {
+            return callback(new Error('不能为空'));
+        }
+        var regy = /^([A-Z]|[a-z])+$/;
+        if(!regy.test(value)){
+            return callback(new Error('不是英文字符'));
+        }else{
+            callback();
+        }
+    };
+    var checkZhongWen = (rule, value, callback) => {
+        if (value=="") {
+            return callback(new Error('不能为空'));
+        }
+        var regz = /^[\u4E00-\u9FFF]+$/;
+        if(!regz.test(value)){
+            return callback(new Error('不是中文字符'));
+        }else{
+            callback();
+        }
+    };
+    var $get_tabs_data_all = <?php echo $get_tabs_data_all; ?>;
+    var $app_id = <?php echo $app_id; ?>;
+    var $column_field =<?php echo $column_field; ?>;
+    var listReset={listf:$get_tabs_data_all,};
+
+    new Vue({
+        el: '#appidapiderdataquery',
+        data: {
+            checkYingWen:checkYingWen,
+            checkZhongWen:checkZhongWen,
+            app_id:$app_id,
+            column_field:$column_field,
+            list:{listf:$get_tabs_data_all,} ,
+            listReset:JSON.stringify(listReset),
+        },
+        methods: {
+            /**
+             * 生成一个不重复的随机ID
+             */
+            GenNonDuplicateID: function(){
+                let idStr = Date.now().toString(36);
+                idStr += Math.random().toString(36).substr(3);
+                return idStr;
+            },
+            addInput(){
+                var duplicateId=this.GenNonDuplicateID();
+                this.list.listf.push({
+                    id:duplicateId,app_id:"",a_actor:"",b_behav_object:"",d_behav_means:"",a_actor_zh:"",b_behav_object_zh:"",d_behav_means_zh:""
+                });
+            },
+            removeInput(k) {
+                this.list.listf.splice(k, 1);
+            },
+            resetForm(formNameRef) {
+                this.list=JSON.parse(this.listReset);
+            },
+            submitForm(formName) {
+                var that=this;
+                this.$refs[formName].validate((valid) => {
+                    if (valid) {
+                        that.saveTabs();
+                    } else {
+                        this.$message.error('验证错误！');
+                        return false;
+                    }
+                });
+            },
+            saveTabs(){
+                var that=this;
+                this.$confirm('确定保存, 是否继续?', '提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    type: 'warning',
+                    appendToBody:true,
+                }).then(() => {
+                    const loading = that.$loading({
+                        lock: true,
+                        text: 'Loading',
+                        spinner: 'el-icon-loading',
+                        background: 'rgba(0, 0, 0, 0.7)'
+                    });
+                    //保存操作代码
+                    var $data={"tabsDatas":that.list.listf,"app_id":that.app_id,"column_field":that.column_field};
+                    $.post("<?php echo site_url('apider/ApiderData/saveTabsData'); ?>", $data, function (d) {
+                        if(d.status==1){
+                            setTimeout(() => {
+                                loading.close();
+                                that.$message({
+                                    type: 'success',
+                                    message: '保存成功！'
+                                });
+                                that.listReset=JSON.stringify({listf:d.tabsDatas});
+                                that.list={listf:d.tabsDatas};
+                            }, 2000);
+                        }else{
+                            setTimeout(() => {
+                                loading.close();
+                                this.$message.error('保存失败！');
+                            }, 2000);
+                        }
+                    }, "json");
+                }).catch(() => {
+                    //取消保存
+                });
+            },
+        },
+        mounted(){
+
+        },
+    });
+</script>

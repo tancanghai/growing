@@ -1,0 +1,996 @@
+<div id="apiderdata">
+
+    <div>
+        <el-row>
+            <el-button type="primary" icon="el-icon-plus" @click="save"  v-loading="loading">保存</el-button>
+        </el-row>
+        <el-table :data="tableData" border :cell-class-name='getCellIndex' :span-method="objectSpanMethod" :header-cell-style="headeRowClasscolor"
+                  @cell-mouse-enter="mouseEnter" @cell-mouse-leave="mouseLeave"  @cell-dblclick="handleCellClick"  style="width: 100%; margin-top: 20px">
+            <el-table-column label="UFPM（Uniform Function Position Model） 统一功能定位模型" >
+                <el-table-column prop="a_app" label="A应用" width="80" >
+                    <template scope="scope">
+                        <div class="input-box">
+                            <el-input size="small" @blur="handleInputBlur" v-model="scope.row.a_app" ></el-input>
+                        </div>
+                        <span>{{scope.row.a_app}}</span>
+                    </template>
+                </el-table-column>
+                <el-table-column prop="b_busi_domain" label="B业务流域" width="150">
+                    <template scope="scope">
+                        <div class="input-box">
+                            <el-input size="small" @blur="handleInputBlur" v-model="scope.row.b_busi_domain" ></el-input>
+                        </div>
+                        <span>{{scope.row.b_busi_domain}}</span>
+                    </template>
+                </el-table-column>
+                <el-table-column prop="c_busi_func_proc" label="C业务功能/流程" width="150">
+                    <template scope="scope">
+                        <div class="input-box">
+                            <el-input size="small" @blur="handleInputBlur" v-model="scope.row.c_busi_func_proc" ></el-input>
+                        </div>
+                        <span>{{scope.row.c_busi_func_proc}}</span>
+                    </template>
+                </el-table-column>
+                <el-table-column prop="d_sub_func_proc" label="D子功能/流程环节" width="150">
+                    <template scope="scope">
+                        <div class="input-box">
+                            <el-input size="small" @blur="handleInputBlur" v-model="scope.row.d_sub_func_proc" ></el-input>
+                        </div>
+                        <span>{{scope.row.d_sub_func_proc}}</span>
+                    </template>
+                </el-table-column>
+                <el-table-column prop="front_desk_back" label="前台/后台" width="100">
+                    <template scope="scope"><front_desk_back :scope="scope"></front_desk_back></template>
+<!--                    <template scope="scope">-->
+<!--                        <div class="input-select-box">-->
+<!--                            <el-select v-model="scope.row.front_desk_back" placeholder="请选择" >-->
+<!--                                <el-option v-for="(item,k) in options" :key="item.value" :label="item.label" :value="item.value">-->
+<!--                                </el-option>-->
+<!--                            </el-select>-->
+<!--                        </div>-->
+<!--                        <span>{{scope.row.front_desk_back}}</span>-->
+<!--                    </template>-->
+                </el-table-column>
+                <el-table-column prop="func_code" label="功能编码" width="150">
+                    <template scope="scope">
+                        <div class="input-box">
+                            <el-input size="small" @blur="handleInputBlur" v-model="scope.row.func_code" ></el-input>
+                        </div>
+                        <span>{{scope.row.func_code}}</span>
+                    </template>
+                </el-table-column>
+                <!--      隐藏id列        ufpm_uuid  -->
+                <el-table-column prop="ufpm_uuid" label="ufpm_uuid" width="150"  v-if="false">
+                    <template scope="scope">
+                        <div class="input-box">
+                            <el-input size="small" @blur="handleInputBlur" v-model="scope.row.ufpm_uuid" ></el-input>
+                        </div>
+                        <span>{{scope.row.ufpm_uuid}}</span>
+                    </template>
+                </el-table-column>
+            </el-table-column>
+            <el-table-column label="UBDM（Uniform Behaviour Data Model）统一事件模型">
+                <!--      隐藏id列        ubdm_uuid  -->
+                <el-table-column prop="ubdm_uuid" label="ubdm_uuid" width="150"  v-if="false">
+                    <template scope="scope">
+                        <div class="input-box">
+                            <el-input size="small" @blur="handleInputBlur" v-model="scope.row.ubdm_uuid" ></el-input>
+                        </div>
+                        <span>{{scope.row.ubdm_uuid}}</span>
+                    </template>
+                </el-table-column>
+                <el-table-column prop="a_actor" label="A行为主体" width="150" :render-header="renderHeader" >
+                    <template scope="scope"><a_actor :scope="scope"></a_actor></template>
+<!--                    <template scope="scope">-->
+<!--                        <div class="input-select-box">-->
+<!--                            <el-select v-model="scope.row.a_actor" placeholder="请选择" >-->
+<!--                                <el-option v-for="(item,k) in selectDataActor" :key="item.a_actor" :label="item.a_actor_zh" :value="item.a_actor">-->
+<!--                                    <span style="float: left">{{ item.a_actor_zh }}</span>-->
+<!--                                    <span style="float: right; color: #8492a6; font-size: 13px">{{ item.a_actor }}</span>-->
+<!--                                </el-option>-->
+<!--                            </el-select>-->
+<!--                        </div>-->
+<!--                        <span>{{scope.row.a_actor}}</span>-->
+<!--                    </template>-->
+                </el-table-column>
+                <el-table-column prop="b_behav_object" label="B行为客体" width="150" :render-header="renderHeader" >
+                    <template scope="scope"><b_behav_object :scope="scope"></b_behav_object></template>
+<!--                    <template scope="scope">-->
+<!--                        <div class="input-select-box">-->
+<!--                            <el-select v-model="scope.row.b_behav_object" placeholder="请选择" >-->
+<!--                                <el-option v-for="(item,k) in selectDataBehavObject" :key="item.b_behav_object" :label="item.b_behav_object_zh" :value="item.b_behav_object">-->
+<!--                                    <span style="float: left">{{ item.b_behav_object_zh }}</span>-->
+<!--                                    <span style="float: right; color: #8492a6; font-size: 13px">{{ item.b_behav_object }}</span>-->
+<!--                                </el-option>-->
+<!--                            </el-select>-->
+<!--                        </div>-->
+<!--                        <span>{{scope.row.b_behav_object}}</span>-->
+<!--                    </template>-->
+                </el-table-column>
+                <el-table-column  label="C行为环境" >
+                    <el-table-column prop="evtime" label="时间(t)" width="150">
+                        <template scope="scope">
+                            <div class="input-box">
+                                <el-input size="small" @blur="handleInputBlur" v-model="scope.row.evtime" ></el-input>
+                            </div>
+                            <span>{{scope.row.evtime}}</span>
+                        </template>
+                    </el-table-column>
+                    <!--                    <el-table-column  label="空间" >-->
+                    <el-table-column prop="ip" label="ip地址(ip)" width="150">
+                        <template scope="scope">
+                            <div class="input-box">
+                                <el-input size="small" @blur="handleInputBlur" v-model="scope.row.ip" ></el-input>
+                            </div>
+                            <span>{{scope.row.ip}}</span>
+                        </template>
+                    </el-table-column>
+                    <el-table-column prop="geo" label="经纬度(geo)" width="150">
+                        <template scope="scope">
+                            <div class="input-box">
+                                <el-input size="small" @blur="handleInputBlur" v-model="scope.row.geo" ></el-input>
+                            </div>
+                            <span>{{scope.row.geo}}</span>
+                        </template>
+                    </el-table-column>
+                    <el-table-column prop="url" label="地址(url)" width="150">
+                        <template scope="scope">
+                            <div class="input-box">
+                                <el-input size="small" @blur="handleInputBlur" v-model="scope.row.url" ></el-input>
+                            </div>
+                            <span>{{scope.row.url}}</span>
+                        </template>
+                    </el-table-column>
+                    <!--                    </el-table-column>-->
+                    <el-table-column prop="sup_info" label="辅助信息" width="150">
+                        <template scope="scope">
+                            <div class="input-box">
+                                <el-input size="small" @blur="handleInputBlur" v-model="scope.row.sup_info" ></el-input>
+                            </div>
+                            <span>{{scope.row.sup_info}}</span>
+                        </template>
+                    </el-table-column>
+                </el-table-column>
+                <el-table-column prop="d_behav_means" label="D行为手段" width="150" :render-header="renderHeader">
+                    <template scope="scope"><d_behav_means :scope="scope"></d_behav_means></template>
+<!--                    <template scope="scope">-->
+<!--                        <div class="input-select-box">-->
+<!--                            <el-select v-model="scope.row.d_behav_means" placeholder="请选择" >-->
+<!--                                <el-option v-for="(item,k) in selectDataBehavMeans" :key="item.d_behav_means" :label="item.d_behav_means_zh" :value="item.d_behav_means">-->
+<!--                                    <span style="float: left">{{ item.d_behav_means_zh }}</span>-->
+<!--                                    <span style="float: right; color: #8492a6; font-size: 13px">{{ item.d_behav_means }}</span>-->
+<!--                                </el-option>-->
+<!--                            </el-select>-->
+<!--                        </div>-->
+<!--                        <span>{{scope.row.d_behav_means}}</span>-->
+<!--                    </template>-->
+                </el-table-column>
+                <el-table-column prop="e_behav_outcome" label="E行为结果" width="250">
+                    <template scope="scope">
+                        <div class="input-box">
+                            <el-input size="small" @blur="handleInputBlur" v-model="scope.row.e_behav_outcome" ></el-input>
+                        </div>
+                        <span>{{scope.row.e_behav_outcome}}</span>
+                    </template>
+                </el-table-column>
+                <el-table-column prop="event_code" label="事件编码" width="850">
+                    <template scope="scope">
+                        <div class="input-box">
+                            <el-input size="small" @blur="handleInputBlur" v-model="scope.row.event_code" ></el-input>
+                        </div>
+                        <span>{{scope.row.event_code}}</span>
+                    </template>
+                </el-table-column>
+                <el-table-column prop="some_trigger" label="打点触发" width="300">
+                    <template scope="scope">
+                        <div class="input-box">
+                            <el-input size="small" @blur="handleInputBlur" v-model="scope.row.some_trigger" ></el-input>
+                        </div>
+                        <span>{{scope.row.some_trigger}}</span>
+                    </template>
+                </el-table-column>
+                <el-table-column prop="time_consum" label="时间消费" width="100"  >
+                    <template scope="scope"><time_consum :scope="scope"></time_consum></template>
+<!--                    <template scope="scope" >-->
+<!--                            <div class="input-select-box" >-->
+<!--                                <el-select v-model="scope.row.time_consum" placeholder="请选择" >-->
+<!--                                    <el-option v-for="(item,k) in timeConsums" :key="item.value" :label="item.label" :value="item.value">-->
+<!--                                    </el-option>-->
+<!--                                </el-select>-->
+<!--                            </div>-->
+<!--                            <span>{{scope.row.time_consum}}</span>-->
+<!--                    </template>-->
+                </el-table-column>
+            </el-table-column>
+        </el-table>
+    </div>
+
+    <!-- 抽屉-->
+    <el-drawer
+        :title="title"
+        :visible.sync="drawer"
+        direction="rtl"
+        size="50%"
+        v-on:opened="openedTabs"
+        :before-close="handleClose">
+        <div id="mainTabs"></div>
+    </el-drawer>
+
+</div>
+<style>
+    .el-drawer.rtl{
+        overflow: scroll;
+    }
+    .el-icon-circle-plus:hover,.el-icon-remove:hover{
+        background-color: #2ebe3a;
+    }
+    .el-icon-folder-add:hover{
+        background-color: #2aff1c;
+    }
+    .input-box-add{
+        display: block;
+    }
+    /*.input-select-box{*/
+    /*    display: none;*/
+    /*    margin-left: -15px;*/
+    /*}*/
+    .span-edit-remove, .input-box{
+        display: none;
+        margin-left: -15px;
+    }
+    .el-table{
+        margin-top: 10px !important;
+    }
+    .el-button--primary {
+        float: right;
+        margin-right: 1rem;
+    }
+</style>
+<script>
+    /**
+     * 自定义函数名：getMaxValue()
+     * @param arr： 一元数组
+     * 获取一元数组的最大值
+     */
+    function getMaxValue(arr){
+        var maxValue=arr.reduce((num1, num2) => {
+            return num1 > num2 ? num1 : num2}
+        );
+        return maxValue;
+    }
+    /**
+     * 自定义函数名：PrefixZero()数字补零
+     * @param num： 被操作数
+     * @param n： 固定的总位数
+     */
+    function PrefixZero(num, n) {
+        return (Array(n).join(0) + num).slice(-n);
+    }
+
+    /**
+     * 生成一个不重复的随机ID
+     */
+    function GenNonDuplicateID(){
+        let idStr = Date.now().toString(36);
+        idStr += Math.random().toString(36).substr(3);
+        return idStr;
+    }
+
+    /**
+     * 自定义函数名：checkPlusValueMin()
+     * @param array： 一元数组
+     * @param key： 键名
+     * 在一元数组中向越来越小的键名方向查找最近的不小于0的位置   用来合并了单元格的位置加1；例如4[4, 0, 0, 0, 1]
+     */
+    function checkPlusValueMin(key, array) {
+        for (var i = key; i >= 0; i--) {
+            if (array[i] > 0) {
+                return i;
+                break;
+            }
+        }
+    }
+
+    /**
+     * 自定义函数名：checkPlusValueMax()
+     * @param array： 一元数组
+     * @param key： 键名
+     * 在一元数组中向越来越大的键名方向查找最近的不小于0的位置 ；当达到数组元素键名最大时还没有大于0的元素时取数组元素最大的键名+1
+     * 用来合并了单元格的最后为0或者后面没有元素的位置加一排；例如4[4, 0, 0, 0, 1] 最后为0的位置加1
+     */
+    function checkPlusValueMax(key, array) {
+        var j = 0;
+        for (var i = key + 1; i < array.length; i++) {
+            if (array[i] && array[i] > 0) {
+                j = i;
+                break;
+            }
+        }
+        if (j == 0) {
+            j = array.length;
+        }
+        return j;
+    }
+
+    /**
+     * 自定义函数名：checkReductValue()
+     * @param array： 一元数组 例如：[4, 0, 0, 0, 1]
+     * @param key： 键名 例如：4
+     * 用来合并了单元格的最后为0的位置减一排；例如4[4, 0, 0, 0, 1] 并且j>0时才能进行合并减少
+     */
+    function checkReductValue(key, array) {
+        var j = 0;
+        if (array[key] && array[key] > 1) {
+            j = key + array[key] - 1;
+        }
+        return j;
+    }
+
+    /**
+     * 自定义函数名：checkValue()
+     * @param row： 行index
+     * @param array： 二元数组this.MatrixColumn
+     * @param column： 列index
+     * @param keyMaxs： 键名 合并了单元格的最后为0的位置；例如4[4, 0, 0, 0, 1]最后的0
+     * 例如：this.MatrixColumn的数组中操作第一子数组第二个键名合并减少的时候 找到4后面最后的0这个键名x
+     * 从而之后所有和第一子数组键名x都是为0的位置向前找第一个大于0的位置 并减去1；一4000二0004三02 4-1，4-1，2-1
+     * [[1, 4, 0, 0, 0, 1],
+     *  [1, 4, 0, 0, 0, 1],
+     *  [1, 2, 0, 2, 0, 1],
+     *  [1, 1, 1, 1, 1, 1]]
+     */
+    function checkValue(row,array,column,keyMaxs) {
+        var keyMins=checkPlusValueMin(row, array[column]);
+        array[column][keyMins]=array[column][keyMins]-1;
+        column++;
+        if(array[column] &&  array[column][keyMaxs]==0){
+            checkValue(keyMaxs,array,column,keyMaxs);
+        }else{
+            return;
+        }
+    }
+
+    /**
+     * 自定义函数名：tableKeys()
+     * @param column： 列index
+     * 将that.MatrixColumn和that.tableData联合拼成可保存数据库的json对象;
+     */
+    function tableKeys(column){
+        var tableKey;
+        switch (column) {
+            case 0:
+                tableKey = "a_app";
+                break;
+            case 1:
+                tableKey = "b_busi_domain";
+                break;
+            case 2:
+                tableKey = "c_busi_func_proc";
+                break;
+            case 3:
+                tableKey = "d_sub_func_proc";
+                break;
+            case 4:
+                tableKey = "front_desk_back";
+                break;
+            case 5:
+                tableKey = "func_code";
+                break;
+            case 6:
+                tableKey = "ufpm_uuid";//隐藏的ID列
+                break;
+            case 7:
+                tableKey = "ubdm_uuid";//隐藏的ID列
+                break;
+            case 8:
+                tableKey = "a_actor";
+                break;
+            case 9:
+                tableKey = "b_behav_object";
+                break;
+            case 10:
+                tableKey = "evtime";
+                break;
+            case 11:
+                tableKey = "ip";
+                break;
+            case 12:
+                tableKey = "geo";
+                break;
+            case 13:
+                tableKey = "url";
+                break;
+            case 14:
+                tableKey = "sup_info";
+                break;
+            case 15:
+                tableKey = "d_behav_means";
+                break;
+            case 16:
+                tableKey = "e_behav_outcome";
+                break;
+            case 17:
+                tableKey = "event_code";
+                break;
+            case 18:
+                tableKey = "some_trigger";
+                break;
+            case 19:
+                tableKey = "time_consum";
+                break;
+            default:
+                return false;
+        }
+        return tableKey;
+    }
+
+    /**
+     * 自定义函数名：replaces()
+     * @param row： 行index
+     * @param column： 列index
+     * @param len： 例如：[4, 0, 0, 0, 1] 的4
+     * @param arrays： tableData
+     * 将合并了的单元格【界面上不显示的】的值 替换成 去合并的单元格【显示的】的值
+     */
+    function replaces(row,column,len,arrays){
+        var arrayTableColumn=tableKeys(column);
+        var values=arrays[row][arrayTableColumn];
+        for (var j = row; j < row+len; j++) {
+            arrays[j][arrayTableColumn]=values;
+        }
+    }
+
+    /**
+     * 自定义函数名：getSpanArr()
+     * @param data： this.tableData
+     * @param column： 列index
+     * 将从数据库取出的tableData的某列数据生成this.MatrixColumn的这种形式[3, 0, 0, 2, 0, 1, 4, 0, 0, 0, 2, 0]
+     */
+    function getSpanArr(data,column) {
+        //页面展示的数据，不一定是全部的数据，所以每次都清空之前存储的 保证遍历的数据是最新的数据。以免造成数据渲染混乱
+        var spanArr = [];
+        var pos = 0;
+        //遍历数据
+        data.forEach((item, index) => {
+            //判断是否是第一项
+            if (index === 0) {
+                spanArr.push(1);
+                pos = 0;
+            } else {
+                //不是第一项时，就根据标识去存储
+                if (data[index][tableKeys(column)+"_code"] === data[index - 1][tableKeys(column)+"_code"]  &&  data[index][tableKeys(column-1)+"_code"] === data[index - 1][tableKeys(column-1)+"_code"]) {
+                    // 查找到符合条件的数据时每次要把之前存储的数据+1
+                    spanArr[pos] += 1;
+                    spanArr.push(0);
+                } else {
+                    // 没有符合的数据时，要记住当前的index
+                    spanArr.push(1);
+                    pos = index;
+                }
+            }
+        })
+        return spanArr;
+    }
+
+    /**
+     * 设置可操作的列 合并操作
+     */
+    var OPERATIONAL_COLUMN=3;
+
+    /**
+     * 设置table表格数据的初始值
+     */
+    var select_data_a_actor = <?php echo $select_data_a_actor; ?>;
+    var select_data_b_behav_object= <?php echo $select_data_b_behav_object; ?>;
+    var select_data_d_behav_means = <?php echo $select_data_d_behav_means; ?>;
+
+    var app_id = <?php echo $app_id; ?>;
+    var tableData_value1= <?php echo $data_all; ?>;
+    tableData_value1= JSON.parse(JSON.stringify(tableData_value1));
+    var tableData_value2=[{
+        a_app: 'A应用',
+        a_app_code:PrefixZero(app_id, 3),
+        b_busi_domain: 'B业务流域',
+        b_busi_domain_code:"001",
+        c_busi_func_proc: 'C业务功能/流程',
+        c_busi_func_proc_code:"001",
+        d_sub_func_proc: 'D子功能/流程环节',
+        front_desk_back: "1",//1:前台/2:后台
+        d_sub_func_proc_code:"001",
+        func_code: PrefixZero(app_id, 3)+'001001001',
+        ufpm_uuid:GenNonDuplicateID(),
+        ubdm_uuid:GenNonDuplicateID(),
+        a_actor: '',
+        b_behav_object: '',
+        evtime: 'evtTime',
+        ip: 'ip',
+        geo: 'geo',
+        url: '"url":"/url/url"',
+        sup_info: '',
+        d_behav_means: '',
+        e_behav_outcome: 'BOOL {"result":"true","msg":"msg"}',
+        event_code: '',
+        some_trigger: '打点触发',
+        time_consum: "1",//时间消费0否1是
+    }];
+
+    /**
+     * 有值的时候取数据库的数据 没数据的时候赋一个初始值；
+     */
+    var tableData_initial_value=tableData_value1.length>=1?tableData_value1:tableData_value2;
+
+    /**
+     * 自定义函数名：formMatrixColumn()
+     * @param tableData： this.tableData
+     * @param tableData_value1： 数据库取出的tabledata数据
+     * 形成MatrixColumn数组
+     */
+    function formMatrixColumn(tableData,tableData_value1) {
+        var row = tableData.length;
+        var column = Object.keys(tableData[0]).length;
+        var MatrixColumn = new Array();
+        if(tableData_value1){
+            //数据库有数据的时候
+            for (var i = 0; i < column; i++) {
+                if(i < OPERATIONAL_COLUMN){
+                    MatrixColumn[i]=getSpanArr(tableData,i);
+                }else{
+                    MatrixColumn[i] = new Array(i);
+                    for (var j = 0; j < row; j++) {
+                        MatrixColumn[i][j] = 1;
+                    }
+                }
+            }
+        }else{
+            //数据库无数据的时候
+            for (var i = 0; i < column; i++) {
+                MatrixColumn[i] = new Array(i);
+                for (var j = 0; j < row; j++) {
+                    MatrixColumn[i][j] = 1;
+                }
+            }
+        }
+        return {"MatrixColumn":MatrixColumn,"column":column};
+    }
+
+    var app = new Vue({
+        el: '#apiderdata',
+        data: {
+            drawer: false,
+            tableData: tableData_initial_value,
+            loading: false,
+            url: "<?php echo site_url('apider/ApiderData/get_tabs_data'); ?>",
+            columnField:'',
+            title:'',
+            options: [{
+                value: '1',
+                label: '前台'
+            }, {
+                value: '2',
+                label: '后台'
+            }],
+            timeConsums:[{
+                value: '1',
+                label: '是'
+            }, {
+                value: '0',
+                label: '否'
+            }],
+            selectDataActor : select_data_a_actor,
+            selectDataBehavObject:  select_data_b_behav_object,
+            selectDataBehavMeans :  select_data_d_behav_means,
+        },
+        mounted() {
+            this.matrix();//数据加载完；自动执行；
+            var that=this;
+            Vue.component("front_desk_back",{
+                data:function(){
+                    return {
+                        options:that.options,
+                    }
+                },
+                template:"<template id=\"front_desk_back\">\n" +
+                    "        <div class=\"input-select-box\">\n" +
+                    "            <el-select v-model=\"scope.row.front_desk_back\" placeholder=\"请选择\" >\n" +
+                    "                <el-option v-for=\"(item,k) in options\" :key=\"item.value\" :label=\"item.label\" :value=\"item.value\">\n" +
+                    "                </el-option>\n" +
+                    "            </el-select>\n" +
+                    "        </div>\n" +
+                    "    </template>",//只能在一个根标签内
+                props:['scope'],
+            });
+            Vue.component("a_actor",{
+                data:function(){
+                    return {
+                        selectDataActor:that.selectDataActor,
+                    }
+                },
+                template:"<template id=\"a_actor\">\n" +
+                    "        <div class=\"input-select-box\">\n" +
+                    "            <el-select v-model=\"scope.row.a_actor\" placeholder=\"请选择\" >\n" +
+                    "                <el-option v-for=\"(item,k) in selectDataActor\" :key=\"item.a_actor\" :label=\"item.a_actor_zh\" :value=\"item.a_actor\">\n" +
+                    "                    <span style=\"float: left\">{{ item.a_actor_zh }}</span>\n" +
+                    "                    <span style=\"float: right; color: #8492a6; font-size: 13px\">{{ item.a_actor }}</span>\n" +
+                    "                </el-option>\n" +
+                    "            </el-select>\n" +
+                    "        </div>\n" +
+                    "    </template>",//只能在一个根标签内
+                props:['scope'],
+            });
+            Vue.component("b_behav_object",{
+                data:function(){
+                    return {
+                        selectDataBehavObject:that.selectDataBehavObject,
+                    }
+                },
+                template:"<template id=\"b_behav_object\">\n" +
+                    "        <div class=\"input-select-box\">\n" +
+                    "            <el-select v-model=\"scope.row.b_behav_object\" placeholder=\"请选择\" >\n" +
+                    "                <el-option v-for=\"(item,k) in selectDataBehavObject\" :key=\"item.b_behav_object\" :label=\"item.b_behav_object_zh\" :value=\"item.b_behav_object\">\n" +
+                    "                    <span style=\"float: left\">{{ item.b_behav_object_zh }}</span>\n" +
+                    "                    <span style=\"float: right; color: #8492a6; font-size: 13px\">{{ item.b_behav_object }}</span>\n" +
+                    "                </el-option>\n" +
+                    "            </el-select>\n" +
+                    "        </div>\n" +
+                    "    </template>",//只能在一个根标签内
+                props:['scope'],
+            });
+            Vue.component("d_behav_means",{
+                data:function(){
+                    return {
+                        selectDataBehavMeans:that.selectDataBehavMeans,
+                    }
+                },
+                template:"<template id=\"d_behav_means\">\n" +
+                    "        <div class=\"input-select-box\">\n" +
+                    "            <el-select v-model=\"scope.row.d_behav_means\" placeholder=\"请选择\" >\n" +
+                    "                <el-option v-for=\"(item,k) in selectDataBehavMeans\" :key=\"item.d_behav_means\" :label=\"item.d_behav_means_zh\" :value=\"item.d_behav_means\">\n" +
+                    "                    <span style=\"float: left\">{{ item.d_behav_means_zh }}</span>\n" +
+                    "                    <span style=\"float: right; color: #8492a6; font-size: 13px\">{{ item.d_behav_means }}</span>\n" +
+                    "                </el-option>\n" +
+                    "            </el-select>\n" +
+                    "        </div>\n" +
+                    "    </template>",//只能在一个根标签内
+                props:['scope'],
+            });
+            Vue.component("time_consum",{
+                data:function(){
+                    return {
+                        timeConsums:that.timeConsums,
+                    }
+                },
+                template:"<template id=\"time_consum\" >\n" +
+                    "            <div class=\"input-select-box\" >\n" +
+                    "                <el-select v-model=\"scope.row.time_consum\" placeholder=\"请选择\" >\n" +
+                    "                    <el-option v-for=\"(item,k) in timeConsums\" :key=\"item.value\" :label=\"item.label\" :value=\"item.value\">\n" +
+                    "                    </el-option>\n" +
+                    "                </el-select>\n" +
+                    "            </div>\n" +
+                    "    </template>",//只能在一个根标签内
+                props:['scope'],
+            });
+        },
+        methods: {
+            /**
+             * 表头的背景颜色
+             */
+            headeRowClasscolor({row, column, rowIndex, columnIndex}){
+                if(column.index < 6){
+                    return {'background':'#19f6ad','text-align':'center'};
+                }else if(column.index < 18){
+                    return {'background':'#a8f65f','text-align':'center'};
+                }else{
+                    return {'background':'#00ffff','text-align':'center'};
+                }
+            },
+            /**
+             * 表头小图标及事件
+             * h即为cerateElement的简写，具体可看vue官方文档
+             */
+            renderHeader (h,{column}) {
+                var that=this;
+                return h(
+                    'div',
+                    [
+                        h('span', column.label),
+                        h('i', {
+                            class:'el-icon-folder-add',
+                            style:'color:#409eff;margin-left:5px;',
+                            on:{
+                                click:function () {
+                                    return that.headerIconSelect(column);
+                                }, // 选中事件
+                            },
+                        })
+                    ],
+                );
+            },
+            /**
+             * 表头小图标操作事件
+             */
+            headerIconSelect:function(e){
+                this.columnField=e.property;
+                switch(this.columnField) {
+                    case "a_actor":
+                        this.title="A行为主体编辑";
+                        break;
+                    case "b_behav_object":
+                        this.title="B行为客体编辑";
+                        break;
+                    case "d_behav_means":
+                        this.title="D行为手段编辑";
+                        break;
+                    default:
+                        return false;
+                }
+                this.drawer=true;
+            },
+            /**
+             * Drawer抽屉 打开动画结束时的回调 load编辑页面
+             */
+            openedTabs:function(){
+                $("#mainTabs").children().remove();
+                $("#mainTabs").load(this.url+"/"+app_id+"/"+this.columnField);
+                $(".el-drawer.rtl>header>span").html('<font style="vertical-align: inherit;"><font style="vertical-align: inherit;">'+this.title+'</font></font>');
+            },
+            /**
+             * 抽屉的关闭
+             */
+            handleClose(done) {
+                var that=this;
+                return this.$confirm('确认关闭？')
+                    .then(_ => {
+                        var $data={"app_id":app_id};
+                        $.post("<?php echo site_url('apider/ApiderData/get_select_datas'); ?>", $data, function (d) {
+                            if(d.status==1){
+                                that.selectDataActor = JSON.parse(d.select_data.select_data_a_actor);
+                                that.selectDataBehavObject =  JSON.parse(d.select_data.select_data_b_behav_object);
+                                that.selectDataBehavMeans =  JSON.parse(d.select_data.select_data_d_behav_means);
+                            }
+                        }, "json");
+                        done();
+                    })
+                    .catch(_ => {});
+            },
+            /**
+             * 当数据库没有数据的时候 计算行列数 并矩阵倒置成所有元素为1；表示所有的单元格都是未进行合并操作的； 当有数据的时候执行else
+             */
+            matrix: function () {
+                var result=formMatrixColumn(this.tableData,tableData_value1);
+                this.column = result.column;
+                this.MatrixColumn = result.MatrixColumn;
+            },
+            /**
+             * 鼠标进入离开单元格右上角出现消失可操作图标只操作前4列
+             */
+            mouseEnter: function (row, column, cell, event) {
+                var str = '<div class="clickPlusReduct" onclick="clickPlus()"  style="position:absolute;top:3px; right:0;"><i class="el-icon-circle-plus"></i></div>' +
+                    '<div  class="clickPlusReduct" onclick="clickReduct()" style="position:absolute;bottom:3px; right:0;"><i class="el-icon-remove"></i></div>';
+                if(column.index<OPERATIONAL_COLUMN){
+                    $(cell).css("position", "relative").prepend(str);
+                }
+                window.row = row;
+                window.column = column;
+                window.cell = cell;
+                // window.event = event;
+            },
+            mouseLeave: function (row, column, cell, event) {
+                if(column.index<OPERATIONAL_COLUMN) {
+                    $('.clickPlusReduct').detach().remove();
+                }
+                window.row = null;
+                window.column = null;
+                window.cell = null;
+                // window.event = null;
+            },
+            /**
+             * 通过这方法 获取 点击的单元格 行列的索引row.index，column.index
+             */
+            getCellIndex: function ({row, column, rowIndex, columnIndex}) {
+                row.index = rowIndex;
+                column.index = columnIndex;
+            },
+            /**
+             *  通过[4, 0, 0, 0, 1, 1]控制合并竖向单元格 【核心】
+             */
+            objectSpanMethod({row, column, rowIndex, columnIndex}) {
+                //只有前四列有合并功能
+                // for (var n = 0; n < OPERATIONAL_COLUMN; n++) {
+                    if (columnIndex < OPERATIONAL_COLUMN) {
+                        const _row = this.MatrixColumn[columnIndex][rowIndex];
+                        const _col = _row > 0 ? 1 : 0;
+                        return {
+                            rowspan: _row,
+                            colspan: _col
+                        };
+                    }
+                // }
+            },
+            /**
+             *  单元格点击后，显示input，并让input 获取焦点，span隐藏
+             */
+            handleCellClick:function(row, column, cell, event){
+                //select下拉选择框 和 功能编码 和 事件编码 不能编辑
+                if(!([4,6,7,13,17,5,15].includes(column.index))){
+                    $(cell).find(".input-box").addClass("input-box-add").removeClass("input-box");
+                    $(cell).find("span").addClass("span-edit-remove");
+                    $( '.input-box-add' ).find("input").focus();
+                }
+            },
+            /**
+             *  input框失去焦点事件
+             *  当 input 失去焦点 时,input隐藏，span显示
+             */
+            handleInputBlur:function(event){
+                var _inputNode = event.target;
+                $(_inputNode).parents('.input-box-add').addClass("input-box").removeClass("input-box-add");
+                $(_inputNode).parents('.input-box').next("span").removeClass("span-edit-remove");
+            },
+            /**
+             *  保存表格数据到数据库
+             */
+            save(){
+                var that=this;
+                this.$confirm('确定保存, 是否继续?', '提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    type: 'warning'
+                }).then(() => {
+                    const loading = that.$loading({
+                        lock: true,
+                        text: 'Loading',
+                        spinner: 'el-icon-loading',
+                        background: 'rgba(0, 0, 0, 0.7)'
+                    });
+
+                    //保存操作代码
+                    var arrays=that.MatrixColumn;
+                    var arrayTable=that.tableData;
+                    var columnLen=arrays.length;
+                    var rowsLen=arrayTable.length;
+                    for(var i = 0; i < columnLen; i++) {
+                        var array=arrays[i];
+                        for(var j = 0; j < rowsLen; j++) {
+                            if(array[j]>=2){
+                                replaces(j,i,array[j],arrayTable);//把合并了的为修改值得值修改替换
+                            }
+                        };
+                    };
+                    for(var n = 0; n < rowsLen; n++) {
+                        var sup_info=arrayTable[n]["sup_info"]!=""?","+arrayTable[n]["sup_info"]:"";
+                        arrayTable[n]['event_code']=JSON.stringify({"A":arrayTable[n]["a_actor"],"B":arrayTable[n]["b_behav_object"],"C":"evtTime,ip,geo"+sup_info,"D":arrayTable[n]["d_behav_means"],"E":"result,msg"});
+                    }
+                    var arrayTableStr=JSON.stringify(arrayTable);
+                    var $data={"app_id":app_id,"arrayTable":arrayTableStr};
+                    $.post("<?php echo site_url('apider/ApiderData/saveTables'); ?>", $data, function (d) {
+                        if(d.status==1){
+                            setTimeout(() => {
+                                loading.close();
+                                that.$message({
+                                    type: 'success',
+                                    message: '保存成功！'
+                                });
+                                //有值的时候取数据库的数据 没数据的时候赋一个初始值；
+                                var tableData_initial_value=d.tableData.length>=1?d.tableData:tableData_value2;
+                                //使用数据库获取数据重新加载tabledata数据；
+                                that.tableData=tableData_initial_value;
+                                var result=formMatrixColumn(that.tableData,d.tableData);
+                                that.column = result.column;
+                                that.MatrixColumn = result.MatrixColumn;
+                            }, 2000);
+                        }else{
+                            setTimeout(() => {
+                                loading.close();
+                                this.$message.error('保存失败！');
+                            }, 2000);
+                        }
+                    }, "json");
+                }).catch(() => {
+                    //取消保存
+                });
+            },
+        }
+    });
+    /**
+     *  使用this.MatrixColumn二元数组把每列整成一个一元数组[4, 0, 0, 0, 1, 1, 1, 1, 1]合并的单元格数量为多少数字就是多少；0为被合并的单元格；
+     *  合并增加
+     */
+    function clickPlus() {
+        var row = window.row;
+        var column = window.column;
+        var cell = window.cell;
+        var keyMax = checkPlusValueMax(row.index, app.MatrixColumn[column.index]);
+        var list = {
+            a_app: 'A应用-' + keyMax,
+            b_busi_domain: 'B业务流域-' + keyMax,
+            c_busi_func_proc: 'C业务功能/流程-' + keyMax,
+            d_sub_func_proc: 'D子功能/流程环节-' + keyMax,
+            front_desk_back: "1",//1:前台/2:后台
+            func_code: '',
+            ufpm_uuid:GenNonDuplicateID(),
+            ubdm_uuid:GenNonDuplicateID(),
+            a_actor: '',
+            b_behav_object: '',
+            evtime: 'evtTime',
+            ip: 'ip' ,
+            geo: 'geo',
+            url: '"url":"/url/url"',
+            sup_info: '',
+            d_behav_means: '',
+            e_behav_outcome: 'BOOL {"result":"true","msg":"msg"}',
+            event_code: '',
+            some_trigger: '打点触发-' + keyMax,
+            time_consum: "1",//时间消费0否1是
+        };
+        if (column.index < OPERATIONAL_COLUMN) {
+            /**
+             *  操作前4列
+             *在this.MatrixColumn子数组中键名小于等于column.index的数组的第row.index+1位置添加0元素 和
+             *向越来越小的键名方向查找最近的不小于0的的值加1；
+             *键名大于column.index其它位置添加1元素；
+             *例如：操作this.MatrixColumn=[   的第二行第三列；           this.MatrixColumn=[
+             *  [1,1,1],                                                                //  [1,1,2,0],
+             *  [1,1,1],                                    变成=>                      //  [1,1,2,0],
+             *  [1,1,1]]  ;                                                             //  [1,1,1,1]];
+             */
+            var tableDataRows=app.tableData[keyMax-1];
+            for (var i = 0; i <= column.index; i++) {
+                app.MatrixColumn[i].splice(keyMax, 0, 0);
+                var keyMin = checkPlusValueMin(row.index, app.MatrixColumn[i]);
+                app.MatrixColumn[i][keyMin] = app.MatrixColumn[i][keyMin] + 1;
+                list[tableKeys(i) + "_code"]=tableDataRows[tableKeys(i) + "_code"];//添加编码
+            }
+            for (var j = column.index + 1; j < app.MatrixColumn.length; j++) {
+                app.MatrixColumn[j].splice(keyMax, 0, 1);
+                if(j < 5 && tableKeys(j)!="front_desk_back"){//编码到D子功能/流程环节 这一列 且前台/后台这列不需要编码
+                    if(j == column.index + 1){
+                        list[tableKeys(j) + "_code"]=PrefixZero(tableDataRows[tableKeys(j) + "_code"]-0+1, 3);//添加编码
+                    }else{
+                        if(column.index == 2){
+                            list[tableKeys(j) + "_code"]=PrefixZero(tableDataRows[tableKeys(j) + "_code"]-0+1, 3);//添加编码
+                        }else{
+                            list[tableKeys(j) + "_code"]="001";//添加编码
+                        }
+                    }
+                }
+            }
+            //功能编码
+            list["func_code"] = list["a_app_code"]+list["b_busi_domain_code"]+list["c_busi_func_proc_code"]+list["d_sub_func_proc_code"];
+            //添加一行   checkPlusValueMax在这方法获取到的位置添加一行 且添加功能编码 例如：002
+            app.tableData.splice(keyMax, 0, list);
+        }
+        // app.rowIndex = row.index;
+        // app.columnIndex = column.index;
+    }
+    /**
+     *  合并减少
+     */
+    function clickReduct() {
+        var row = window.row;
+        var column = window.column;
+        var cell = window.cell;
+        var keyMax = checkReductValue(row.index, app.MatrixColumn[column.index]);
+        //只能合并减少前四列 而且在能减少的前提下
+        if (column.index < OPERATIONAL_COLUMN && keyMax > 0) {
+            //去掉一行   checkReductValue在这方法获取到的位置添加一行
+            app.tableData.splice(keyMax, 1);
+            //在this.MatrixColumn子数组中键名大于等于column.index的数组存在需要父2-1[1, 1, 2, 0, 1, 1, 1],子2-1[1, 1, 2, 0, 1, 1, 1],
+            checkValue(row.index,app.MatrixColumn,column.index,keyMax);
+            //在this.MatrixColumn子数组中键名小于等于column.index的数组的第keyMax位置去掉元素 和
+            // 向越来越小的键名方向查找最近的不小于0的的值减去1；
+            for (var i = 0; i <= column.index; i++) {
+                app.MatrixColumn[i].splice(keyMax, 1);
+                if(i<column.index){
+                    var keyMin = checkPlusValueMin(row.index, app.MatrixColumn[i]);
+                    app.MatrixColumn[i][keyMin] = app.MatrixColumn[i][keyMin] - 1;
+                }
+            }
+            for (var j = column.index + 1; j < app.MatrixColumn.length; j++) {
+                app.MatrixColumn[j].splice(keyMax, 1);
+            }
+        }
+        // app.rowIndex = row.index;
+        // app.columnIndex = column.index;
+    }
+</script>
+
