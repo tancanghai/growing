@@ -43,14 +43,17 @@
 			// 这样每次都是新的对象，dataObj.name指向的地址都不一样，数据就对了
 			// 这样输出的结果就是：123,456,789
 
+			//但是上面的方法下面执行不通	
 			// $(function() {
 			// 	for (var i = 0; i < $("button").length; i++) {
-			// 		var fun = function() {
+			// 		var fun = {};
+			// 		fun = function() {
 			// 			console.log('点击了第' + i + '个按钮');
 			// 		}
-			// 		$($("div").find("button")[i]).on("click", fun)
+			// 		$($("div").find("button")[i]).on("click", fun);
 			// 	}
 			// });
+			//因为这是事件所以fun属于回调函数；当for全部执行完才开始执行fun，所以每次fun指向了最后一个fun
 
 			// $(function() {
 			// 	for (var i = 0; i < $("button").length; i++) {
@@ -59,7 +62,7 @@
 			// 		})
 			// 	}
 			// });
-			//  点击按钮后弹出的都是第4个，原因是var定义变量i作用域造成的。
+			//  点击事件的回调函数。
 
 			// 解决方法：
 
