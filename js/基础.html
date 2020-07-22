@@ -68,6 +68,47 @@ console.log();输出的绿色表示数字  输出的黑色表示字符串
  Boolean('-44');表示true ； Boolean("");表示null ，0；null，undefind，""都是false
 console.log('ddd'==true);
 console.log(-num);加-表示负数
+
+JSON.stringify()将对象a变成了字符串c，那么我就可以用JSON.parse()将字符串c还原成对象a。
+在使用JSON.parse()需要注意一点，由于此方法是将JSON字符串转换成对象，所以你的字符串必须符合JSON格式，即键值都必须使用双引号包裹：
+
+let a = '["1","2"]';
+let b = "['1','2']";
+console.log(JSON.parse(a));// Array [1,2]
+console.log(JSON.parse(b));// 报错
+JSON.stringify()的几种妙用
+1.判断数组是否包含某对象，或者判断对象是否相等。
+//判断数组是否包含某对象
+let data = [
+    {name:'echo'},
+    {name:'听风是风'},
+    {name:'天子笑'},
+    ],
+    val = {name:'天子笑'};
+JSON.stringify(data).indexOf(JSON.stringify(val)) !== -1;//true
+
+//判断两数组/对象是否相等
+let a = [1,2,3],
+    b = [1,2,3];
+JSON.stringify(a) === JSON.stringify(b);//true
+3.实现对象深拷贝
+//深拷贝
+function deepClone(data) {
+    let _data = JSON.stringify(data),
+        dataClone = JSON.parse(_data);
+    return dataClone;
+};
+//测试
+let arr = [1,2,3],
+    _arr = deepClone(arr);
+arr[0] = 2;
+console.log(arr,_arr)//[2,2,3]  [1,2,3]
+//JSON.stringify()与toString()的区别
+let arr = [1,2,3];
+JSON.stringify(arr);//'[1,2,3]'
+arr.toString();//1,2,3
+其次，JSON.stringify()的受众更多是对象，而toString()虽然可以将数组转为字符串，但并不能对{name:'天子笑'}这类对象实现你想要的操作，它的受众更多是数字。
+
 运算符 +=  *= 
 if -else if switch case
   
