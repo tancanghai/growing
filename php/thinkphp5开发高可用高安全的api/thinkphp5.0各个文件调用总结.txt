@@ -1,4 +1,5 @@
 http://www.vueshop.com/index.php/api/hello/index.html 没有配置路由的情况下的地址；
+
 project  应用部署目录
 ├─application           应用目录（可设置）
 │  ├─common             公共模块目录（可更改）
@@ -92,4 +93,5 @@ b.  在html文件的脚本中使用这个常量  引入config.js这个文件   <script src="config.
 </script>
 
 17.  调用路径  'exception_handle' => '\app\api\common\ApiHandleException',  \app
+18.thinphp 访问static下面的图片   http://www.xxx.com/public/static/1.jpg 例如：http://www.vueshop.com/static/image/yunduo.jpg
 
