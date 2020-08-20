@@ -1,0 +1,32 @@
+第一种：
+设置 PHP 常量
+设置常量，使用 define() 函数，函数语法如下：
+
+bool define ( string $name , mixed $value [, bool $case_insensitive = false ] )
+该函数有三个参数:
+
+name：必选参数，常量名称，即标志符。
+value：必选参数，常量的值。
+case_insensitive ：可选参数，如果设置为 TRUE，该常量则大小写不敏感。默认是大小写敏感的。
+以下实例我们创建一个 区分大小写的常量, 常量值为 "欢迎访问 Runoob.com"：
+
+实例
+<?php
+// 区分大小写的常量名
+define("GREETING", "欢迎访问 Runoob.com");
+echo GREETING;    // 输出 "欢迎访问 Runoob.com"
+echo '<br>';
+echo greeting;   // 输出 "greeting"
+?>
+以下实例我们创建一个 不区分大小写的常量, 常量值为 "欢迎访问 Runoob.com"：
+
+实例
+<?php
+// 不区分大小写的常量名
+define("GREETING", "欢迎访问 Runoob.com", true);
+echo greeting;  // 输出 "欢迎访问 Runoob.com"
+?>
+
+第二种：const
+ //定义常量
+        const CLS = '常量值';
