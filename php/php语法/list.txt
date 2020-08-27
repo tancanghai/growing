@@ -1,0 +1,51 @@
+list() 用于在一次操作中给一组变量赋值。
+
+注释：list()只用于数字索引的数组，且假定数字索引从 0 开始。
+
+说明
+list() 用数组中的元素为一组变量赋值。
+
+注意，与 array() 类似，list() 实际上是一种语言结构，不是函数。
+
+如：
+
+<?php
+　　$my_array = array('Dog','Cat','Horse');
+　　list($a, $b, $c) = $my_array;
+　　echo 'I have several animals, a '.$a.', a '.$b.' and a '.$c;
+?>
+
+结果如下,可正常输出
+
+
+当数组不是数字数组而是关联数组时，如：
+
+<?php
+$my_array = array('a'=>'Dog','b'=>'Cat','c'=>'Horse');
+list($a, $b, $c) = $my_array;
+echo 'I have several animals, a '.$a.', a '.$b.' and a '.$c;
+?>
+
+结果将会报错
+
+当使用索引数组是如：
+
+<?php
+　　$my_array = array(0=>'Dog',1=>'Cat',2=>'Horse');
+　　list($a, $b, $c) = $my_array;
+　　echo 'I have several animals, a '.$a.', a '.$b.' and a '.$c;
+?>
+
+这是可正常输出，当代码改为
+
+<?php
+$my_array = array(1=>'Dog',2=>'Cat',3=>'Horse');
+list($a, $b, $c) = $my_array;
+echo 'I have several animals, a '.$a.', a '.$b.' and a '.$c;
+?>
+
+输出结果如下
+
+
+变量$a并没有被赋值，下标为1的元素赋给了第二个变量$b，也就是说list（）
+里面的第一个元素被下标为0的赋值，第二个元素被下标为1的赋值，第三个元素被下标为2的赋值，以此类推。
