@@ -12,7 +12,7 @@ func(自定义类型)method2(参数列表)返回值列表{
 }
 
 1.在go中，一个自定义类型需要将某个接口的所有方法都实现，我们说这个自定义类型实现了该接口。
-2.一个自定义类型只有实现了某个接口，才能将该类型的示例（变量）赋给该类型
+2.一个自定义类型只有实现了某个接口，才能将该类型的示例（变量）赋给该接口
     var stu Stu
     var a  interface=stu//赋
     a.Say()
@@ -29,44 +29,29 @@ type T interface{
 
 例子：
 package main
-
 import (
-	"fmt"
-	"math/rand"
-	"sort"
+    "fmt"
 )
-
-type Hero struct {
-	name string
-	old  int
+// 定义一个数据写入器
+type DataWriter interface {
+    WriteData(data interface{}) error
 }
-
-type Heroslice []Hero//结构体切片
-
-func (h Heroslice) Len() int{
-	len:=len(h)
-	return len
+// 定义文件结构，用于实现DataWriter
+type file struct {
 }
-
-func (h Heroslice) Less(i,j int) bool{
-	return h[i].old < h[j].old
+// 实现DataWriter接口的WriteData方法
+func (d *file) WriteData(data interface{}) error {
+    // 模拟写入数据
+    fmt.Println("WriteData:", data)
+    return nil
 }
-
-func (h Heroslice) Swap(i,j int) {
-	 h[j],h[i] = h[i],h[j]//交换i和j
-}
-
-func main()  {
-	var heroslice Heroslice
-
-	for i:=0;i<3;i++{
-		var hero =Hero{
-		name :"name",
-		old:rand.Intn(100),
-	}
-		heroslice=append(heroslice,hero)
-	}
-	fmt.Println(heroslice)
-	sort.Sort(heroslice)//实现sort包里面的接口的方法的排序
-	fmt.Println(heroslice)
+func main() {
+    // 实例化file
+    f := new(file)
+    // 声明一个DataWriter的接口
+    var writer DataWriter
+    // 将接口赋值f，也就是*file类型
+    writer = f
+    // 使用DataWriter接口进行数据写入
+    writer.WriteData("data")
 }

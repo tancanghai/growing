@@ -8,7 +8,7 @@ import "fmt"
 //向 intChan放入 1-8000个数
 func putNum(intChan chan int) {
 
-	for i := 1; i <= 80; i++ {
+	for i := 1; i <= 8000; i++ {
 		intChan <- i
 	}
 

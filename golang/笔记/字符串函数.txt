@@ -1,4 +1,3 @@
-
 func  init(){
 	//var n string = "你好"
 	//var as=[]rune(n)
@@ -34,5 +33,4 @@ func  init(){
 	//切割字符串strings.Split(string,符号)
 	//将字符串转换成大小写     strings.ToLower()    strings.ToUpper()
 	//将字符串左右俩边的空格去掉：strings.TrimSpace(string)  strings.Trim(string) strings.TrimLeft(string)  strings.TrimRight(string)
-
 }
