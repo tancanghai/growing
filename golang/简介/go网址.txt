@@ -1,3 +1,4 @@
 C语言中文网：http://c.biancheng.net/golang/ 
 go官方文档：http://docscn.studygolang.com/doc/
 go官方标准库文档：https://studygolang.com/pkgdoc
+go的第三方库文档地址    https://godoc.org/  
