@@ -1,0 +1,50 @@
+package main
+
+import (
+    "fmt"
+    "time"
+)
+
+func main() {
+    //创建定时器，2秒后获取
+    timer := time.NewTimer(time.Second * 2)
+    //获取当前时间
+    t1 := time.Now()
+    //接收通道数据
+    t2 := <-timer.C
+
+    fmt.Println(t1)
+    fmt.Println(t2)
+    //结果为（相差两秒）：
+    /*
+        2019-07-04 13:59:33.7200299 +0800 CST m=+0.022983601
+        2019-07-04 13:59:35.7206204 +0800 CST m=+2.023574101
+    */
+
+    timer2 := time.NewTimer(time.Second * 10)
+    //重置定时器
+    timer2.Reset(time.Second * 3)
+    //获取当前时间
+    t3 := time.Now()
+    fmt.Println(t3)
+    t4 := <-timer2.C
+    //停止定时器
+    timer2.Stop()
+    fmt.Println(t4)
+
+    //定时执行一个函数
+    timer3 := time.AfterFunc(time.Second*2, func() {
+        fmt.Println("2秒函数执行了")
+    })
+    timer3.Reset(time.Second * 2)
+
+    //延迟主协程的结束
+    time.Sleep(time.Second * 3)
+}
+复制代码
+相关函数列表：
+
+NewTimer（）创建一个Timer，它会在最少过去时间段d后到期，向其自身的C字段发送当时的时间
+AfterFunc（）另起一个go程等待时间段d过去，然后调用f。它返回一个Timer，可以通过调用其Stop方法来取消等待和对f的调用。
+Reset（）使t重新开始计时，（本方法返回后再）等待时间段d过去后到期。如果调用时t还在等待中会返回真；如果t已经到期或者被停止了会返回假。
+Stop（）停止Timer的执行。如果停止了t会返回真；如果t已经被停止或者过期了会返回假。Stop不会关闭通道t.C，以避免从该通道的读取不正确的成功。
