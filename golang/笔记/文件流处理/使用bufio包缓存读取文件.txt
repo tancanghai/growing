@@ -21,7 +21,8 @@ func main() {
 	/*
 	Reader实现了对一个io.Reader对象的缓冲读。
 	NewReader返回一个新的Reader，这个Reader的大小是默认的大小。
-	bufio 包实现了带缓存的I/O操作. 它封装了一个io.Reader或者io.Writer对象，另外创建了一个对象 （Reader或者Writer），这个对象也实现了一个接口，并提供缓冲和文档读写的帮助。
+	bufio 包实现了带缓存的I/O操作. 它封装了一个io.Reader或者io.Writer对象，另外创建了一个对象 （Reader或者Writer），这个对象也实现
+了一个接口，并提供缓冲和文档读写的帮助。
 	*/
 	for {
 		str,err := reader.ReadString('\n')// 读取一行然后第二次从第下一行开始读取
