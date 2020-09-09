@@ -4,7 +4,7 @@ namespace app\api\common;
 
 use app\api\common\Info;
 use think\exception\Handle;
-
+//不可预返回json
 class ApiHandleException extends Handle
 {
     public $httpCode=500;

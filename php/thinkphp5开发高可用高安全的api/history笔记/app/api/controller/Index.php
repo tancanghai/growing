@@ -11,9 +11,14 @@ class Index extends Controller{
  function index(){
      $datas = [
          'status' => 0,
-         'msg' => "nihao"
+         'msg' => "nihao",
+         "data"=>[
+             "http://www.vueshop.com/static/image/yunduo.jpg",
+             "http://www.vueshop.com/static/image/zhangjiajie.jpg",
+             "http://www.vueshop.com/static/image/zhulin.jpg"
+         ]
      ];
-     var_dump($datas);
+     return $datas;
  }
     public function create()
     {

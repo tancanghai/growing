@@ -3,6 +3,7 @@
 namespace app\api\common;
 
 use think\Exception;
+//可预见业务返回json
 class ApiException extends Exception
 {
     public $message = '';
