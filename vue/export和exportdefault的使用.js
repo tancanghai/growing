@@ -10,7 +10,7 @@ export default{
 //通过export default暴露的成员通过import  com  from './exports.js'接收
 export var titles={name:"name",ege:"old"}
 export var num=12
-//通过export default暴露的成员通过import {titles as title,num}  from './exports.js'接收
+//通过export 暴露的成员通过import {titles as title,num}  from './exports.js'接收
 // console.log(com);
 // console.log({title,num});
 
