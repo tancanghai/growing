@@ -6,6 +6,31 @@ rm :- rf   强制删除
 cp或者mv :-a  复制或者剪切文件所有信息 cp -a  原文件名   /tmp/文件名(不加文件名 保持原来的文件名)
 pwd：文件所在目录
 
+history n 列出最近执行的历史命令   history 5
+curl   发送一个http请求
+curl www.baidu.com 发送一个http请求
+curl -v www.baidu.com 详细信息
+ping 主机并输出结果
+date 显示当前日期和时间
+ssh
+> ssh 是一个用来登录到远程机器并执行命令的程序
+ssh user@host //登录到的机器地址
+ssh -p port user@host // 连接到特定端口的选项
+tail
+> 输出最后10行文件。
+tail filename
+which
+> 它在环境变量PATH指定的目录中搜索可执行文件。此命令将打印可执行文件的完整路径。
+which php
+/usr/local/bin/php
+export
+> 显示所有环境变量
+echo
+> 显示一行文字
+echo output
+echo -ne "Hello\nWorld\n" // 输出换行
+echo $PATH 输出环境变量PATH的值
+
 find 范围(/)  -name   文件名          例如： find /root -name  "install.log*"
 grep:  [选项 -i 忽略大小写 ] 字符串  文件名     
 
