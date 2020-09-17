@@ -1,10 +1,12 @@
-ls : -l 详细信息    -a 所有文件包括隐藏的
+ls : -l 详细信息包括权限时间等    -a 所有文件包括隐藏的
 mkdir: -p  递归创建目录
 cd : -  回到上次目录  
 touch：文件不存在的时候创建文件
 rm :- rf   强制删除
 cp或者mv :-a  复制或者剪切文件所有信息 cp -a  原文件名   /tmp/文件名(不加文件名 保持原来的文件名)
 pwd：文件所在目录
+每创建一个文件或者目录时，这个文件或者目录都具有一个默认的权限，比如目录755，文件644
+r4 w2 x1 读写执行
 
 history n 列出最近执行的历史命令   history 5
 curl   发送一个http请求
@@ -58,7 +60,9 @@ g:拥有者所在的组
 o:表示其他
 + -：增加和删减
 r w x：读写执行
-chmod u+rw  文件
+chmod u+rw  文件  加号连接没有空格
+将文件 file1.txt 与 file2.txt 设为该文件拥有者，与其所属同一个群体者可写入，但其他以外的人则不可写入 :
+chmod ug+w,o-w file1.txt file2.txt
 
 uname -a 查看系统
 cat /etc/redhat-release   查看centos版本
