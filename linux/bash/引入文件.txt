@@ -1,0 +1,8 @@
+语法：
+. filename   # 注意点号(.)和文件名中间有一空格
+
+#!/bin/bash
+#. ./test2.sh   #相对路径引入
+. /test/test2.sh #绝对路径引入  
+echo $url
+echo $ty
