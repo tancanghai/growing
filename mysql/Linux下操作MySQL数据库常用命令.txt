@@ -1,0 +1,35 @@
+注意：每个操作之后必须打分号;
+1.连接数据库
+mysql -uroot -p;
+输入密码
+ 格式： mysql -h主机地址 -u用户名 －p用户密码 
+（注：u与root可以不用加空格，其它也一样） 
+ 假设远程主机的IP为：10.0.0.1，用户名为root,密码为123。则键入以下命令： 
+   mysql -h10.0.0.1 -uroot -p123;
+
+2.查看数据库
+show databases; 
+
+3.打开具体数据库
+use databasename; 
+
+4.查看该数据库下的表名
+show tables; 
+
+5.查询表
+select * from table_name limit 0,5;
+
+6.insert
+一次插入一条完整记录：insert into 表名 values(...)； 注：根据所设置列在values中依次赋值
+缺省插入一条记录：insert into 表名(列1,...) values(值1,...)；注：根据所写列在values中依次赋值
+同时插入多条记录：insert into 表名 values(...),(...)...;
+或缺省插入多条记录insert into 表名(列1,...) values(值1,...),(值1,...)...;
+
+7.update
+update 【表名】set 列名=值,列名=值..... where 条件；
+
+8.delete
+delete from 表名 where 条件；
+
+9.退出
+exit;
