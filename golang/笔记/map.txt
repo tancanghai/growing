@@ -31,6 +31,3 @@ map的遍历只能使用for -range遍历不能使用for遍历 因为key不是为
 
 切片的数据如果是map，则我们能称为map切片，这样使用则map个数就可以动态变化了。
 slices:=[]map[类型]类型    make([]map[类型]类型)   使用切片的append函数动态增加map
-
-
-
