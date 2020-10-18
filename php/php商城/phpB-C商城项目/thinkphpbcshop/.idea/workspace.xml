@@ -58,6 +58,7 @@
       <path value="$PROJECT_DIR$/vendor/composer" />
       <path value="$PROJECT_DIR$/vendor/phpunit/phpunit" />
       <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/vendor/topthink/think-oracle" />
     </include_path>
   </component>
   <component name="ProjectId" id="1iJGqDoL2zqpnwZCEo2FeAw40Fw" />
@@ -70,18 +71,19 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/application/admin/view/index" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/application/admin/model" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\PhpStudy\phpstudy_install_dir\PHPTutorial\WWW\thinkphpbcshop\application\admin\view" />
       <recent name="D:\phpstudy\WWW\thinkphpbcshop\application\admin\view\index" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\PhpStudy\phpstudy_install_dir\PHPTutorial\WWW\thinkphpbcshop\application\admin\model" />
+      <recent name="D:\PhpStudy\phpstudy_install_dir\PHPTutorial\WWW\thinkphpbcshop\application\admin\controller" />
+      <recent name="D:\PhpStudy\phpstudy_install_dir\PHPTutorial\WWW\thinkphpbcshop\application\admin" />
       <recent name="D:\phpstudy\WWW\thinkphpbcshop\application\admin\view\index" />
       <recent name="D:\phpstudy\WWW\thinkphpbcshop\application\admin\view\common" />
-      <recent name="D:\phpstudy\WWW\thinkphpbcshop\public\static\css" />
-      <recent name="D:\phpstudy\WWW\thinkphpbcshop\public" />
-      <recent name="D:\phpstudy\WWW\thinkphpbcshop\public\static" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -96,6 +98,10 @@
       <updated>1601618469304</updated>
       <workItem from="1601618474035" duration="18965000" />
       <workItem from="1602033108945" duration="1800000" />
+      <workItem from="1602809352271" duration="143000" />
+      <workItem from="1602913232315" duration="30000" />
+      <workItem from="1602913450041" duration="6425000" />
+      <workItem from="1602986241979" duration="18522000" />
     </task>
     <servers />
   </component>
@@ -103,9 +109,18 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="447" y="145" width="642" height="534" key="find.popup" timestamp="1601622587283">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="822" y="458" key="NewPhpFileDialog" timestamp="1602944720797">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="822" y="458" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602944720797" />
+    <state x="686" y="359" key="com.intellij.ide.util.TipDialog" timestamp="1602986256760">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="686" y="359" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602986256760" />
+    <state x="559" y="183" width="1275" height="674" key="find.popup" timestamp="1603040296987">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="447" y="145" width="642" height="534" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1601622587283" />
+    <state x="559" y="183" width="1275" height="674" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1603040296987" />
   </component>
 </project>
