@@ -17,6 +17,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -71,7 +72,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/application/admin/model" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/application/admin/view/common" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -79,11 +80,11 @@
       <recent name="D:\phpstudy\WWW\thinkphpbcshop\application\admin\view\index" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\PhpStudy\phpstudy_install_dir\PHPTutorial\WWW\thinkphpbcshop\application\admin\view\common" />
       <recent name="D:\PhpStudy\phpstudy_install_dir\PHPTutorial\WWW\thinkphpbcshop\application\admin\model" />
       <recent name="D:\PhpStudy\phpstudy_install_dir\PHPTutorial\WWW\thinkphpbcshop\application\admin\controller" />
       <recent name="D:\PhpStudy\phpstudy_install_dir\PHPTutorial\WWW\thinkphpbcshop\application\admin" />
       <recent name="D:\phpstudy\WWW\thinkphpbcshop\application\admin\view\index" />
-      <recent name="D:\phpstudy\WWW\thinkphpbcshop\application\admin\view\common" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -101,7 +102,7 @@
       <workItem from="1602809352271" duration="143000" />
       <workItem from="1602913232315" duration="30000" />
       <workItem from="1602913450041" duration="6425000" />
-      <workItem from="1602986241979" duration="18522000" />
+      <workItem from="1602986241979" duration="29849000" />
     </task>
     <servers />
   </component>

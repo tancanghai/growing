@@ -15,10 +15,13 @@
         {include file="common/chatbar" /}
         <!-- Page Content -->
         <div class="page-content">
-            {include file="common/page-breadcrumbs" /}
             {include file="common/page-header" /}
             <!-- Page Body -->
-            {__CONTENT__}
+            <!-- Page Body -->
+            <div class="page-body">
+                {__CONTENT__}
+            </div>
+            <!-- /Page Body -->
         </div>
         <!-- /Page Content -->
     </div>
@@ -34,15 +37,25 @@
 
 <!--Beyond Scripts-->
 <script src="__STATIC__/js/beyond.min.js"></script>
-<script>
-    // $(function () {
-    //     $(document).off("click", "#sidebar li").on("click", "#sidebar li", function () {
-    //         console.log("11111111111111");
-    //         this.addClass("active open");
-    //     });
-    // });
-    console.log($(".nihao").attr("href"));
-</script>
+<!--<script>-->
+<!--    $(function () {-->
+<!--        $(document).off("click", "#sidebar a").on("click", "#sidebar a", function () {-->
+<!--            $("#sidebar li").removeClass("active");-->
+<!--            $(this).closest("li").addClass("active");-->
+<!--            var arrays=[];-->
+<!--            var that=this;-->
+<!--            $(".header-title>h1").text(function () {-->
+<!--                var lis=$(that).parents("li");-->
+<!--                lis.each(function (index, domEle) {-->
+<!--                    arrays[lis.length-index-1]=$($(domEle).find("span")[0]).text();-->
+<!--                });-->
+<!--                return arrays.join(" / ");-->
+<!--            });-->
+<!--            console.log($(this).data("href"));-->
+<!--             $(".page-body").load($(this).data("href"));-->
+<!--        });-->
+<!--    });-->
+<!--</script>-->
 
 <!--Page Related Scripts-->
 </body>

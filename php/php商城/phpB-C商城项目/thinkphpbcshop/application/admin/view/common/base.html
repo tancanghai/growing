@@ -1,0 +1,68 @@
+{block name="front"}
+    {include file="common/header" /}
+    <!-- Body -->
+    <body>
+    <!-- Loading Container -->
+    <div class="loading-container">
+        <div class="loader"></div>
+    </div>
+    <!--  /Loading Container -->
+    {include file="common/navbar" /}
+    <!-- Main Container -->
+    <div class="main-container container-fluid">
+        <!-- Page Container -->
+        <div class="page-container">
+            {include file="common/sidebar" /}
+            {include file="common/chatbar" /}
+            <!-- Page Content -->
+            <div class="page-content">
+                {include file="common/page-header" /}
+                <!-- Page Body -->
+                <!-- Page Body -->
+                <div class="page-body">
+{/block}
+{block name="body"}
+                    <div id="body-contains"></div>
+{/block}
+{block name="behide"}
+                </div>
+                <!-- /Page Body -->
+            </div>
+            <!-- /Page Content -->
+        </div>
+        <!-- /Page Container -->
+        <!-- Main Container -->
+
+    </div>
+
+    <!--Basic Scripts-->
+    <script src="__STATIC__/js/jquery.min.js"></script>
+    <script src="__STATIC__/js/bootstrap.min.js"></script>
+    <script src="__STATIC__/js/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!--Beyond Scripts-->
+    <script src="__STATIC__/js/beyond.min.js"></script>
+    <script>
+        $(function () {
+            $(document).off("click", "#sidebar a").on("click", "#sidebar a", function () {
+                $("#sidebar li").removeClass("active");
+                $(this).closest("li").addClass("active");
+                var arrays=[];
+                var that=this;
+                $(".header-title>h1").text(function () {
+                    var lis=$(that).parents("li");
+                    lis.each(function (index, domEle) {
+                        arrays[lis.length-index-1]=$($(domEle).find("span")[0]).text();
+                    });
+                    return arrays.join(" / ");
+                });
+                  $("#body-contains").load($(this).data("href"));
+            });
+        });
+    </script>
+
+    <!--Page Related Scripts-->
+    </body>
+    <!--  /Body -->
+    </html>
+{/block}
