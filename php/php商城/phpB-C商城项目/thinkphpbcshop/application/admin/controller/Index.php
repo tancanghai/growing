@@ -11,4 +11,10 @@ class Index extends Controller
 //        $this->view->engine->layout('common/layout');
         return $this->fetch("index");
     }
+
+    public function home()
+    {
+        Config::set('default_ajax_return','html');
+        return $this->fetch("home");
+    }
 }

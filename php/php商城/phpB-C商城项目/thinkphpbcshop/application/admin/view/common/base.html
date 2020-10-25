@@ -22,7 +22,7 @@
                 <div class="page-body">
 {/block}
 {block name="body"}
-                    <div id="body-contains"></div>
+                    <div id="body-contains">index</div>
 {/block}
 {block name="behide"}
                 </div>
@@ -56,7 +56,7 @@
                     });
                     return arrays.join(" / ");
                 });
-                  $("#body-contains").load($(this).data("href"));
+                  $("#body-contains").load($(this).data("load-href"));
             });
         });
     </script>

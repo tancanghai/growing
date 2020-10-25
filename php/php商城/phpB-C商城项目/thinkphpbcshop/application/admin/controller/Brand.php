@@ -9,7 +9,7 @@ class Brand extends Controller
     public function add()
     {
 //        $this->view->engine->layout('common/layout');
-//        Config::set('default_ajax_return','html');
+        Config::set('default_ajax_return','html');
         return $this->fetch("add");
     }
 }
