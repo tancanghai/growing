@@ -12,4 +12,7 @@ class Brand extends Controller
         Config::set('default_ajax_return','html');
         return $this->fetch("add");
     }
+    public  function  save_brand(){
+
+    }
 }

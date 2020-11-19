@@ -5,57 +5,46 @@
         </div>
         <div class="widget-body">
             <div id="horizontal-form">
-                <form class="form-horizontal" role="form" enctype="multipart/form-data">
+                <form class="form-horizontal" role="form" enctype="multipart/form-data" id="togglingForm" method="post">
                     <div class="form-group">
-                        <label for="inputEmail3" class="col-sm-2 control-label no-padding-right">Email</label>
+                        <label for="brand_name" class="col-sm-2 control-label no-padding-right">品牌名称</label>
                         <div class="col-sm-10">
-                            <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                            <input type="text" class="form-control" id="brand_name" placeholder="品牌名称" name="brand_name">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="inputPassword3" class="col-sm-2 control-label no-padding-right">Password</label>
+                        <label for="brand_url" class="col-sm-2 control-label no-padding-right">品牌官网地址</label>
                         <div class="col-sm-10">
-                            <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label  class="col-sm-2 control-label no-padding-right" style="padding-top: 0px !important;">Colored</label>
-                        <div class="col-sm-2">
-                            <label>
-                                <input name="form-field-radio" type="radio" class="colored-blue">
-                                <span class="text"> Windows Phone</span>
-                            </label>
-                        </div>
-                        <div class="col-sm-2">
-                            <label>
-                                <input name="form-field-radio" type="radio" class="colored-danger">
-                                <span class="text"> IOS</span>
-                            </label>
+                            <input type="text" class="form-control" id="brand_url" placeholder="品牌官网地址" name="brand_url">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label  class="col-sm-2 control-label no-padding-right">Password</label>
+                        <label  class="col-sm-2 control-label no-padding-right" style="padding-top: 0px !important;">状态</label>
+                        <div class="col-sm-2">
+                            <label>
+                                <input name="status" type="radio" class="colored-blue" value="{$Think.config.cost.BRANDSTATUSHAVE['VAL']}" checked="checked">
+                                <span class="text">{$Think.config.cost.BRANDSTATUSHAVE['DESC']}</span>
+                            </label>
+                        </div>
+                        <div class="col-sm-2">
+                            <label>
+                                <input name="status" type="radio" class="colored-danger" value="{$Think.config.cost.BRANDSTATUSNONE['VAL']}">
+                                <span class="text">{$Think.config.cost.BRANDSTATUSNONE['DESC']}</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label  class="col-sm-2 control-label no-padding-right">品牌描述</label>
                         <div class="col-sm-10">
-                            <textarea class="form-control" rows="3" placeholder="Content"></textarea>
+                            <textarea class="form-control" rows="3" placeholder="品牌描述" name="brand_description"></textarea>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox">
-                                    <span class="text">Remember me next time.</span>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-default">Sign in</button>
+                            <button type="submit" class="btn btn-blue">保存</button>
                         </div>
                     </div>
                 </form>
@@ -63,3 +52,50 @@
         </div>
     </div>
 </div>
+<script src="__STATIC__/js/beyond.min.js"></script>
+<script src="__STATIC__/js/validation/bootstrapvalidator.js"></script>
+<script>
+    $(function () {
+        $('#togglingForm').bootstrapValidator({
+            message: 'This value is not valid',
+            feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            // submitHandler: function (validator, form, submitButton) {
+                // data-bv-regexp="true"
+                // data-bv-regexp-regexp="[a-zA-Z0-9_\.]+"
+                // data-bv-regexp-message="The username can only consist of alphabetical, number, dot and underscore"
+                // Do nothing
+            // },
+            fields: {
+                brand_name: {
+                    validators: {
+                        notEmpty: {
+                            message: 'The brand_name is required'
+                        },
+                    }
+                },
+                brand_url: {
+                    validators: {
+                        notEmpty: {
+                            message: 'The brand_url is required'
+                        },
+                        regexp: {
+                            regexp:  /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/,
+                            message: 'The brand_url Non conformity'
+                        },
+                    }
+                },
+                brand_description: {
+                    validators: {
+                        notEmpty: {
+                            message: 'The brand_description is required'
+                        },
+                    }
+                },
+            }
+        });
+    });
+</script>
