@@ -1,4 +1,5 @@
 rpm -qa     ：查询已经安装哪些软件包。
+rpm有两个参数-l和-c可以帮助我们查看具体的安装路径。
 rpm -q 软件包名：   查询指定软件包是否已经安装。
 YUM（全称为 Yellow dog Updater, Modified）是一个在Fedora和RedHat以及CentOS中的Shell前端软件包管理器。基于RPM包管理，
 能够从指定的服务器自动下载RPM包并且安装，可以自动处理依赖性关系，并且一次安装所有依赖的软件包，避免了手动安装的麻烦(寻找

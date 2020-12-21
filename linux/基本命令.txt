@@ -5,7 +5,7 @@ touch：文件不存在的时候创建文件
 rm :- rf   强制删除
 cp或者mv :-a  复制或者剪切文件所有信息 cp -a  原文件名   /tmp/文件名(不加文件名 保持原来的文件名)
 pwd：文件所在目录
-每创建一个文件或者目录时，这个文件或者目录都具有一个默认的权限，比如目录755，文件644
+每创建一个文件或者目录时，这个文件或者目录都具有一个默认的权限，比如目录755，文件644(都没有执行权限)
 r4 w2 x1 读写执行
 
 history n 列出最近执行的历史命令   history 5
@@ -29,7 +29,7 @@ echo
 echo output
 echo -ne "Hello\nWorld\n" // 输出换行
 echo $PATH 输出环境变量PATH的值
-vim带颜色  vi没有颜色   按esc键然后：set number 显示行号   ：set nonumber 隐掉行号
+vim带颜色  vi没有颜色   按esc键（记得有冒号）然后     ：set number 显示行号；     ：set nonumber 隐掉行号；
 
 find 范围(/)  -name   文件名          例如： find /root -name  "install.log*"
 grep:  [选项 -i 忽略大小写 ] 字符串  文件名     
