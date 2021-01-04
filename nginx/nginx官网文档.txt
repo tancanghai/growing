@@ -1,0 +1,3 @@
+英文官方文档：            http://nginx.org/
+中文翻译官方文档：     https://tool.oschina.net/apidocs/apidoc?api=nginx-zh
+中文翻译官方文档：     https://www.nginx.cn/doc/
