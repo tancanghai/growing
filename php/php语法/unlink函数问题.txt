@@ -1,0 +1,9 @@
+问题：unlink(绝对路径)失败
+/school/Public/Uploads/editor/image/1.jpg 删除失败
+./Public/Uploads/editor/image/ 删除成功
+school为项目根目录
+
+这个是编写 unlink 函数的那个 C 程序员逻辑上的问题。无论 / 还是 ./ 最终都要转换成本地的绝对路径。
+如，是 windows 系统，要转成 D:\wamp\www\1.jpg 这样的路径。
+是 Linux 转成 /var/www/1.jpg。/school...，这样的表达，unlink 会误将 / 理解成根路径，
+从而变成 D:\school\...或/school/...。如果你不习惯加 ./，可以重写这个函数为 removeFile($file){unlink('./' . $file)};
