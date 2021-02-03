@@ -1,0 +1,39 @@
+Go语言：MD5加密
+   
+
+Golang的加密库都放在crypto目录下，其中MD5库在crypto/md5包中，该包主要提供了New()和Sum()函数。
+
+package main
+
+import (
+    "crypto/md5"
+    "encoding/hex"
+    "fmt"
+)
+
+func main() {
+    data := []byte("Mdroid.cn")
+    md5Ctx := md5.New()
+    md5Ctx.Write(data)
+    cipherStr := md5Ctx.Sum(nil)
+    fmt.Println(cipherStr)
+    fmt.Printf("%x\n", md5.Sum(data))
+    fmt.Printf("%x\n", cipherStr)
+    fmt.Println(hex.EncodeToString(cipherStr))
+}
+
+结果：
+
+[24 55 47 68 190 11 229 212 65 82 130 95 125 93 53 9]
+18372f44be0be5d44152825f7d5d3509
+18372f44be0be5d44152825f7d5d3509
+18372f44be0be5d44152825f7d5d3509
+分析：
+
+md5.New()初始化一个MD5对象，返回hash.Hash对象。函数原型为 func New() hash.Hash。
+其实该对象实现了hash.Hash的Sum接口。Sum()计算出MD5校验和。
+Sum()函数原型func Sum(data []byte) [Size]byte。
+通过翻阅源码可以看到他并不是对data进行校验计算，
+而是对hash.Hash对象内部存储的内容进行校验和计算然后将其追加到data的后面形成一个新的byte切片。
+因此通常的使用方法就是将data置为nil。
+该方法返回一个Size大小为16的byte数组，对于MD5来说就是一个128bit的16字节byte数组。
