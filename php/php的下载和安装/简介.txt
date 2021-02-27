@@ -1,0 +1,4 @@
+流程根据官网安装就行 细节参考文档
+官网：https://www.php.net/
+官网下载：https://www.php.net/downloads    然后拷贝到/usr/src 目录下
+再参考官网：https://www.php.net/manual/zh/install.php 进行安装
