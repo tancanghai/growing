@@ -1,0 +1,5 @@
+[root@www ~]#  vim /etc/rc.local
+
+#追加到末尾
+
+/usr/local/bin/php-fpm

@@ -1,0 +1,6 @@
+ps -ef | grep php-fpm
+[root@localhost etc]# ps -ef |grep php-fpm
+root       3571   2406  0 23:05 ?        00:00:00 php-fpm: master process (/usr/local/etc/php-fpm.conf)
+nobody     3572   3571  0 23:05 ?        00:00:00 php-fpm: pool www
+nobody     3573   3571  0 23:05 ?        00:00:00 php-fpm: pool www
+root       3575   3324  0 23:05 pts/0    00:00:00 grep --color=auto php-fpm
