@@ -1,0 +1,11 @@
+启用了systemd操作系统，则应使用标准的 
+systemctl（或 具有相反参数的服务）
+命令
+stop，
+start，
+ status，
+restart
+来管理
+MySQL服务器服务。
+
+ 例如：systemctl start mysqld
