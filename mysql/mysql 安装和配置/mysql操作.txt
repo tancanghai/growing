@@ -1,3 +1,4 @@
+对于使用RPM软件包安装MySQL的Linux系统，服务器启动和关闭是通过systemd
 启用了systemd操作系统，则应使用标准的 
 systemctl（或 具有相反参数的服务）
 命令
@@ -9,3 +10,4 @@ restart
 MySQL服务器服务。
 
  例如：systemctl start mysqld
+mysqld --help 查看版本
