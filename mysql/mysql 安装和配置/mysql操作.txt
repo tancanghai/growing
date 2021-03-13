@@ -9,5 +9,14 @@ restart
 来管理
 MySQL服务器服务。
 
- 例如：systemctl start mysqld
+重启mysql 
+[root@localhost log]# ps -ef |grep mysql
+mysql       4029    3873  0 Mar10 pts/1    00:00:55 mysqld --user=mysql
+[root@localhost log]# kill   4029
+[root@localhost log]# ps -ef |grep mysql
+[root@localhost log]# systemctl  start  mysqld.service 
+才重启
+systemctl stop mysqld 可能失效
+
+ 例如：systemctl start mysqld    或者 systemctl start mysqld.service
 mysqld --help 查看版本

@@ -1,0 +1,6 @@
+[root@localhost log]# vim mysqld.log 
+
+
+2021-03-11T07:56:46.568759Z 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.23) starting as process 11179
+2021-03-11T07:56:46.576803Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2021-03-11T07:56:46.652347Z 1 [ERROR] [MY-012574] [InnoDB] Unable to lock ./ibdata1 error: 11
