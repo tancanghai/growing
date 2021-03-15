@@ -2,4 +2,4 @@
 
 #追加到末尾
 
-/usr/local/bin/php-fpm
+/usr/local/bin/php-fpm   表示开机调用这段命令
