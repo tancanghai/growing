@@ -1,2 +1,2 @@
 开启redis：  /usr/local/redis/bin/redis-server
-停止redis:     pkill redis  或者 kill  NUM
+停止redis:     pkill redis  或者 kill  NUM 或者kill -9 NUM
