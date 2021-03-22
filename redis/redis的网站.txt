@@ -1,3 +1,4 @@
-http://redisdoc.com  redis  翻译中文文档
+http://redisdoc.com                   翻译中文文档
 https://redis.io/documentation  官网
+http://c.biancheng.net/redis/      C语言中文网
 
