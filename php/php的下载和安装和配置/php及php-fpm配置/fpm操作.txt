@@ -1,0 +1,12 @@
+重新启动php-fpm
+[root@yandada02 etc]# killall php-fpm
+[root@yandada02 etc]# php-fpm
+
+#测试php-fpm配置
+/usr/local/php/sbin/php-fpm –t     【测试语法参数是否正确】
+
+重启或重载nginx,和php-fpm
+service php-fpm restart
+service nginx restart
+
+
