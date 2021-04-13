@@ -22,4 +22,30 @@
 	切换源：（建议更换为淘宝的）
 	nrm use taobao    切换源
 	nrm del  taobao   删除对应的源（如果不想用了就可以删除它）
+	
+	
+	nrm报错 [ERR_INVALID_ARG_TYPE] 解决方法：
+	nrm 1.2.1报错：
+	
+	[TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received undefined
+	  at validateString (internal/validators.js:122:11)
+	  at Object.join (path.js:375:7)
+	  at Object.<anonymous> (C:\Users\liyin\AppData\Roaming\npm\node_modules\nrm\cli.js:17:20)  //这一行
+	  at Module._compile (internal/modules/cjs/loader.js:1076:30)
+	  at Object.Module._extensions..js (internal/modules/cjs/loader.js:1097:10)
+	  at Module.load (internal/modules/cjs/loader.js:941:32)
+	  at Function.Module._load (internal/modules/cjs/loader.js:782:14)
+	  at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)
+	  at internal/main/run_main_module.js:17:47
+	] {
+	  code: 'ERR_INVALID_ARG_TYPE'
+	}
+	
+	找到nrm目录(错误第四行)
+	 at Object.<anonymous> (C:\Users\liyin\AppData\Roaming\npm\node_modules\nrm\cli.js:17:20)
+	打开cli.js 第17行修改成
+	
+	//const NRMRC = path.join(process.env.HOME, '.nrmrc');//删除这一行   变成下面
+	const NRMRC = path.join(process.env[(process.platform == 'win32') ? 'USERPROFILE' : 'HOME'], '.nrmrc');
+	
 	  
