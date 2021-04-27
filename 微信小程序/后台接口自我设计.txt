@@ -1,0 +1,21 @@
+1：小程序端通过wx.login()获取到code后发送给后台服务器
+2：后台服务器使用小程序的appid、appsecret和code，调用微信接口服务换取session_key和openid（openid可以理解为是每个用户在该小程序的唯一识别号）
+3后台服务器自定义生成一个3rd_session，用作openid和session_key的key值，后者作为value值，保存一份在后台服务器或者redis或者mysql，同时向小程序端传递3rd_session（加密处理）
+
+4小程序端收到3rd_session后（解密）将其保存到本地缓存，如wx.setStorageSync(KEY,DATA)
+
+5后续小程序端发送请求至后台服务器时均携带3rd_session，可将其放在header头部或者body里，验证是否登陆以及权限如同sign验证
+
+6后台服务器以3rd_session为key，在保证3rd_session未过期的情况下读取出value值（即openid和session_key的组合值），
+通过openid判断是哪个用户发送的请求，再和发送过来的body值做对比（如有用户信息），无误后调用后台逻辑处理
+
+7返回业务数据至小程序端3rd_session判断用户是否登录   错误请求则用户需要重新登陆 
+
+8#接口参数的加密，通过md5加密数据+时间戳+随机字符串（salt），然后将MD5加密的数据和时间戳、原数据均传到后台，
+后台规定一个有效时长，如果在该时长内，且解密后的数据与原数据一致，则认为是正常请求；也可以采用aes/des之类的加密算法，还可以加入客户端的本地信息作为判断依据 
+如同sign验证 
+
+采用3rd_session（如同token）和自定义参数验证如同sign
+
+
+

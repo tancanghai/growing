@@ -1,0 +1,6 @@
+Aes.php  是php AES类  （就是加密解密方法） 
+
+index.js 是小程序调用示例
+
+utils目录下pwd是 俩个文件是微信小程序aes和md5的js类库
+utils目录下aes.js是写的aes加密解密js方法

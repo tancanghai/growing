@@ -1,0 +1,7 @@
+小程序登陆文档流程地址：https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/login.html
+微信官方文档小程序->开发->指南->开放能力->用户信息->小程序登陆；
+此页面的 wx.login() ；和 auth.code2Session;和 加密签名三个跳转地址又详细介绍代码书写规范；
+微信官方文档小程序->开发->指南->开放能力->用户信息->开放数据校验与解密；（开放数据的加密解密流程方法）
+
+
+

@@ -1,0 +1,20 @@
+支付API：wx.requestPayment
+地址：https://developers.weixin.qq.com/miniprogram/dev/api/open-api/payment/wx.requestPayment.html
+
+业务流程：
+地址：https://pay.weixin.qq.com/wiki/doc/api/wxa/wxa_api.php?chapter=7_4&index=3
+
+后台参数处理：统一支付接口
+地址：https://pay.weixin.qq.com/wiki/doc/api/index.html
+小程序支付->API列表->统一下单
+后台参数业务处理流程：
+地址：https://pay.weixin.qq.com/wiki/doc/api/index.html
+小程序支付->业务流程
+后台参数安全规范：
+地址：https://pay.weixin.qq.com/wiki/doc/api/index.html
+小程序支付->接口规则->安全规范
+
+
+地址：https://pay.weixin.qq.com/wiki/doc/api/index.html 下的小程序支付有小程序支付所需要的所有
+https://pay.weixin.qq.com/wiki/doc/api/wxa/wxa_api.php?chapter=4_3
+

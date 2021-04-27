@@ -1,0 +1,41 @@
+导出步奏
+1.新建一个excel表格
+实例化PHPExcel类
+2.创建sheet内置表
+createSheet()创建一个新的sheet
+setActiveSheetIndex()把某个活动sheet设置为当前sheet//多个sheet
+getActiveSheet()
+getActiveSheet()获取当前活动sheet的操作对象
+
+3.填充数据
+setCellValue()
+4.保存文件
+PHPExcel_IOFactory::createWriter()
+save()
+
+操作
+$objPHPExcel=new PHPExcel();
+$objSheet=$objPHPExcel->getActiveSheet();
+
+当前活动对象设置属性
+$objSheet->setTitle('demo');//给当前活动sheet设置名称
+$objSheet->setCellValue('A1'，'姓名')->setCellValue('B1'，'分数');//填充数据//第一行第一列 第二行第二列
+//A1是第一列第一行   B1是第二列第1行  D3第四列第三行
+$objSheet->setCellValue('A2'，'张三')->setCellValue('B2'，'50');
+$objWriter=PHPExcel_IOFactory::createWriter($objPHPexcel,'Excel5');//按照指定格式生成excel文件
+//或者PHPExcel_IOFactory::createWriter($objPHPexcel,'Excel2007');
+$objWriter->save('相对路径');//保存文件
+
+
+
+
+
+
+
+
+
+
+
+
+
+
