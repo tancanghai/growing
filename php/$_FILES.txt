@@ -1,0 +1,31 @@
+PHP $_FILES 是一个预定义的数组，用来获取通过 POST 方法上传文件的相关信息。如果为单个文件上传，那么 $_FILES 为二维数组；
+如果为多个文件上传，那么 $_FILES 为三维数组。
+
+建立一个 file.html 演示上传文件，其中的代码如下：
+<html>
+<head></head>
+<body></body>
+<form enctype="multipart/form-data" action="file.php" method="POST">
+    Send this file: <input name="userfile" type="file" />
+    <input type="submit" value="Send File" />
+</form>
+</html>
+
+新建一个用于接收文件信息的 PHP 文件 file.php，代码如下：
+<?php
+echo "<pre>";
+print_r($_FILES);
+?>
+
+在 file.html 页面选择文件后，单击 Send File 按钮，将会在页面输出以下信息：
+Array
+(
+    [userfile] => Array
+    (
+        [name] => Screen Shot 2016-05-12 at 18.13.24.png
+        [type] => image/png
+        [tmp_name] => /private/var/tmp/phplVHp3W
+        [error] => 0
+        [size] => 344925
+    )
+)
