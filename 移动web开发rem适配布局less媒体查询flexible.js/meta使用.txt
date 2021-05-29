@@ -1,6 +1,7 @@
 移动网站要加的html5相关meta和标签，H5网页手机端自适应设置   使页面适应各种设备
 
 1.   强制让文档的宽度与设备的宽度保持1:1，并且文档最大的宽度比例是1.0，且不允许用户点击屏幕放大浏览。
+user-scalable=no 将控制用户无法进行触屏扩大或缩小网页
 <meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no">
 
 2.   WebApp全屏模式   隐藏地址栏。
