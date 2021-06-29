@@ -1,0 +1,29 @@
+服务器部署     scrm-活动中心服务器2
+
+
+创建network   scrm_testing
+登陆docker阿里云镜像仓库： docker login
+
+
+testing.open.phpfpm  命令:
+
+sudo docker run --name testing.open.phpfpm -d  \                                                              
+--network scrm_testing \
+--network-alias testing.open.phpfpm \
+-v /www/scrm-testing:/var/www/html  \
+-v /www/scrm-testing/phpfpm/www.conf:/usr/local/etc/php-fpm.d/www.conf \
+-v /etc/localtime:/etc/localtime \
+-e DB_KEY=cba54c8ca96d987ad21b67b5ca7130893338f543ce3736fc9160b6a38edfa9a8 \       【不需要】
+registry.cn-shanghai.aliyuncs.com/luohz1980/phpfpm:7.4.9                                                    【仓库镜像】
+
+
+testing.open.ng  命令:
+
+sudo docker run --name testing.open.ng  -d \
+--network scrm_testing \
+--network-alias testing.open.ng \
+-v /www/scrm-testing:/usr/share/nginx/html:ro  \
+-v /www/scrm-testing/nginx/phpfpm_nginx/nginx.conf:/etc/nginx/nginx.conf:ro \
+-v /www/scrm-testing/nginx/testing/conf.d:/etc/nginx/conf.d \
+-v /etc/localtime:/etc/localtime \
+registry.cn-shanghai.aliyuncs.com/luohz1980/nginx:1.19.2-alpine
