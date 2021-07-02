@@ -1,0 +1,14 @@
+composer.json中require-dev和require的区别！
+
+1.composer.json文件中的require和require-dev中存放的均是package
+
+2.两者的区别在于require中所引用的包在线上线下的项目中均会使用，require-dev中的包只在本地开发的时候使用。
+
+所以进行  composer install --no-dev  【ci4 可以直接删除require-dev这部分】 
+但是不能删require这部分 因为下载东西是需要考虑环境及依赖的；
+按需下载  不要使用 composer install 操作  会下载一大堆不需要的文件
+
+比如：composer require endroid/qr-code  
+就删除ci4里头composer.json中的require-dev
+然后再composer require endroid/qr-code 
+
